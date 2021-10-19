@@ -1,0 +1,24 @@
+.navbar-blue {
+    background-color: #31436b;
+    border-color: transparent;
+}
+.navbar-nav {
+    display: -ms-flexbox;
+    /* display: flex; */
+    -ms-flex-direction: column;
+    flex-direction: revert;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.custom-nb li a{
+    padding: 40px 5px!important;
+    color: #fff!important;
+    text-transform: uppercase!important;
+    text-decoration: none;
+    font-weight: normal;
+}
+.registration-form-logo{
+    width: 110px;
+}
+
