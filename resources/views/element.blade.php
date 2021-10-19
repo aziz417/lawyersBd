@@ -13,6 +13,7 @@
         <p style="font-size: 22px" class="text-center mb-0"><strong>Basic Info</strong></p>
     </div>
     <div class="info-body">
+        @if($type == 'lawyer')
         <div class="form-group row">
             <div class="col-sm-3 col">
                 <small>
@@ -33,6 +34,7 @@
                 </select>
             </div>
         </div>
+        @endif
         <div class="form-group row">
             <div class="col-sm-3 col">
                 <small>
