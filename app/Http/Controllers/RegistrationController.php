@@ -17,6 +17,7 @@ use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade;
 use Illuminate\Support\Str;
@@ -81,6 +82,10 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required|unique:registrations,email',
+            'password' => 'required|confirmed|min:8',
+        ]);
         $class = ['ssc', 'hsc', 'graduation', 'masters'];
         foreach ($class as $className){
             $other_result = $className.'_other_result';
@@ -187,6 +192,8 @@ class RegistrationController extends Controller
 
         $registration = Registration::create([
             'category_id' => $request->category_id,
+            'type' => $request->type,
+            'password' => Hash::make($request->password),
             'name_of_the_post_bn' => $request->name_of_the_post_bn,
             'applicants_name' => $request->applicants_name,
             'applicants_name_bn' => $request->applicants_name_bn,
@@ -271,10 +278,10 @@ class RegistrationController extends Controller
             }
         }
         if ($registration) {
-            return redirect(route('registration'))->with('success', 'Registration successfully');
+            return redirect(route('registration', $request->type))->with('success', 'Registration successfully');
 
         } else {
-            return redirect(route('registration'))->with('errorMsg', 'Something Wrong');
+            return redirect(route('registration', $request->type))->with('errorMsg', 'Something Wrong');
         }
     }
 

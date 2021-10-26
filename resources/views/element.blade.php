@@ -12,6 +12,7 @@
     <div class="info-heading mb-3">
         <p style="font-size: 22px" class="text-center mb-0"><strong>Basic Info</strong></p>
     </div>
+    <input type="hidden" name="type" value="{{ $type }}">
     <div class="info-body">
         @if($type == 'lawyer')
         <div class="form-group row">
@@ -675,6 +676,41 @@
                        name="email" class="form-control form-control-sm email"
                        placeholder="Enter Your email"
                 >
+                @error('email')
+                <small id="question_feedback" class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3 col">
+                <small>
+                    Password <span class="float-right">:</span>
+                </small>
+            </div>
+            <div class="col-sm-9">
+                <input type="password"
+                       name="password" class="form-control form-control-sm password"
+                       placeholder="Enter Your password"
+                >
+                @error('password')
+                <small id="question_feedback" class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3 col">
+                <small>
+                    Confirm Password <span class="float-right">:</span>
+                </small>
+            </div>
+            <div class="col-sm-9">
+                <input type="password"
+                       name="password_confirmation " class="form-control form-control-sm password"
+                       placeholder="Enter Your confirm password"
+                >
+                @error('password_confirmation ')
+                <small id="question_feedback" class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
         </div>
     </div>
