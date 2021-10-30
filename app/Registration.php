@@ -17,6 +17,7 @@ class Registration extends Model
 {
     protected $fillable = [
         'category_id',
+        'status',
         'type',
         'password',
         'name_of_the_post_bn',

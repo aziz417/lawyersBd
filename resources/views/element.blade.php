@@ -12,7 +12,7 @@
     <div class="info-heading mb-3">
         <p style="font-size: 22px" class="text-center mb-0"><strong>Basic Info</strong></p>
     </div>
-    <input type="hidden" name="type" value="{{ $type }}">
+    <input type="hidden" name="type" id="type" value="{{ $type }}">
     <div class="info-body">
         @if($type == 'lawyer')
         <div class="form-group row">
@@ -343,7 +343,7 @@
             </div>
             <div class="col-sm-2">
                 <div>
-                    @if(isset($register))
+                    @if(isset($register->image) && !empty($register->image))
                         <img id="profile_old_img" src="{{ asset('uploads/applications').'/'.$register->image }}"
                              width="100px" height="100px"
                         >
@@ -377,7 +377,7 @@
             </div>
             <div class="col-sm-2">
                 <div>
-                    @if(isset($register))
+                    @if(isset($register->signature_img) && !empty($register->signature_img))
                         <img id="signature_old_img" src="{{ asset('uploads/applications').'/'.$register->signature_img }}"
                              width="100px" height="100px"
                         >
@@ -693,22 +693,6 @@
                        placeholder="Enter Your password"
                 >
                 @error('password')
-                <small id="question_feedback" class="text-danger">{{ $message }}</small>
-                @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-3 col">
-                <small>
-                    Confirm Password <span class="float-right">:</span>
-                </small>
-            </div>
-            <div class="col-sm-9">
-                <input type="password"
-                       name="password_confirmation " class="form-control form-control-sm password"
-                       placeholder="Enter Your confirm password"
-                >
-                @error('password_confirmation ')
                 <small id="question_feedback" class="text-danger">{{ $message }}</small>
                 @enderror
             </div>

@@ -10,7 +10,7 @@
 
     <section class="section mt-4 mb-4">
         <div class="container">
-            <form class="registerForm" action="{{ route('registrations.store') }}" method="post"
+            <form id="userStore" class="registerForm" action="{{ route('registrations.store') }}" method="post"
                   enctype="multipart/form-data">
                 @csrf
                 <div class="col-sm-10 offset-1">
@@ -20,17 +20,19 @@
                             <button
                                 style="padding: 1px 20px !important"
                                 type="submit"
+                                id="submit"
                                 class="btn btn-success btn-lg">
                                 Submit
                             </button>
-                            <a href="{{ route('registration', $type) }}"
+                            <a href="javascript:void(0)"
                                style="padding: 1px 20px !important"
+                               onclick="resetForm()"
                                class="btn btn-primary btn-lg">
                                 Reset
                             </a>
-                            <button id="preview" type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target=".bd-example-modal-lg">Preview
-                            </button>
+{{--                            <button id="preview" type="button" class="btn btn-primary" data-toggle="modal"--}}
+{{--                                    data-target=".bd-example-modal-lg">Preview--}}
+{{--                            </button>--}}
                         </div>
                     </div>
                 </div>
@@ -41,6 +43,47 @@
 @endsection
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+{{--    draft auto save--}}
+    <script>
+        $("#submit").on('click', function (){
+            localStorage.removeItem("userStore");
+        })
+        function resetForm(){
+            $("#userStore")[0].reset();
+        }
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                }
+            });
+        });
+        $(document).ready(function (){
+
+            // localStorage.removeItem("userStore");
+
+            if (localStorage.getItem("userStore") !== null) {
+                let values = localStorage.getItem('userStore');
+                var allData = JSON.parse(values);
+                console.log('age')
+                if (allData[1]['value'] === $("#type").val()){
+                    $.get('{{ url('draft/store') }}', { data: allData }, function (response){
+                        if (response){
+                            localStorage.removeItem("userStore");
+                            window.location.replace(window.location.origin+'/register/update/'+response);
+                        }
+                    })
+                }
+            }
+        })
+
+       $('input, select').keypress(getEvent).change(getEvent)
+       function getEvent() {
+           localStorage.setItem('userStore', JSON.stringify($("#userStore").serializeArray()));
+       }
+
+    </script>
     <script>
         $(document).ready(function () {
             $('#same_as_present').click(function (event) {

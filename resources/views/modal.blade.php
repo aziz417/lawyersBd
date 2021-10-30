@@ -52,7 +52,7 @@
                 <table width="100%">
                     <tr>
                         <td width="25%">
-                            @if(isset($register))
+                            @if(isset($register->image) && !empty($register->image))
                                 <img src="{{ asset('uploads/applications').'/'.$register->image }}" id="profile_img_exist">
                             @endif
                                 <img width="150px" height="200px" class="profile_img display_none">
@@ -284,7 +284,7 @@
 
                     <tr>
                         <td>
-                            @if(isset($register))
+                            @if(isset($register->signature_img) && !empty($register->signature_img))
                                 <img src="{{ asset('uploads/applications').'/'.$register->signature_img }}" height="30px" width="100px" id="signature_img_exist">
                             @endif
                                 <img class="signature_img display_none" height="30px" width="100px">

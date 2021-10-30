@@ -41,25 +41,7 @@
             </ul>
         </div>
 
-        <div class="col-md-12">
-            <div class="top-search-bar mt-2">
-                <form class="pdfRequestSend updateAndPdf" action="{{ route('search.register') }}" method="get">
-                    @csrf
-                    <div class="input-group">
-                        @if(isset($register))
-                            <div class="input-group-append">
-                                <a href="{{ route('registration.create') }}" class="btn btn-success">Back</a>
-                            </div>
-                        @endif
-                        <input id="searchKey" onkeyup="getSuggestion(this)"  type="number" name="key" class="form-control" placeholder="Search by phone / NID / Registration" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-warning" type="submit">Search</button>
-                            <button class="btn btn-success" formtarget="_blank" id="pdfGenerate">PDF Generate</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+
     </div>
 
 

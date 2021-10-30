@@ -29,6 +29,9 @@ Route::get('/registration/{type}', [RegistrationController::class, 'registration
 Route::get('select/items', [RegistrationController::class, 'selectItems'])->name('select.items');
 
 Route::resource('registrations', RegistrationController::class);
+Route::get('register/update/{id}', [RegistrationController::class, 'edit'])->name('register.update');
+Route::get('draft/store', [RegistrationController::class, 'draftStore'])->name('draft.store');
+Route::get('draft/update', [RegistrationController::class, 'draftUpdate'])->name('draft.update');
 
 
 Route::get('lawyer/list', function (){
@@ -52,6 +55,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/test', [HomeController::class, 'frontend'])->name('home');
 
 
+//    Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('experience/delete', [RegistrationController::class, 'deleteExperience'])->name('experience.delete');
     Route::get('register/search', [RegistrationController::class, 'registerSearchAutocomplete'])->name('register.search.autocomplete');

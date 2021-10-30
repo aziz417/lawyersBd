@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_23_061751_add_type_column_to_registraion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_28_065122_add_status_column_to_registraion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/registration-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/registration-update-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-update-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +256,12 @@
       <workItem from="1634625521482" duration="2488000" />
       <workItem from="1634791711051" duration="1916000" />
       <workItem from="1634963822139" duration="3680000" />
-      <workItem from="1635234344926" duration="2309000" />
+      <workItem from="1635234344926" duration="3499000" />
+      <workItem from="1635303381337" duration="7700000" />
+      <workItem from="1635399041600" duration="8721000" />
+      <workItem from="1635410295749" duration="40000" />
+      <workItem from="1635479903626" duration="6371000" />
+      <workItem from="1635561124491" duration="11919000" />
     </task>
     <servers />
   </component>

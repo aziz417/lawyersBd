@@ -15,6 +15,5 @@
                 </form>
             @endauth
         </ul>
-
     </nav>
 </div>

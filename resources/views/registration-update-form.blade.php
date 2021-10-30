@@ -11,37 +11,38 @@
 
     <section class="section mt-4 mb-4">
         <div class="container">
-            <form class="registerForm" action="{{ route('registrations.update', $register->id) }}" method="post"
+            <form id="userUpdate" class="registerForm" action="{{ route('registrations.update', $register->id) }}" method="post"
                   enctype="multipart/form-data">
                 @csrf
                 @method('patch')
                 <div class="col-sm-10 offset-1">
                     <div class="form-wrap">
+                        <input name="register_id" type="hidden" value="{{ $register->id }}">
                         @include('element')
                         <div class="updateAndPdfField">
 
                         </div>
                         <div class="submit-btn text-center mt-4">
                             <button
+                                    id="update"
                                     style="padding: 1px 20px !important"
                                     type="submit"
                                     class="btn btn-success btn-lg">
                                 Update
                             </button>
-                            <a href="{{ route('search.register', $register->id) }}"
+                            <a href="javascript:void(0)" id="updateReset"
                                     style="padding: 1px 20px !important"
-                                    type="submit"
                                     class="btn btn-primary btn-lg">
                                 Reset
                             </a>
-                            <button formtarget="_blank"
-                                    style="padding: 1px 20px !important"
-                                    class="btn btn-warning btn-lg updateAndPdfBtn">
-                                Update & PDF
-                            </button>
-                            <button id="preview" type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target=".bd-example-modal-lg">Preview
-                            </button>
+{{--                            <button formtarget="_blank"--}}
+{{--                                    style="padding: 1px 20px !important"--}}
+{{--                                    class="btn btn-warning btn-lg updateAndPdfBtn">--}}
+{{--                                Update & PDF--}}
+{{--                            </button>--}}
+{{--                            <button id="preview" type="button" class="btn btn-primary" data-toggle="modal"--}}
+{{--                                    data-target=".bd-example-modal-lg">Preview--}}
+{{--                            </button>--}}
                         </div>
 
                     </div>
@@ -52,6 +53,45 @@
 
 @endsection
 @section('script')
+
+    {{--    draft auto save--}}
+    <script>
+        $("#update").on('click', function (){
+            localStorage.removeItem("userUpdate");
+        })
+        $("#updateReset").on('click', function (){
+            $("#userUpdate")[0].reset();
+        })
+
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                }
+            });
+        });
+        $(document).ready(function (){
+
+                if (localStorage.getItem("userUpdate") !== null) {
+                    let values = localStorage.getItem('userUpdate');
+                    var allData = JSON.parse(values);
+                    if (allData[3]['value'] === $("#type").val()) {
+                        $.get('{{ url('draft/update') }}', {data: allData}, function (response) {
+                            if (response) {
+                                localStorage.removeItem("userUpdate");
+                                location.reload();
+                            }
+                        })
+                    }
+                }
+        })
+
+        $('input, select').keypress(getEvent).change(getEvent)
+        function getEvent() {
+            localStorage.setItem('userUpdate', JSON.stringify($("#userUpdate").serializeArray()));
+        }
+
+    </script>
 
     <script>
 
