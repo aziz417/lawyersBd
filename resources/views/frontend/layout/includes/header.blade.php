@@ -14,7 +14,7 @@
                 <img class="img-responsive" src="{{ asset('frontend') }}/assets/images/logo.png" alt="logo">
             </a>
         </div>
-
+ <!--test -->
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
