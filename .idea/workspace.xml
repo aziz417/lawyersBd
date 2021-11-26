@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_28_065122_add_status_column_to_registraion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CaseType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Cases.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_22_055020_create_case_types_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_22_055917_create_cases_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/1637952788.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/1637952821.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1637952921.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/components/hire-now-modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registration-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registration-update-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-update-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +265,15 @@
       <workItem from="1635399041600" duration="8721000" />
       <workItem from="1635410295749" duration="40000" />
       <workItem from="1635479903626" duration="6371000" />
-      <workItem from="1635561124491" duration="11919000" />
+      <workItem from="1635561124491" duration="12856000" />
+      <workItem from="1637433782941" duration="1257000" />
+      <workItem from="1637473162352" duration="1129000" />
+      <workItem from="1637557162281" duration="9154000" />
+      <workItem from="1637584702950" duration="53000" />
+      <workItem from="1637606949143" duration="2289000" />
+      <workItem from="1637657746298" duration="274000" />
+      <workItem from="1637906984968" duration="2342000" />
+      <workItem from="1637948908531" duration="4242000" />
     </task>
     <servers />
   </component>

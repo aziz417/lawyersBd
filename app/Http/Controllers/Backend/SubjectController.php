@@ -84,7 +84,6 @@ class SubjectController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', $exception->getMessage());
         }
-
     }
 
     /*    public function show(subject $subject)

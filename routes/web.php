@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\BoardController;
 use App\Http\Controllers\Backend\InstituteController;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\SubjectController;
+use App\Http\Controllers\frontend\CasesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Auth;
@@ -59,7 +60,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('experience/delete', [RegistrationController::class, 'deleteExperience'])->name('experience.delete');
     Route::get('register/search', [RegistrationController::class, 'registerSearchAutocomplete'])->name('register.search.autocomplete');
-
+    Route::post('case/store', [CasesController::class, 'CaseStore'])->name('case.store');
     Route::get('pdf/{key}', function ($key){
         $register = \App\Registration::with('experiences')->where('national_id', $key)->orWhere('mobile_number', $key)
             ->orWhere('ssc_registration_no', $key)->orWhere('hsc_registration_no', $key)->first();
