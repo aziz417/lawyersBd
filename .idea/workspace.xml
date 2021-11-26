@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/CaseType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Cases.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_22_055020_create_case_types_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_22_055917_create_cases_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/1637952788.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/1637952821.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1637952921.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/components/hire-now-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SubjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="user-login" />
+        <entry key="$PROJECT_DIR$" value="mahadi-code" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
