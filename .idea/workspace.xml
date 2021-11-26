@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_27_071156_add_slug_to_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_14_045344_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_14_045344_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mahadi-code" />
+        <entry key="$PROJECT_DIR$" value="mahadi-cetagory" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +71,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
@@ -148,6 +157,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lJb6RLA9B0k6baWXJ6ua5YLtvX" />
@@ -165,7 +175,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/frontend/layout/includes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -177,9 +187,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\database\migrations" />
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Controllers\Backend" />
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Models" />
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\frontend\layout\includes" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\frontend\pages" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\public\frontend" />
     </key>
   </component>
   <component name="RunManager">

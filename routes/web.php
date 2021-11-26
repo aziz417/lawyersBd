@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\BoardController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\InstituteController;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\SubjectController;
@@ -86,6 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('institutes', InstituteController::class)->except(['show']);
     Route::resource('subjects', SubjectController::class)->except(['show']);
     Route::resource('sections', SectionController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class)->except(['show']);
 });
 
 
