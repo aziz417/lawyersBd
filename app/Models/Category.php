@@ -12,8 +12,7 @@ class Category extends Model
     protected $fillable = [
         'category_id',
         'category_name',
-        'created_by',
-        'updated_by',
+        
     ];  
 
     public function classType()
@@ -26,15 +25,7 @@ class Category extends Model
         return 'slug';
     }
 
-    public function createdUser()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
-
-    public function updatedUser()
-    {
-        return $this->belongsTo(User::class, 'updated_by');
-    }
+  
 
 
     protected static function boot()
@@ -43,11 +34,11 @@ class Category extends Model
 
         static::creating(function ($category) {
             $category->slug = Str::slug($category->category_name);
-            $category->created_by = Auth::id();
+           
         });
         static::updating(function ($category) {
             $category->slug = Str::slug($category->category_name);
-            $category->updated_by = Auth::id();
+            
         });
 
     }

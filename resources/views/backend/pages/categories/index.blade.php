@@ -1,3 +1,9 @@
+
+
+
+
+
+
 @extends('backend.layouts.master')
 @section('title', 'Categories')
 
@@ -18,6 +24,7 @@
         </div>
     </div>
 
+
     <div class="wrapper wrapper-content animated fadeInRight">
         @include('backend.component.messages')
         <div class="row">
@@ -34,25 +41,25 @@
                                 <tr>
                                     <th>Si</th>
                                     <th>Categories</th>
-                                    <th>Created By</th>
-                                    <th>Updated By</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($categories as $key => $category)
-                                    <tr>
+                                <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->createdUser->name ?? 'N/A' }}</td>
-                                        <td>{{ $category->updatedUser->name ?? 'N/A' }}</td>
+                                        
+                                      
+                                       
                                         <td>
-                                            
-                                               class="btn btn-info cus_btn">
+                                            <a href="{{ route('categories.edit', $category->slug)  }}" title="Edit">
+                                              <div class="btn btn-info cus_btn">
                                                 <i class="fa fa-pencil-square-o"></i> <strong>Edit</strong>
+                                            </div>
                                             </a>
                                             <form style="display: none"
-                                                
+                                                 action="{{ route('categories.destroy', $category->slug) }}"
                                                   method="post" id="form-delete-{{ $category->slug }}">
                                                 @csrf
                                                 @method('DELETE')
@@ -79,3 +86,5 @@
         </div>
     </div>
 @endsection
+
+                                    

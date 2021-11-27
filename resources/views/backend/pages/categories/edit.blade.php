@@ -28,7 +28,7 @@
                     <div class="ibox-content">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form method="post" action="{{ route('boards.update', $board->slug) }}">
+                                <form method="post" action="{{ route('categories.update', $category->slug) }}">
                                     @csrf
                                     @method('put')
                                     <div class="row">

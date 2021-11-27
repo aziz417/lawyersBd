@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::with('createdUser', 'updatedUser')->latest()->paginate(10);
+        $categories = Category::latest()->paginate(10);
         return view('backend.pages.categories.index', compact('categories'));
     }
 
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'category_name' => 'required|max:255|unique:categories,category_name,' . $board->id,
+            'category_name' => 'required|max:255|unique:categories,category_name,' . $category->id,
         ]);
         $category->update([
             'category_name' => $request->category_name
@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $board->delete();
+        $category->delete();
         return redirect()->back()->with('success', 'Category deleted success');
     }
 }

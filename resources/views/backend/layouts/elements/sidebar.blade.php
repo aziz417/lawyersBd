@@ -40,12 +40,16 @@
             <li class="{{ request()->routeIs('institutes.*') ? 'active' : ''  }}">
                 <a href="{{ route('institutes.index') }}"><i class="fa fa-institution"></i> <span class="nav-label">Institutes</span></a>
             </li>
-{{--            <li class="{{ request()->routeIs('subjects.*') ? 'active' : ''  }}">--}}
-{{--                <a href="{{ route('subjects.index') }}"><i class="fa fa-book" aria-hidden="true"></i> <span class="nav-label">Subjects</span></a>--}}
-{{--            </li>--}}
-{{--            <li class="{{ request()->routeIs('sections.*') ? 'active' : ''  }}">--}}
-{{--                <a href="{{ route('sections.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Sections</span></a>--}}
-{{--            </li>--}}
+            <li class="{{ request()->routeIs('Categories.*') ? 'active' : ''  }}">
+                <a href="{{ route('categories.index') }}"><i class="fa fa-institution"></i> <span class="nav-label">Categories</span></a>
+            </li>
+
+           <li class="{{ request()->routeIs('subjects.*') ? 'active' : ''  }}">
+               <a href="{{ route('subjects.index') }}"><i class="fa fa-book" aria-hidden="true"></i> <span class="nav-label">Subjects</span></a>
+            </li>
+            <li class="{{ request()->routeIs('sections.*') ? 'active' : ''  }}">
+             <a href="{{ route('sections.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Sections</span></a>-
+            </li>
         </ul>
     </div>
 </nav>
