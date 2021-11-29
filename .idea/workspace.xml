@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_27_071156_add_slug_to_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_14_045344_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_14_045344_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,6 +262,8 @@
       <workItem from="1637657746298" duration="274000" />
       <workItem from="1637906984968" duration="2342000" />
       <workItem from="1637948908531" duration="4242000" />
+      <workItem from="1638115394467" duration="24000" />
+      <workItem from="1638156397773" duration="3464000" />
     </task>
     <servers />
   </component>
