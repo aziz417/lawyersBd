@@ -12,10 +12,8 @@
                     <strong>Categories</strong>
                 </li>
             </ol>
-            <a class="btn btn-sm btn-primary pull-right m-t-n-md boardCreateModalShow"
-               href="{{ route('categories.create') }}"><i
-                        class="fa fa-plus"></i> <strong>Create
-                    New</strong></a>
+            <a class="btn btn-sm btn-primary pull-right m-t-n-md boardCreateModalShow" href="{{ route('categories.create') }}"><i
+                        class="fa fa-plus"></i> <strong>Create New</strong></a>
         </div>
     </div>
 
@@ -27,7 +25,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5><strong>Categories</strong></h5>
+                        <h5><strong>Categories </strong></h5>
                     </div>
                     <div class="ibox-content">
                         <div class="table-responsive">
@@ -36,22 +34,27 @@
                                 <tr>
                                     <th>Si</th>
                                     <th>Categories</th>
+                                    <th>Position</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($categories as $key => $category)
-                                    <tr>
+                                @foreach($categories as $key => $category)
+                                <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ $category->category_name }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->position }}</td>
+                                        
+                                      
+                                       
                                         <td>
-                                            <a href="{{ route('categories.edit', $category->slug) }}" title="Edit">
-                                                <div class="btn btn-info cus_btn">
-                                                    <i class="fa fa-pencil-square-o"></i> <strong>Edit</strong>
-                                                </div>
+                                            <a href="{{ route('categories.edit', $category->slug)  }}" title="Edit">
+                                              <div class="btn btn-info cus_btn">
+                                                <i class="fa fa-pencil-square-o"></i> <strong>Edit</strong>
+                                            </div>
                                             </a>
                                             <form style="display: none"
-                                                  action="{{ route('categories.destroy', $category->slug) }}"
+                                                 action="{{ route('categories.destroy', $category->slug) }}"
                                                   method="post" id="form-delete-{{ $category->slug }}">
                                                 @csrf
                                                 @method('DELETE')
@@ -67,9 +70,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                @empty
-                                    <p class="text-center text-danger">No data</p>
-                                @endforelse
+                                @endforeach
                                 </tbody>
                             </table>
                             {{ $categories->links('backend.component.pagination') }}
@@ -81,3 +82,4 @@
     </div>
 @endsection
 
+                                    

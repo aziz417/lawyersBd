@@ -84,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('dashboard', [HomeController::class, 'index'])->name('admin');
 //    Route::get('/', [HomeController::class, 'index'])->name('admin');
     Route::resource('boards', BoardController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class)->except(['show']);
     Route::resource('institutes', InstituteController::class)->except(['show']);
     Route::resource('subjects', SubjectController::class)->except(['show']);
     Route::resource('sections', SectionController::class)->except(['show']);

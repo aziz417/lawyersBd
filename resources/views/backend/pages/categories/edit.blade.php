@@ -35,8 +35,11 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="question">Name</label>
-                                                <input type="text" id="question" name="category_name"
-                                                       value="{{ $category->category_name }}" class="form-control">
+                                                <input type="text" id="question" name="name"
+                                                       value="{{ $category->name }}" class="form-control">
+                                                       <label for="question">Position</label>
+                                                <input type="text" id="question" name="position"
+                                                       value="{{ $category->position }}" class="form-control">
                                                 @error('category_name')
                                                 <small id="question_feedback" class="text-danger">{{ $message }}</small>
                                                 @enderror
