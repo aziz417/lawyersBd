@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Category;
 use App\Models\District;
 use App\Models\Experience;
 use App\Models\Quota;
@@ -88,4 +89,8 @@ class Registration extends Model
     public function Quotas(){
         return $this->hasMany(Quota::class);
     }
+    public function Category(){
+        return $this->belongsTo(Category::class);
+    }
+
 }

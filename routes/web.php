@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\InstituteController;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\SubjectController;
 use App\Http\Controllers\frontend\CasesController;
+use App\Http\Controllers\frontend\LawyerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Auth;
@@ -36,9 +37,7 @@ Route::get('draft/store', [RegistrationController::class, 'draftStore'])->name('
 Route::get('draft/update', [RegistrationController::class, 'draftUpdate'])->name('draft.update');
 
 
-Route::get('lawyer/list', function (){
-    return view('frontend.pages.LawyerList');
-})->name('lawyer.list');
+Route::get('lawyer/list', [LawyerController::class, 'lawyerList'])->name('lawyer.list');
 
 Route::get('why/choose-online-service', function (){
     return view('frontend.pages.WhyChooseOnlineService');

@@ -21,114 +21,34 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-1.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>Jewel Jahan</h3></li>
-                                <li><h4>Counsel</h4></li>
-                                <li>Family Law</li>
-                                <li>Commercial Lending,</li>
-                                <li><a href="{{ route('lawyer.details') }}">Details</a></li>
-                            </ul>
-                            <button class="btn btn-success w-full" style="width: 100%">Hire Now</button>
+                @forelse($lawyers as $lawyer)
+                    <div class="col-sm-4">
+                        <div class="team-box">
+                            <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-1.jpg"
+                                 alt="team">
+                            <div class="team-detail">
+                                <input id="input-2" value="3.4" name="input-2" class="rating rating-loading disabled" data-min="0" data-max="5" data-step="0.1">
+{{--                                {{ dd($lawyer) }}--}}
+                                <ul>
+                                    <li><h3>{{ $lawyer->applicants_name }}</h3></li>
+                                    <li><h4>{{ $lawyer->applicants_name }}</h4></li>
+                                    <li><a href="{{ route('lawyer.details') }}">Details</a></li>
+                                </ul>
+                                <button class="btn btn-success w-full" onclick="hireNow({{ '1' }})" style="width: 100%">Hire Now</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-2.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>Rub Elvi</h3></li>
-                                <li><h4>Member</h4></li>
-                                <li>Personal Injury</li>
-                                <li>Medical Malpractice,</li>
-                                <li>Real Estate</li>
-                            </ul>
-                            <button class="btn btn-success w-full" style="width: 100%">Hire Now</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-3.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>K. Survy</h3></li>
-                                <li><h4>Member</h4></li>
-                                <li>Vehicle accident</li>
-                                <li>Commercial Lending,</li>
-                                <li>Personal Injury</li>
-                            </ul>
-                            <button class="btn btn-success w-full" style="width: 100%">Hire Now</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-1.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>Jewel Jahan</h3></li>
-                                <li><h4>Counsel</h4></li>
-                                <li>Family Law</li>
-                                <li>Commercial Lending,</li>
-                                <li>Real Estate</li>
-                            </ul>
-                            <button class="btn btn-success w-full" style="width: 100%">Hire Now</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-2.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>Rub Elvi</h3></li>
-                                <li><h4>Member</h4></li>
-                                <li>Personal Injury</li>
-                                <li>Medical Malpractice,</li>
-                                <li>Real Estate</li>
-                            </ul>
-                            <button class="btn btn-success w-full" style="width: 100%">Hire Now</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-3.jpg"
-                             alt="team">
-                        <div class="team-detail">
-                            <ul>
-                                <li><h3>K. Survy</h3></li>
-                                <li><h4>Member</h4></li>
-                                <li>Vehicle accident</li>
-                                <li>Commercial Lending,</li>
-                                <li>Personal Injury</li>
-                            </ul>
-                            <button class="btn btn-success w-full" onclick="hireNow({{ '1' }})" style="width: 100%">Hire Now</button>
-                            <!-- Button trigger modal -->
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
+                @endforelse
             </div>
         </div>
         @include('frontend.components.hire-now-modal')
     </section>
 @endsection
 @section('script')
+    <script>
+    </script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script>
