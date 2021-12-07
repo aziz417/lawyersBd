@@ -632,10 +632,8 @@ class RegistrationController extends Controller
         }
 
         $image_name = '';
-        $slug = Str::slug($request->name_of_the_post) . '-' . 'profile';
-
+        $slug = Str::slug($request->applicants_name) . '-' . 'profile';
         if ($request->hasFile('photo')) {
-
             $image = $request->file('photo');
             $image_name = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160']
@@ -643,7 +641,7 @@ class RegistrationController extends Controller
         }
 
         $signature_img = '';
-        $slug = Str::slug($request->name_of_the_post) . '-' . 'signature';
+        $slug = $slug . '-' . 'signature';
 
         if ($request->hasFile('signature')) {
 
@@ -688,8 +686,8 @@ class RegistrationController extends Controller
             'passport_id' => $request->passport_id,
             'religion' => $request->religion,
             'marital_status' => $request->marital_status,
-            'image' => $image_name ? $image_name : '',
-            'signature_img' => $signature_img ? $signature_img : '',
+            'image' => $image_name ?? '',
+            'signature_img' => $signature_img ?? '',
             'present_care_of' => $request->present_care_of,
             'present_village' => $request->present_village,
             'present_district' => explode(',', $request->present_district)[0],

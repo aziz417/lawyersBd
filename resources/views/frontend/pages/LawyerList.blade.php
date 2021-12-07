@@ -24,7 +24,7 @@
                 @forelse($lawyers as $lawyer)
                     <div class="col-sm-4">
                         <div class="team-box">
-                            <img class="img-responsive img-full" src="{{ asset('frontend') }}/assets/images/team-1.jpg"
+                            <img style="height: 230px !important;" class="img-responsive img-full" src="{{ asset('uploads/applications/'.$lawyer->image) }}"
                                  alt="team">
                             <div class="team-detail">
                                 <input id="input-2" value="3.4" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1">
