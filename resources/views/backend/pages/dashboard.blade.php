@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-content text-center p-md">
-                        <h2><span class="text-navy">Welcome Admin Dashboard</span></h2>
+                        <h2><span class="text-navy">Welcome <span class="text-danger font-bold">{{ Auth()->user()->role }}</span> Dashboard</span></h2>
                     </div>
                 </div>
             </div>

@@ -33,11 +33,22 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="question">Name</label>
-                                                <input type="text" id="question" name="category_name"
-                                                       value="{{ old('category_name') }}" class="form-control">
-                                                @error('category_name')
-                                                <small id="question_feedback" class="text-danger">{{ $message }}</small>
+                                                <label for="title">Title</label>
+                                                <input type="text" id="title" name="title"
+                                                       value="{{ old('title') }}" class="form-control">
+                                                @error('title')
+                                                <small id="title" class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="position">Position</label>
+                                                <input type="text" id="position" name="position"
+                                                       value="{{ old('position') }}" class="form-control">
+                                                @error('position')
+                                                <small id="position" class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>

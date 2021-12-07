@@ -1,10 +1,58 @@
 @extends('frontend.layout.app')
 @section('content')
     <!-- Fun Facts -->
-    <section id="fun" class="fun">
+    <section>
         <div class="container">
             <div class="row">
+                <div class="col-sm-5 col-sm-offset-5">
+                    <div class="my-5">
+                        <h2>Submit Your Rate:</h2>
+                        <form action="{{ route('submit.rate') }}" method="post">
+                            @csrf
+                            <input id="input-9" name="input-9" required class="rating-loading">
+                            <button type="submit" id="submit" class="btn btn-primary">Submit</button>&nbsp;
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="col-sm-12">
+                    <h2 class="section-title text-center"><span class="text-danger">{{ $lawyer->applicants_name }}</span>  Rating Panel</h2>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="p-4">
+                        <h2>Average Rate:</h2>
+                        <input id="average-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="p-4">
+                        <h2>Client Rate:</h2>
+                        <input id="client-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="p-4">
+                        <h2>Case Rate:</h2>
+                        <input id="case-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="p-4">
+                        <h2>Education Rate:</h2>
+                        <input id="education-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12 my-5 pt-5">
                     <div class="title-box">
                         <p class="section-subtitle">We are known by</p>
                         <h2 class="section-title">Who we are</h2>
@@ -27,8 +75,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="fun-box">
-                        <p class="fun-number">$25k</p>
-                        <p class="fun-title">Money Recovered</p>
+                        <p class="fun-number">4 Cases</p>
+                        <p class="fun-title">In-Progress</p>
                     </div>
                 </div>
             </div>
@@ -258,4 +306,16 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script>
+
+        $(document).ready(function(){
+            $('#input-9').rating();
+            $('#average-rate').rating({displayOnly: true});
+            $('#case-rate').rating({displayOnly: true});
+            $('#education-rate').rating({displayOnly: true});
+            $('#client-rate').rating({displayOnly: true});
+        });
+    </script>
 @endsection

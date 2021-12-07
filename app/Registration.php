@@ -6,7 +6,9 @@ use App\Models\Category;
 use App\Models\District;
 use App\Models\Experience;
 use App\Models\Quota;
+use App\Models\Rate;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 
@@ -91,6 +93,12 @@ class Registration extends Model
     }
     public function Category(){
         return $this->belongsTo(Category::class);
+    }
+    public function Rate(){
+        return $this->belongsTo(Rate::class);
+    }
+    public function User(){
+        return $this->belongsTo(User::class);
     }
 
 }

@@ -12,6 +12,7 @@ use App\Models\Quota;
 use App\Models\Section;
 use App\Models\Subject;
 use App\Models\Upazila;
+use App\Models\User;
 use App\Registration;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
@@ -26,34 +27,35 @@ use Session;
 
 class RegistrationController extends Controller
 {
-    function draftStore(Request $request){
+    function draftStore(Request $request)
+    {
 
-            $data_arr = $request->all()['data'];
-            $reqd = collect($data_arr)->mapWithKeys(function ($data, $key) {
-                $name = $data['name'];
-                $value = $data['value'];
+        $data_arr = $request->all()['data'];
+        $reqd = collect($data_arr)->mapWithKeys(function ($data, $key) {
+            $name = $data['name'];
+            $value = $data['value'];
 
-                return [$name => $value];
-            })->toArray();
+            return [$name => $value];
+        })->toArray();
 
-            $request = new \Illuminate\Http\Request();
+        $request = new \Illuminate\Http\Request();
 
-            $request->replace($reqd);
+        $request->replace($reqd);
 
 //            unset($request['']);
 
-        if ($request['type'] === 'user'){
+        if ($request['type'] === 'user') {
             $class = ['ssc', 'hsc', 'graduation', 'masters'];
-            foreach ($class as $className){
-                $other_result = $className.'_other_result';
-                $result = $className.'_result';
+            foreach ($class as $className) {
+                $other_result = $className . '_other_result';
+                $result = $className . '_result';
 
-                if($request->$other_result){
-                    if($request->$result === 'CGPA(Out of 5)'){
-                        $request->$result = $request->$other_result.' (Out of 5)';
-                    }elseif($request->$result === 'CGPA(Out of 4)'){
-                        $request->$result = $request->$other_result.' (Out of 4)';
-                    }else{
+                if ($request->$other_result) {
+                    if ($request->$result === 'CGPA(Out of 5)') {
+                        $request->$result = $request->$other_result . ' (Out of 5)';
+                    } elseif ($request->$result === 'CGPA(Out of 4)') {
+                        $request->$result = $request->$other_result . ' (Out of 4)';
+                    } else {
                         $request->$result = $request->$other_result;
                     }
                 }
@@ -66,7 +68,7 @@ class RegistrationController extends Controller
                 $classTypeId = 3;
                 $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
                 if ($addNewSubject == false) {
-                    return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                    return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
                 } else {
                     $request->ssc_group_subject = $addSubject;
                 }
@@ -79,7 +81,7 @@ class RegistrationController extends Controller
                 $classTypeId = 4;
                 $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
                 if ($addNewSubject == false) {
-                    return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                    return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
                 } else {
                     $request->hsc_group_subject = $addSubject;
                 }
@@ -92,7 +94,7 @@ class RegistrationController extends Controller
                 $classTypeId = 5;
                 $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
                 if ($addNewSubject == false) {
-                    return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                    return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
                 } else {
                     $request->graduation_subject_degree = $addSubject;
                 }
@@ -105,7 +107,7 @@ class RegistrationController extends Controller
                 $classTypeId = 6;
                 $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
                 if ($addNewSubject == false) {
-                    return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                    return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
                 } else {
                     $request->masters_subject_degree = $addSubject;
                 }
@@ -136,11 +138,11 @@ class RegistrationController extends Controller
         }
 
         // if marital_status Married adjust spouse name
-        if ($request->marital_status === 'Married'){
-            $request->marital_status = 'Married'.' (Spouse Name: '.ucfirst($request->spouse_name).')';
+        if ($request->marital_status === 'Married') {
+            $request->marital_status = 'Married' . ' (Spouse Name: ' . ucfirst($request->spouse_name) . ')';
         }
 
-        if($request->same_as_present_address === 'true'){
+        if ($request->same_as_present_address === 'true') {
             $request->permanent_care_of = $request->present_care_of;
             $request->permanent_village = $request->present_village;
             $request->permanent_district = $request->present_district;
@@ -149,9 +151,9 @@ class RegistrationController extends Controller
             $request->permanent_post_code = $request->present_post_code;
         }
         $email = Registration::where('email', $request->email)->first();
-        if ($email){
+        if ($email) {
             $email = null;
-        }else{
+        } else {
             $email = $request->email;
         }
         $registration = Registration::create([
@@ -260,16 +262,16 @@ class RegistrationController extends Controller
         $request->replace($reqd);
         $registration = Registration::find($request->register_id);
         $class = ['ssc', 'hsc', 'graduation', 'masters'];
-        foreach ($class as $className){
-            $other_result = $className.'_other_result';
-            $result = $className.'_result';
+        foreach ($class as $className) {
+            $other_result = $className . '_other_result';
+            $result = $className . '_result';
 
-            if($request->$other_result){
-                if($request->$result === 'CGPA(Out of 5)'){
-                    $request->$result = $request->$other_result.' (Out of 5)';
-                }elseif($request->$result === 'CGPA(Out of 4)'){
-                    $request->$result = $request->$other_result.' (Out of 4)';
-                }else{
+            if ($request->$other_result) {
+                if ($request->$result === 'CGPA(Out of 5)') {
+                    $request->$result = $request->$other_result . ' (Out of 5)';
+                } elseif ($request->$result === 'CGPA(Out of 4)') {
+                    $request->$result = $request->$other_result . ' (Out of 4)';
+                } else {
                     $request->$result = $request->$other_result;
                 }
             }
@@ -281,7 +283,7 @@ class RegistrationController extends Controller
             $classTypeId = 3;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->ssc_group_subject = $addSubject;
             }
@@ -294,7 +296,7 @@ class RegistrationController extends Controller
             $classTypeId = 4;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->hsc_group_subject = $addSubject;
             }
@@ -307,7 +309,7 @@ class RegistrationController extends Controller
             $classTypeId = 5;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->graduation_subject_degree = $addSubject;
             }
@@ -320,7 +322,7 @@ class RegistrationController extends Controller
             $classTypeId = 6;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->masters_subject_degree = $addSubject;
             }
@@ -335,7 +337,7 @@ class RegistrationController extends Controller
             $image_name = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->image
             );
-        }else{
+        } else {
             $image_name = $registration->image;
         }
 
@@ -347,16 +349,16 @@ class RegistrationController extends Controller
             $signature_img = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->signature_img
             );
-        }else{
+        } else {
             $signature_img = $registration->signature_img;
         }
 
         // if marital_status Married adjust spouse name
-        if ($request->marital_status === 'Married'){
-            $request->marital_status = 'Married'.' (Spouse Name: '.ucfirst($request->spouse_name).')';
+        if ($request->marital_status === 'Married') {
+            $request->marital_status = 'Married' . ' (Spouse Name: ' . ucfirst($request->spouse_name) . ')';
         }
 
-        if($request->same_as_present_address === 'true'){
+        if ($request->same_as_present_address === 'true') {
             $request->permanent_care_of = $request->present_care_of;
             $request->permanent_village = $request->present_village;
             $request->permanent_district = $request->present_district;
@@ -365,9 +367,9 @@ class RegistrationController extends Controller
             $request->permanent_post_code = $request->present_post_code;
         }
         $email = Registration::where('email', $request->email)->first();
-        if ($email){
+        if ($email) {
             $email = null;
-        }else{
+        } else {
             $email = $request->email;
         }
         $registration->update([
@@ -499,6 +501,7 @@ class RegistrationController extends Controller
             return redirect('registration/form')->with('errorMsg', 'Something Wrong');
         }
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -509,7 +512,8 @@ class RegistrationController extends Controller
         //
     }
 
-    public function registration($type){
+    public function registration($type)
+    {
         $categories = Category::all();
         $districts = District::all();
         $boards = Board::all();
@@ -560,16 +564,16 @@ class RegistrationController extends Controller
             'password' => 'required|min:8',
         ]);
         $class = ['ssc', 'hsc', 'graduation', 'masters'];
-        foreach ($class as $className){
-            $other_result = $className.'_other_result';
-            $result = $className.'_result';
+        foreach ($class as $className) {
+            $other_result = $className . '_other_result';
+            $result = $className . '_result';
 
-            if($request->$other_result){
-                if($request->$result === 'CGPA(Out of 5)'){
-                    $request->$result = $request->$other_result.' (Out of 5)';
-                }elseif($request->$result === 'CGPA(Out of 4)'){
-                    $request->$result = $request->$other_result.' (Out of 4)';
-                }else{
+            if ($request->$other_result) {
+                if ($request->$result === 'CGPA(Out of 5)') {
+                    $request->$result = $request->$other_result . ' (Out of 5)';
+                } elseif ($request->$result === 'CGPA(Out of 4)') {
+                    $request->$result = $request->$other_result . ' (Out of 4)';
+                } else {
                     $request->$result = $request->$other_result;
                 }
             }
@@ -582,7 +586,7 @@ class RegistrationController extends Controller
             $classTypeId = 3;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->ssc_group_subject = $addSubject;
             }
@@ -595,7 +599,7 @@ class RegistrationController extends Controller
             $classTypeId = 4;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->hsc_group_subject = $addSubject;
             }
@@ -608,7 +612,7 @@ class RegistrationController extends Controller
             $classTypeId = 5;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->graduation_subject_degree = $addSubject;
             }
@@ -621,7 +625,7 @@ class RegistrationController extends Controller
             $classTypeId = 6;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->masters_subject_degree = $addSubject;
             }
@@ -650,11 +654,11 @@ class RegistrationController extends Controller
         }
 
         // if marital_status Married adjust spouse name
-        if ($request->marital_status === 'Married'){
-            $request->marital_status = 'Married'.' (Spouse Name: '.ucfirst($request->spouse_name).')';
+        if ($request->marital_status === 'Married') {
+            $request->marital_status = 'Married' . ' (Spouse Name: ' . ucfirst($request->spouse_name) . ')';
         }
 
-        if($request->same_as_present_address === 'true'){
+        if ($request->same_as_present_address === 'true') {
             $request->permanent_care_of = $request->present_care_of;
             $request->permanent_village = $request->present_village;
             $request->permanent_district = $request->present_district;
@@ -751,6 +755,15 @@ class RegistrationController extends Controller
                 ]);
             }
         }
+
+        User::create([
+            'registration_id' => $registration->id,
+            'name' => $registration->applicants_name,
+            'email' => $registration->email,
+            'password' => Hash::make($request->password),
+            'role' => $registration->type,
+        ]);
+
         if ($registration) {
             return redirect(route('registration', $request->type))->with('success', 'Registration successfully');
 
@@ -796,20 +809,20 @@ class RegistrationController extends Controller
     public function update(Request $request, Registration $registration)
     {
         $request->validate([
-            'email' => 'required|unique:registrations,id,'.$request->id,
+            'email' => 'required|unique:registrations,id,' . $request->id,
             'password' => 'nullable|min:8',
         ]);
         $class = ['ssc', 'hsc', 'graduation', 'masters'];
-        foreach ($class as $className){
-            $other_result = $className.'_other_result';
-            $result = $className.'_result';
+        foreach ($class as $className) {
+            $other_result = $className . '_other_result';
+            $result = $className . '_result';
 
-            if($request->$other_result){
-                if($request->$result === 'CGPA(Out of 5)'){
-                    $request->$result = $request->$other_result.' (Out of 5)';
-                }elseif($request->$result === 'CGPA(Out of 4)'){
-                    $request->$result = $request->$other_result.' (Out of 4)';
-                }else{
+            if ($request->$other_result) {
+                if ($request->$result === 'CGPA(Out of 5)') {
+                    $request->$result = $request->$other_result . ' (Out of 5)';
+                } elseif ($request->$result === 'CGPA(Out of 4)') {
+                    $request->$result = $request->$other_result . ' (Out of 4)';
+                } else {
                     $request->$result = $request->$other_result;
                 }
             }
@@ -821,7 +834,7 @@ class RegistrationController extends Controller
             $classTypeId = 3;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->ssc_group_subject = $addSubject;
             }
@@ -834,7 +847,7 @@ class RegistrationController extends Controller
             $classTypeId = 4;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->hsc_group_subject = $addSubject;
             }
@@ -847,7 +860,7 @@ class RegistrationController extends Controller
             $classTypeId = 5;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->graduation_subject_degree = $addSubject;
             }
@@ -860,7 +873,7 @@ class RegistrationController extends Controller
             $classTypeId = 6;
             $addNewSubject = $this->storeOtherSubject($addSubject, $sectionName, $classTypeId);
             if ($addNewSubject == false) {
-                return redirect('registration/form')->with('errorMsg', $addSubject.' subject/department already exist');
+                return redirect('registration/form')->with('errorMsg', $addSubject . ' subject/department already exist');
             } else {
                 $request->masters_subject_degree = $addSubject;
             }
@@ -875,7 +888,7 @@ class RegistrationController extends Controller
             $image_name = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->image
             );
-        }else{
+        } else {
             $image_name = $registration->image;
         }
 
@@ -887,16 +900,16 @@ class RegistrationController extends Controller
             $signature_img = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->signature_img
             );
-        }else{
+        } else {
             $signature_img = $registration->signature_img;
         }
 
         // if marital_status Married adjust spouse name
-        if ($request->marital_status === 'Married'){
-            $request->marital_status = 'Married'.' (Spouse Name: '.ucfirst($request->spouse_name).')';
+        if ($request->marital_status === 'Married') {
+            $request->marital_status = 'Married' . ' (Spouse Name: ' . ucfirst($request->spouse_name) . ')';
         }
 
-        if($request->same_as_present_address === 'true'){
+        if ($request->same_as_present_address === 'true') {
             $request->permanent_care_of = $request->present_care_of;
             $request->permanent_village = $request->present_village;
             $request->permanent_district = $request->present_district;
@@ -1050,10 +1063,10 @@ class RegistrationController extends Controller
     public function searchRegister(Request $request, $key = null)
     {
         $key = $request->input('key') ? $request->input('key') : $key;
-        if ($key){
+        if ($key) {
             Session::forget('key');
             Session::put('key', $key);
-        }else{
+        } else {
             $key = Session::get('key');
         }
         $register = Registration::where('national_id', $key)->orWhere('mobile_number', $key)
@@ -1169,7 +1182,8 @@ class RegistrationController extends Controller
         }
     }
 
-    public function registerSearchAutocomplete(Request $request){
+    public function registerSearchAutocomplete(Request $request)
+    {
         $key = $request->search;
         $registers = Registration::where('national_id', 'like', "%$key%")
             ->orWhere('birth_registration', 'like', "%$key%")
@@ -1182,10 +1196,10 @@ class RegistrationController extends Controller
 
     public function searchRegisterTest($key)
     {
-        if ($key){
+        if ($key) {
             Session::forget('key');
             Session::put('key', $key);
-        }else{
+        } else {
             $key = Session::get('key');
         }
         $register = Registration::where('national_id', $key)->orWhere('mobile_number', $key)

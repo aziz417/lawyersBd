@@ -5,16 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/registration-form-update-new.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/RateController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Rate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_03_093640_create_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_05_072128_create_rates_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_07_042820_add_register_id_in_user_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/assets/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/assets/css/s.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-05-61ac72d0ecad2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-07-61aee705b10c8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-05-61ac72d10d2be.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-07-61aee705c065d.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_23_061751_add_type_column_to_registraion.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_23_061751_add_type_column_to_registraion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/all-css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/all-css.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/all-js.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/all-js.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
@@ -22,7 +40,6 @@
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mahadi-cetagory" />
+        <entry key="$PROJECT_DIR$" value="Categories" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -201,6 +218,9 @@
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\frontend\layout\includes" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Models" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -290,6 +310,10 @@
       <workItem from="1638279473864" duration="59000" />
       <workItem from="1638333373355" duration="139000" />
       <workItem from="1638509825031" duration="3011000" />
+      <workItem from="1638607205564" duration="26000" />
+      <workItem from="1638671986589" duration="12897000" />
+      <workItem from="1638697965471" duration="25000" />
+      <workItem from="1638849508622" duration="6278000" />
     </task>
     <servers />
   </component>

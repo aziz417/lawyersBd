@@ -34,8 +34,8 @@
                             <table class="table table-hover contactDataTable">
                                 <thead>
                                 <tr>
-                                    <th>Si</th>
-                                    <th>Categories</th>
+                                    <th>#</th>
+                                    <th>Title and Position</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -43,16 +43,16 @@
                                 @forelse($categories as $key => $category)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ $category->category_name }}</td>
+                                        <td>{{ $category->title.' '.$category->position }}</td>
                                         <td>
-                                            <a href="{{ route('categories.edit', $category->slug) }}" title="Edit">
+                                            <a href="{{ route('categories.edit', $category->id) }}" title="Edit">
                                                 <div class="btn btn-info cus_btn">
                                                     <i class="fa fa-pencil-square-o"></i> <strong>Edit</strong>
                                                 </div>
                                             </a>
                                             <form style="display: none"
-                                                  action="{{ route('categories.destroy', $category->slug) }}"
-                                                  method="post" id="form-delete-{{ $category->slug }}">
+                                                  action="{{ route('categories.destroy', $category->id) }}"
+                                                  method="post" id="form-delete-{{ $category->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
@@ -60,7 +60,7 @@
                                                     onclick="if (confirm('Are you sure to delete this item ?'))
                                                             {
                                                             event.preventDefault();
-                                                            document.getElementById('form-delete-{{ $category->slug }}').submit();
+                                                            document.getElementById('form-delete-{{ $category->id }}').submit();
                                                             }else{
                                                             event.preventDefault()
                                                             }" class="btn btn-danger cus_btn">Delete

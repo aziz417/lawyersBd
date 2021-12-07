@@ -46,6 +46,9 @@
             <li class="{{ request()->routeIs('sections.*') ? 'active' : ''  }}">
                 <a href="{{ route('sections.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Sections</span></a>
             </li>
+            <li class="{{ request()->routeIs('rate.*') ? 'active' : ''  }}">
+                <a href="{{ route('rate.show') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Your Rating Panel</span></a>
+            </li>
             <li class="{{ request()->routeIs('categories.*') ? 'active' : ''  }}">
                 <a href="{{ route('categories.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Categories</span></a>
             </li>

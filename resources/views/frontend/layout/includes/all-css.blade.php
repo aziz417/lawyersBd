@@ -11,6 +11,7 @@
 <link href="{{ asset('frontend') }}/assets/css/owl.carousel.theme.min.css" rel="stylesheet">
 <link href="{{ asset('frontend') }}/assets/css/main.css" rel="stylesheet">
 <link href="{{ asset('frontend') }}/assets/css/menu_style.css" rel="stylesheet">
+<link href="{{ asset('frontend') }}/assets/css/common.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

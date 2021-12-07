@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\BoardController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\InstituteController;
+use App\Http\Controllers\Backend\RateController;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\SubjectController;
 use App\Http\Controllers\frontend\CasesController;
@@ -38,7 +39,8 @@ Route::get('draft/update', [RegistrationController::class, 'draftUpdate'])->name
 
 
 Route::get('lawyer/list', [LawyerController::class, 'lawyerList'])->name('lawyer.list');
-
+Route::get('lawyer/details/{id}', [LawyerController::class, 'lawyer'])->name('lawyer.details');
+Route::post('submit/rate', [LawyerController::class, 'rateSubmit'])->name('submit.rate');
 Route::get('why/choose-online-service', function (){
     return view('frontend.pages.WhyChooseOnlineService');
 })->name('why-choose-online-service');
@@ -46,10 +48,6 @@ Route::get('why/choose-online-service', function (){
 Route::get('case/or/gd', function (){
     return view('frontend.pages.CaseOrGd');
 })->name('case.or.gd');
-
-Route::get('lawyer/details', function (){
-    return view('frontend.pages.LawyerDetails');
-})->name('lawyer.details');
 
 
 Route::group(['middleware' => ['auth']], function (){
@@ -74,6 +72,8 @@ Route::group(['middleware' => ['auth']], function (){
             return redirect('registration/form')->with('warningMsg', 'Register Not Found');
         }
     })->name('pdf.view');
+
+    Route::get('show/rating/system', [RateController::class, 'rateShow'])->name('rate.show');
 });
 
 

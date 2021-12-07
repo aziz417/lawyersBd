@@ -34,9 +34,9 @@ class ComposerStaticInit37bf34974d55ec66233f246dcad1a685
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'caf23243e9cb3afd48d0414815ebf07e' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/helper.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '38ea50801e981fa2297115e1c44a148b' => __DIR__ . '/..' . '/mckenziearts/laravel-notify/src/helpers.php',
-        'caf23243e9cb3afd48d0414815ebf07e' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -567,6 +567,7 @@ class ComposerStaticInit37bf34974d55ec66233f246dcad1a685
         'App\\Http\\Controllers\\Backend\\BoardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/BoardController.php',
         'App\\Http\\Controllers\\Backend\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/CategoryController.php',
         'App\\Http\\Controllers\\Backend\\InstituteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/InstituteController.php',
+        'App\\Http\\Controllers\\Backend\\RateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/RateController.php',
         'App\\Http\\Controllers\\Backend\\SectionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SectionController.php',
         'App\\Http\\Controllers\\Backend\\SubjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SubjectController.php',
         'App\\Http\\Controllers\\CommonController' => __DIR__ . '/../..' . '/app/Http/Controllers/CommonController.php',
@@ -574,6 +575,7 @@ class ComposerStaticInit37bf34974d55ec66233f246dcad1a685
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\RegistrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegistrationController.php',
         'App\\Http\\Controllers\\frontend\\CasesController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/CasesController.php',
+        'App\\Http\\Controllers\\frontend\\LawyerController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/LawyerController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -594,6 +596,7 @@ class ComposerStaticInit37bf34974d55ec66233f246dcad1a685
         'App\\Models\\Experience' => __DIR__ . '/../..' . '/app/Models/Experience.php',
         'App\\Models\\Institute' => __DIR__ . '/../..' . '/app/Models/Institute.php',
         'App\\Models\\Quota' => __DIR__ . '/../..' . '/app/Models/Quota.php',
+        'App\\Models\\Rate' => __DIR__ . '/../..' . '/app/Models/Rate.php',
         'App\\Models\\Section' => __DIR__ . '/../..' . '/app/Models/Section.php',
         'App\\Models\\Subject' => __DIR__ . '/../..' . '/app/Models/Subject.php',
         'App\\Models\\Union' => __DIR__ . '/../..' . '/app/Models/Union.php',

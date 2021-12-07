@@ -12,4 +12,14 @@ class LawyerController extends Controller
         $lawyers = Registration::with('category')->where('type', 'lawyer')->get();
         return view('frontend.pages.LawyerList', compact('lawyers'));
     }
+    public function lawyer($id){
+        $lawyer = Registration::with('category')->where('id', $id)->first();
+        return view('frontend.pages.LawyerDetails', compact('lawyer'));
+    }
+
+    public function rateSubmit(Request $request){
+        dd($request->all());
+
+        return "ff";
+    }
 }
