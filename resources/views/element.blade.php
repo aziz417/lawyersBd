@@ -29,7 +29,7 @@
                     <option value="">Select category and position</option>
                     @foreach($categories as $category)
                         <option {{ isset($register) && $register->category_id == $category->id ? 'Selected' : '' }}
-                                value="{{ @$category->id }}">{{ @$category->name.' '.@$category->position }}</option>
+                                value="{{ @$category->id }}">{{ @$category->title.' '.@$category->position }}</option>
                     @endforeach
 
                 </select>

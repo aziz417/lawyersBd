@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Registration;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,4 +47,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function register(){
+        return $this->belongsTo(Registration::class, 'registration_id');
+    }
+
+    public function cases(){
+        return $this->hasMany(Cases::class, 'lawyer_id');
+    }
+
+    public function rate(){
+        return $this->belongsTo(Rate::class, 'id', 'registration_id');
+    }
 }

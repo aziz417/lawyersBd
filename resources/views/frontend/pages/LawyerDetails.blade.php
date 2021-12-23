@@ -6,10 +6,11 @@
             <div class="row">
                 <div class="col-sm-5 col-sm-offset-5">
                     <div class="my-5">
-                        <h2>Submit Your Rate:</h2>
+                        <h2>{{ isset($lawyer->user->rate->clint_rate) && $lawyer->user->rate->clint_rate ? 'Update' : 'Submit' }} Your Rate:</h2>
                         <form action="{{ route('submit.rate') }}" method="post">
                             @csrf
-                            <input id="input-9" name="input-9" required class="rating-loading">
+                            <input type="hidden" name="lawyer_id" value="{{ $lawyer->user_id }}">
+                            <input id="input-9" name="client_rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}" required class="rating-loading">
                             <button type="submit" id="submit" class="btn btn-primary">Submit</button>&nbsp;
                             <button type="reset" class="btn btn-outline-secondary">Reset</button>
                         </form>
@@ -22,32 +23,30 @@
                 <div class="col-sm-3">
                     <div class="p-4">
                         <h2>Average Rate:</h2>
-                        <input id="average-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                     </div>
                 </div>
 
                 <div class="col-sm-3">
                     <div class="p-4">
                         <h2>Client Rate:</h2>
-                        <input id="client-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        <input id="client-rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                     </div>
                 </div>
 
                 <div class="col-sm-3">
                     <div class="p-4">
                         <h2>Case Rate:</h2>
-                        <input id="case-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        <input id="case-rate" value="{{ $lawyer->user->rate->case_rate ?? 0 }}" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                     </div>
                 </div>
 
                 <div class="col-sm-3">
                     <div class="p-4">
                         <h2>Education Rate:</h2>
-                        <input id="education-rate" value="3.7" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        <input id="education-rate" value="{{ $lawyer->user->rate->education_rate ?? 0 }}" class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                     </div>
                 </div>
-
-
             </div>
 
 

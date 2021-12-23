@@ -20,7 +20,6 @@ class CasesController extends Controller
                 $fileName = 'case-'.time().'.'.$request->documentation->extension();
                 $request->documentation->move(public_path('uploads/documentations'), $fileName);
             }
-
             Cases::create([
                 'case_type_id' => $request->caseTypeId,
                 'user_id'      => Auth()->user()->id,

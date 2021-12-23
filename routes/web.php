@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Backend\BoardController;
+use App\Http\Controllers\Backend\CaseController;
+use App\Http\Controllers\Backend\CaseTypeController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\InstituteController;
 use App\Http\Controllers\Backend\RateController;
@@ -52,8 +54,6 @@ Route::get('case/or/gd', function (){
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/test', [HomeController::class, 'frontend'])->name('home');
-
-
 //    Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('experience/delete', [RegistrationController::class, 'deleteExperience'])->name('experience.delete');
@@ -64,16 +64,14 @@ Route::group(['middleware' => ['auth']], function (){
             ->orWhere('ssc_registration_no', $key)->orWhere('hsc_registration_no', $key)->first();
         if ($register){
             $pdf = PDF::loadView('view_pdf', compact('register'));
-            //$applyForm->setIsRemoteEnabled('isRemoteEnabled', true);
-            //$applyForm = new Dompdf($applyForm);
-            //$profileImage =  asset('uploads/applications/'.$applyForm->profile_photo_one);
             return $pdf->stream('register.pdf');
         }else{
             return redirect('registration/form')->with('warningMsg', 'Register Not Found');
         }
     })->name('pdf.view');
-
     Route::get('show/rating/system', [RateController::class, 'rateShow'])->name('rate.show');
+    Route::get('rating/update', [RateController::class, 'ratingCalculation'])->name('rating.Calculation');
+
 });
 
 
@@ -87,6 +85,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('subjects', SubjectController::class)->except(['show']);
     Route::resource('sections', SectionController::class)->except(['show']);
     Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('caseTypes', CaseTypeController::class)->except(['show']);
+    Route::get('case/manage', [CaseController::class, 'caseManage'])->name('case.manage');
+    Route::get('case/status/update', [CaseController::class, 'caseStatusUpdate'])->name('case.status.update');
+    Route::get('case/{id}/details', [CaseController::class, 'caseDetails'])->name('case.details');
+
+
+
 });
 
 
