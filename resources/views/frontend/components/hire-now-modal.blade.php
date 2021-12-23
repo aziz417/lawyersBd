@@ -33,8 +33,9 @@
                         <label for="caseType">Case Type<span class="text-danger">*</span></label>
                         <select id="caseType" class="form-control" name="caseTypeId">
                             <option selected>Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
+                            @foreach($types as $type)
+                                <option value="{{ $type->id }}"> {{ ucwords($type->title) }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-row">

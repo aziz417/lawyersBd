@@ -21,4 +21,11 @@ class Cases extends Model
         'description',
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function type(){
+        return $this->belongsTo(CaseType::class, 'case_type_id');
+    }
+
 }

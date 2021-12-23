@@ -37,6 +37,9 @@
             <li class="{{ request()->routeIs('boards.*') ? 'active' : ''  }}">
                 <a href="{{ route('boards.index') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Boards</span></a>
             </li>
+            <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
+                <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case Manage</span></a>
+            </li>
             <li class="{{ request()->routeIs('institutes.*') ? 'active' : ''  }}">
                 <a href="{{ route('institutes.index') }}"><i class="fa fa-institution"></i> <span class="nav-label">Institutes</span></a>
             </li>
@@ -51,6 +54,9 @@
             </li>
             <li class="{{ request()->routeIs('categories.*') ? 'active' : ''  }}">
                 <a href="{{ route('categories.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Categories</span></a>
+            </li>
+            <li class="{{ request()->routeIs('caseTypes.*') ? 'active' : ''  }}">
+                <a href="{{ route('caseTypes.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Case Types</span></a>
             </li>
         </ul>
     </div>

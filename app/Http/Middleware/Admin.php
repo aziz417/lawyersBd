@@ -20,7 +20,6 @@ class Admin
         if(Auth::check() && Auth::user()->role == 'admin' || Auth::user()->role == 'user' || Auth::user()->role == 'lawyer'){
             return $next($request);
         }else{
-            dd(Auth::user()->role);
             return redirect()->route('frontend.home');
         }
     }

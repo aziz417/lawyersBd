@@ -24,6 +24,11 @@
     <link href="{{ asset('backend') }}/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/plugins/iCheck/custom.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- with v4.1.0 Krajee SVG theme is used as default (and must be loaded as below) - include any of the other theme CSS files as mentioned below (and change the theme property of the plugin) -->
+    <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
+
 
     <link href="{{ asset('backend') }}/css/animate.css" rel="stylesheet">
     <link href="{{ asset('backend/css/coustom_style.css') }}" rel="stylesheet">
@@ -93,6 +98,11 @@
 
 <!-- ChartJS-->
 <script src="{{ asset('backend') }}/js/plugins/chartJs/Chart.min.js"></script>
+<!-- important mandatory libraries -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/js/star-rating.min.js" type="text/javascript"></script>
+
+<!-- with v4.1.0 Krajee SVG theme is used as default (and must be loaded as below) - include any of the other theme JS files as mentioned below (and change the theme property of the plugin) -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/themes/krajee-svg/theme.js"></script>
 
 <!-- Toastr -->
 <script src="{{ asset('backend') }}/js/plugins/toastr/toastr.min.js"></script>

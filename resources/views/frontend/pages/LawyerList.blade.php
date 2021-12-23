@@ -27,13 +27,13 @@
                             <img style="height: 230px !important;" class="img-responsive img-full" src="{{ asset('uploads/applications/'.$lawyer->image) }}"
                                  alt="team">
                             <div class="team-detail">
-                                <input id="input-2" value="3.4" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1">
+                                <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}" name="input-2" class="rating-loading average-rate" data-min="0" data-max="5" data-step="0.1">
                                 <ul>
                                     <li><h3>{{ $lawyer->applicants_name }}</h3></li>
                                     <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
                                     <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
                                 </ul>
-                                <button class="btn btn-success w-full" onclick="hireNow({{ $lawyer->id }})" style="width: 100%">Hire Now</button>
+                                <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})" style="width: 100%">Hire Now</button>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 @endforelse
             </div>
         </div>
-        @include('frontend.components.hire-now-modal')
+        @include('frontend.components.hire-now-modal', $types = $caseTypes)
     </section>
 @endsection
 @section('script')
@@ -60,6 +60,7 @@
             $('#caseSubmit').submit();
         }
         $(document).ready(function () {
+            $('.average-rate').rating({displayOnly: true});
             $('#caseSubmit').validate({ // initialize the plugin
 
                 rules: {

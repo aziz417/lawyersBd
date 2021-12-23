@@ -754,12 +754,15 @@ class RegistrationController extends Controller
             }
         }
 
-        User::create([
+        $user = User::create([
             'registration_id' => $registration->id,
             'name' => $registration->applicants_name,
             'email' => $registration->email,
             'password' => Hash::make($request->password),
             'role' => $registration->type,
+        ]);
+        $registration->update([
+            'user_id' => $user->id,
         ]);
 
         if ($registration) {
