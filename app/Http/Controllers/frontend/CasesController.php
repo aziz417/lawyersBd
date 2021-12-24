@@ -28,6 +28,7 @@ class CasesController extends Controller
                 'caseDate'     => $request->caseDate,
                 'coteDate'     => $request->coteDate,
                 'document'     => $fileName,
+                'status'       => 1,
                 'slug'         => $slug,
                 'description'  => $request->description,
             ]);

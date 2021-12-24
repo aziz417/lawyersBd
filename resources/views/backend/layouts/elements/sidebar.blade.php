@@ -58,6 +58,22 @@
             <li class="{{ request()->routeIs('caseTypes.*') ? 'active' : ''  }}">
                 <a href="{{ route('caseTypes.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Case Types</span></a>
             </li>
+
+            <li class="{{ request()->routeIs('setting.*') ? 'active' : ''  }}">
+                <a href="javascript:void(0)"><i class="fa fa-bar-chart-o"></i>
+                    <span class="nav-label">Manage Settings</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse sidebar_background_color">
+                    <li class="{{ request()->routeIs('setting.*') ? 'active' : ''  }}"><a href="{{ route('settings.index') }}">Site Setting</a></li>
+                    <li class="{{ request()->routeIs('social.*') ? 'active' : ''  }}"><a href="{{ route('socials.index') }}">Social</a></li>
+                    <li class="{{ request()->routeIs('slider.*') ? 'active' : ''  }}">
+                        <a href="{{ route('sliders.index') }}"><i class="fa fa-photo"></i>
+                            <span class="nav-label">Sliders</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
