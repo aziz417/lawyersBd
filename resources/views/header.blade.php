@@ -8,13 +8,12 @@
         <div class="col-sm-9">
             <ul class="nav navbar-nav navbar-right custom-nb">
                 <li class="active"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ route('why-choose-online-service') }}">Why Choose Online Service</a></li>
                 <li><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
                 <li><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    @if(Auth::guest())
-                        <a href="{{ route('login') }}">Login</a>
+                    @if(!Auth::check())
+                        <a href="{{ route('login') }}">Login Or Registration</a>
                     @else
                         <div class="dropdown">
                             <button class="dropbtn">Profile</button>

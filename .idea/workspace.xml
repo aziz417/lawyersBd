@@ -5,88 +5,147 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CaseTypeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-19-616f0ca6c576c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-19-616f0e9e98886.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617eb7fd18ff6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ebf275865e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ec704ceb38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ec7becc7af.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ecbfecf10c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f6dab22348.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f72e830e49.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f780492e45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f7b1338ac6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f7dda8ac84.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618216722ec15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61821b0b14709.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61821f1dbf0c4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-6182218f888ec.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618225d0be281.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61822bbc56424.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61822e206892b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618230b676801.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-19-616f0ca6c7c8c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-19-616f0e9e99d92.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617eb7fd2a659.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ebf27660a4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ec704d0092.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ec7becdd2e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ecbfed2575.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f72e833640.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7804c4e74.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7b133ac9a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7dda8d390.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618216724a6ca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61821b0b15e07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61821f1dc23e8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-6182218fb82a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618225d0c0382.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61822bbc5795b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61822e206ac0e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618230b677bdc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/charlotte-gamble-profile-2021-12-09-61b1bce14a63d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/charlotte-gamble-profile-signature-2021-12-09-61b1bce1b6589.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/james-weber-profile-2021-12-22-61c2ab8c106da.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/james-weber-profile-signature-2021-12-22-61c2ab8c69c9f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/joshua-gonzalez-profile-2021-12-22-61c2abedeb6cd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/joshua-gonzalez-profile-signature-2021-12-22-61c2abee07782.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/xander-huber-profile-2021-12-16-61bac23bb6af9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/applications/xander-huber-profile-signature-2021-12-16-61bac23c3ddfd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1638904377.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1639886291.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1639886652.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640148003.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640148553.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640148576.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640148981.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640149092.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1640149111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseTypes/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseTypes/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseTypes/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/rating/manageRating.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Common/Common.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ImageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SlidersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SocialController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Helpers/FileHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Social.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_070331_create_sliders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_070500_create_settings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_071912_create_socials_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_071922_create_images_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/settings/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/settings/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/settings/element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/settings/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/slider/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/slider/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/slider/element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/slider/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/socials/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/socials/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/socials/element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/socials/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/RateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/RateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CaseType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CaseType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Cases.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cases.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-19-616f0ca6c576c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-19-616f0e9e98886.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617eb7fd18ff6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ebf275865e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ec704ceb38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ec7becc7af.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-10-31-617ecbfecf10c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f6dab22348.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f72e830e49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f780492e45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f7b1338ac6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-01-617f7dda8ac84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618216722ec15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61821b0b14709.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61821f1dbf0c4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-6182218f888ec.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618225d0be281.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61822bbc56424.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-61822e206892b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-11-03-618230b676801.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-05-61ac72d0ecad2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-07-61aee705b10c8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-07-61aefef6be433.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-07-61af055327a9d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-profile-2021-12-07-61af05dd77e1b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-19-616f0ca6c7c8c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-19-616f0e9e99d92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617eb7fd2a659.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ebf27660a4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ec704d0092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ec7becdd2e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-10-31-617ecbfed2575.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f72e833640.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7804c4e74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7b133ac9a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-01-617f7dda8d390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618216724a6ca.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61821b0b15e07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61821f1dc23e8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-6182218fb82a9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618225d0c0382.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61822bbc5795b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-61822e206ac0e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-11-03-618230b677bdc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-05-61ac72d10d2be.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-07-61aee705c065d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-07-61aefef6d0235.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/-signature-2021-12-07-61af05dd824da.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/3-profile-2021-10-14-6167c59b8fe3c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/3-profile-2021-10-14-6167c5ff8c3f4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/3-signature-2021-10-14-6167c59c01526.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/3-signature-2021-10-14-6167c5ff9569e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-26-5fbfe108d757f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-28-5fc2a32d51ab9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-29-5fc34514675ef.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-29-5fc3469fbbd44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-29-5fc348b16f32a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-29-5fc348f6c5390.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-30-5fc48bc4bce7d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2020-11-30-5fc51c4febe10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-profile-2021-02-28-603b4e86ab257.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-26-5fbfe108df47f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-28-5fc2a32dcbfeb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-29-5fc3479f343e1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-29-5fc348b179a49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-29-5fc348c05c9e6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-29-5fc34976ac543.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-29-5fc366995d8dc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-30-5fc48bc52e56c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2020-11-30-5fc51c50170bc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/assistant-teacher-signature-2021-02-28-603b4e876b1e9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/charlotte-gamble-profile-2021-12-09-61b1bce14a63d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/charlotte-gamble-profile-signature-2021-12-09-61b1bce1b6589.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/james-weber-profile-2021-12-22-61c2ab8c106da.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/james-weber-profile-signature-2021-12-22-61c2ab8c69c9f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/joshua-gonzalez-profile-2021-12-22-61c2abedeb6cd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/joshua-gonzalez-profile-signature-2021-12-22-61c2abee07782.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-profile-2020-12-03-5fc8e37eb597e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-profile-2021-02-28-603b4c5fcd827.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-profile-2021-02-28-603b4cc3873e7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-profile-2021-03-01-603c831f96092.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-signature-2020-12-03-5fc8e37f2cd49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-signature-2021-02-28-603b4c620377a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-signature-2021-02-28-603b4cc59d875.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/principal-signature-2021-03-01-603c83200a29b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/rana-hopkins-profile-2021-12-07-61af06bfce000.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/rana-hopkins-profile-signature-2021-12-07-61af06bfdc0d1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/teacher-profile-2020-11-28-5fc2b2b91df23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/teacher-profile-2020-12-03-5fc90b9a4ef49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/teacher-signature-2020-11-28-5fc2b2b92e627.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/teacher-signature-2020-12-03-5fc90b9a922d1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/xander-huber-profile-2021-12-16-61bac23bb6af9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/applications/xander-huber-profile-signature-2021-12-16-61bac23c3ddfd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/1637952788.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/1637952821.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1637952921.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1638904377.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1639886291.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1639886652.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640148003.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640148553.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640148576.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640148981.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640149092.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/documentations/case-1640149111.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/components/hire-now-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/components/hire-now-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/caseManage/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/WhyChooseOnlineService.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +307,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -260,11 +319,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\app" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Controllers\Backend" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages\caseManage" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\database\migrations" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Models" />
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\database\migrations" />
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Models" />
@@ -373,7 +432,8 @@
       <workItem from="1640055976889" duration="11321000" />
       <workItem from="1640147357176" duration="13421000" />
       <workItem from="1640174382154" duration="37000" />
-      <workItem from="1640231157942" duration="12945000" />
+      <workItem from="1640231157942" duration="14142000" />
+      <workItem from="1640316237426" duration="10823000" />
     </task>
     <servers />
   </component>

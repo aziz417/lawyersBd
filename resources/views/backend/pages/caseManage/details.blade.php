@@ -44,7 +44,7 @@
                                 </thead>
                                 <tbody>
                                 @php
-                                $case_status = ['New Case', 'Progressing', 'Running Case', 'In Complete Case', 'Chancel Case', 'Case Successfully Done'];
+                                $case_status = ['Chancel Case', 'New Case', 'Progressing', 'Running Case', 'In Complete Case', 'Case Successfully Done'];
                                 @endphp
                                     <tr>
                                         <td width="200px">{{ $case->title }}</td>

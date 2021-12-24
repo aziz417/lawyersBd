@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\SlidersController;
+use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\BoardController;
 use App\Http\Controllers\Backend\CaseController;
 use App\Http\Controllers\Backend\CaseTypeController;
@@ -89,9 +92,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('case/manage', [CaseController::class, 'caseManage'])->name('case.manage');
     Route::get('case/status/update', [CaseController::class, 'caseStatusUpdate'])->name('case.status.update');
     Route::get('case/{id}/details', [CaseController::class, 'caseDetails'])->name('case.details');
+    /************* slider sections *************/
+    Route::resource('sliders', SlidersController::class)->except( 'show');
+    Route::get('sliders/change-status/{slider}', [SlidersController::class, 'changeStatus'])
+        ->name('sliders.status.change');
+    /*******site setting controller*******/
+    Route::resource('settings', SettingController::class);
+    Route::get('settings/change-status/{setting}', [SettingController::class, 'changeStatus'])
+        ->name('settings.status.change');
 
-
-
+    /*************social sections*************/
+    Route::resource('socials', SocialController::class);
+    Route::get('socials/change-status/{social}', [SocialController::class, 'changeStatus'])
+        ->name('socials.status.change');
 });
 
 
