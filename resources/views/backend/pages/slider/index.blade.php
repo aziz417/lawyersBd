@@ -96,7 +96,6 @@
 
                                 <tbody>
                                 @foreach(@$sliders as $slider)
-                                    {{ @$slider->image->url }}
                                     <tr>
                                         <td>
                                             <img width="100" height="50" src="{{ @$slider->image->url }}"
