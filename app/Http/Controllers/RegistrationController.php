@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Controllers\Helpers\FileHandler;
 use App\Models\Board;
 use App\Models\Category;
 use App\Models\District;
@@ -119,7 +120,6 @@ class RegistrationController extends Controller
         $slug = Str::slug($request->name_of_the_post) . '-' . 'profile';
 
         if ($request->hasFile('photo')) {
-
             $image = $request->file('photo');
             $image_name = CommonController::fileUploaded(
                 $slug, false, $image, 'applications', ['width' => '160', 'height' => '160']
@@ -630,25 +630,17 @@ class RegistrationController extends Controller
                 $request->masters_subject_degree = $addSubject;
             }
         }
+        $image_name = 'no image';
+        $signature_img = 'no image';
 
-        $image_name = '';
-        $slug = Str::slug($request->applicants_name) . '-' . 'profile';
-        if ($request->hasFile('photo')) {
+        if ($request->file('photo')) {
             $image = $request->file('photo');
-            $image_name = CommonController::fileUploaded(
-                $slug, false, $image, 'applications', ['width' => '160', 'height' => '160']
-            );
+            $image_name = FileHandler::upload($image, 'sliders', ['width' => '160', 'height' => '160']);
         }
 
-        $signature_img = '';
-        $slug = $slug . '-' . 'signature';
-
-        if ($request->hasFile('signature')) {
-
+        if ($request->file('signature')) {
             $image = $request->file('signature');
-            $signature_img = CommonController::fileUploaded(
-                $slug, false, $image, 'applications', ['width' => '160', 'height' => '160']
-            );
+            $signature_img = FileHandler::upload($image, 'signature', ['width' => '160', 'height' => '160']);
         }
 
         // if marital_status Married adjust spouse name
@@ -729,6 +721,17 @@ class RegistrationController extends Controller
             'masters_subject_degree' => $request->masters_subject_degree,
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
+        ]);
+
+        $registration->image()->create([
+            'url' => Storage::url($image_name),
+            'base_path' => $image_name,
+            'type' => 'profile',
+        ]);
+        $registration->image()->create([
+            'url' => Storage::url($signature_img),
+            'base_path' => $signature_img,
+            'type' => 'signature',
         ]);
 
 //        if ($request->quota) {
@@ -879,29 +882,20 @@ class RegistrationController extends Controller
                 $request->masters_subject_degree = $addSubject;
             }
         }
+        $image_name = 'no image';
+        $signature_img = 'no image';
 
-        $image_name = '';
-        $slug = Str::slug($request->name_of_the_post) . '-' . 'profile';
-
-        if ($request->hasFile('photo')) {
-
+        if ($request->file('photo')) {
             $image = $request->file('photo');
-            $image_name = CommonController::fileUploaded(
-                $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->image
-            );
-        } else {
+            $image_name = FileHandler::upload($image, 'sliders', ['width' => '160', 'height' => '160']);
+        }else {
             $image_name = $registration->image;
         }
 
-        $signature_img = '';
-        $slug = Str::slug($request->name_of_the_post) . '-' . 'signature';
-
-        if ($request->hasFile('signature')) {
+        if ($request->file('signature')) {
             $image = $request->file('signature');
-            $signature_img = CommonController::fileUploaded(
-                $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->signature_img
-            );
-        } else {
+            $signature_img = FileHandler::upload($image, 'signature', ['width' => '160', 'height' => '160']);
+        }else {
             $signature_img = $registration->signature_img;
         }
 
@@ -985,6 +979,18 @@ class RegistrationController extends Controller
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
         ]);
+
+        $registration->image()->update([
+            'url' => Storage::url($image_name),
+            'base_path' => $image_name,
+            'type' => 'profile',
+        ]);
+        $registration->image()->update([
+            'url' => Storage::url($signature_img),
+            'base_path' => $signature_img,
+            'type' => 'signature',
+        ]);
+
         if ($request->quota) {
             foreach ($request->quota as $key => $row) {
                 $quota = Quota::where('registration_id', $registration->id)

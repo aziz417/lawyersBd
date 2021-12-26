@@ -50,20 +50,20 @@
                 >
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-3 col">
-                <small>
-                    <span class="float-right">:</span>
-                </small>
-            </div>
-            <div class="col-sm-9">
-                <input type="text"
-                       value="{{ isset($register) ? $register->applicants_name_bn : old('applicants_name_bn') }}"
-                       name="applicants_name_bn" class="form-control form-control-sm applicants_name_bn"
-                       placeholder="বাংলায় আবেদনকারীর নাম লিখুন"
-                >
-            </div>
-        </div>
+{{--        <div class="form-group row">--}}
+{{--            <div class="col-sm-3 col">--}}
+{{--                <small>--}}
+{{--                    <span class="float-right">:</span>--}}
+{{--                </small>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-9">--}}
+{{--                <input type="text"--}}
+{{--                       value="{{ isset($register) ? $register->applicants_name_bn : old('applicants_name_bn') }}"--}}
+{{--                       name="applicants_name_bn" class="form-control form-control-sm applicants_name_bn"--}}
+{{--                       placeholder="বাংলায় আবেদনকারীর নাম লিখুন"--}}
+{{--                >--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="form-group row">
             <div class="col-sm-3 col">
                 <small>
@@ -78,20 +78,20 @@
                 >
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-3 col">
-                <small>
-                    <span class="float-right">:</span>
-                </small>
-            </div>
-            <div class="col-sm-9">
-                <input type="text"
-                       value="{{ isset($register) ? $register->father_name_bn : old('father_name_bn') }}"
-                       name="father_name_bn" class="form-control form-control-sm father_name_bn"
-                       placeholder="বাংলায় আবেদনকারীর পিতার নাম লিখুন"
-                >
-            </div>
-        </div>
+{{--        <div class="form-group row">--}}
+{{--            <div class="col-sm-3 col">--}}
+{{--                <small>--}}
+{{--                    <span class="float-right">:</span>--}}
+{{--                </small>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-9">--}}
+{{--                <input type="text"--}}
+{{--                       value="{{ isset($register) ? $register->father_name_bn : old('father_name_bn') }}"--}}
+{{--                       name="father_name_bn" class="form-control form-control-sm father_name_bn"--}}
+{{--                       placeholder="বাংলায় আবেদনকারীর পিতার নাম লিখুন"--}}
+{{--                >--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="form-group row">
             <div class="col-sm-3 col">
                 <small>
@@ -106,20 +106,20 @@
                 >
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-3 col">
-                <small>
-                    <span class="float-right">:</span>
-                </small>
-            </div>
-            <div class="col-sm-9">
-                <input type="text"
-                       value="{{ isset($register) ? $register->mother_name_bn : old('mother_name_bn') }}"
-                       name="mother_name_bn" class="form-control form-control-sm mother_name_bn"
-                       placeholder="বাংলায় আবেদনকারীর মাতার নাম লিখুন"
-                >
-            </div>
-        </div>
+{{--        <div class="form-group row">--}}
+{{--            <div class="col-sm-3 col">--}}
+{{--                <small>--}}
+{{--                    <span class="float-right">:</span>--}}
+{{--                </small>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-9">--}}
+{{--                <input type="text"--}}
+{{--                       value="{{ isset($register) ? $register->mother_name_bn : old('mother_name_bn') }}"--}}
+{{--                       name="mother_name_bn" class="form-control form-control-sm mother_name_bn"--}}
+{{--                       placeholder="বাংলায় আবেদনকারীর মাতার নাম লিখুন"--}}
+{{--                >--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="form-group row">
             <div class="col-sm-3 col">
                 <small>

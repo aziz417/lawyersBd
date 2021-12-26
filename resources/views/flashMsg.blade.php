@@ -24,7 +24,7 @@
     }
     .notificationwarningMsg{
         position: fixed;
-        z-index: 99;
+        z-index: 9999999;
         width: 25%;
         right: 0;
         background: #bbde79;
@@ -50,7 +50,7 @@
 @endif()
 @if($message = Session::get('warningMsg'))
     <div class="notificationwarningMsg alert alert-success">
-        <button aria-hidden="true" data-dismiss="alert" class="close" style="color: black" type="button">×</button>
+        <button aria-hidden="true" data-dismiss="alert" class="close" style="color: black; font-size: 30px" type="button">×</button>
         <p style="color: black; margin-bottom: 7px;">{{ $message }}</p>
     </div>
 @endif()

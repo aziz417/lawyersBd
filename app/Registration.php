@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Category;
 use App\Models\District;
 use App\Models\Experience;
+use App\Models\Image;
 use App\Models\Quota;
 use App\Models\Rate;
 use App\Models\Subject;
@@ -84,7 +85,10 @@ class Registration extends Model
         'masters_result',
         'masters_course_duration',
     ];
-
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
     public function experiences(){
         return $this->hasMany(Experience::class);
     }
