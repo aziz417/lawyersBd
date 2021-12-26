@@ -24,7 +24,7 @@
                 @forelse($lawyers as $lawyer)
                     <div class="col-sm-4">
                         <div class="team-box">
-                            <img style="height: 230px !important;" class="img-responsive img-full" src="{{ asset('uploads/applications/'.$lawyer->image) }}"
+                            <img style="height: 230px !important;" class="img-responsive img-full" src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
                                  alt="team">
                             <div class="team-detail">
                                 <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}" name="input-2" class="rating-loading average-rate" data-min="0" data-max="5" data-step="0.1">

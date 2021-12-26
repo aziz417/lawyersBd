@@ -31,14 +31,15 @@
                 </div>
             </li>
             {{--our sidebar menu--}}
+{{--            all available--}}
             <li class="{{ request()->routeIs('admin') ? 'active' : ''  }}">
                 <a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span></a>
             </li>
+
+{{--            just admin--}}
+            @if(Auth::user()->role == 'admin')
             <li class="{{ request()->routeIs('boards.*') ? 'active' : ''  }}">
                 <a href="{{ route('boards.index') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Boards</span></a>
-            </li>
-            <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
-                <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case Manage</span></a>
             </li>
             <li class="{{ request()->routeIs('institutes.*') ? 'active' : ''  }}">
                 <a href="{{ route('institutes.index') }}"><i class="fa fa-institution"></i> <span class="nav-label">Institutes</span></a>
@@ -48,9 +49,6 @@
             </li>
             <li class="{{ request()->routeIs('sections.*') ? 'active' : ''  }}">
                 <a href="{{ route('sections.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Sections</span></a>
-            </li>
-            <li class="{{ request()->routeIs('rate.*') ? 'active' : ''  }}">
-                <a href="{{ route('rate.show') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Your Rating Panel</span></a>
             </li>
             <li class="{{ request()->routeIs('categories.*') ? 'active' : ''  }}">
                 <a href="{{ route('categories.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Categories</span></a>
@@ -74,6 +72,16 @@
                     </li>
                 </ul>
             </li>
+            @endif
+{{--           just lawyer--}}
+            @if(Auth::user()->role == 'lawyer')
+            <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
+                <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case Manage</span></a>
+            </li>
+            <li class="{{ request()->routeIs('rate.*') ? 'active' : ''  }}">
+                <a href="{{ route('rate.show') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span class="nav-label">Your Rating Panel</span></a>
+            </li>
+            @endif
         </ul>
     </div>
 </nav>

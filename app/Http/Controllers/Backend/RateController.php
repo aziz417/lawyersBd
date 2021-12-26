@@ -71,7 +71,7 @@ class RateController extends Controller
             }
         }
         if ($rate_item){
-            $average_rate = number_format((float)$sum_rate/$rate_item, 2);
+            $average_rate = number_format((float)$sum_rate/3, 2);
         }else{
             $average_rate = 0;
         }

@@ -23,6 +23,9 @@ class LawyerController extends Controller
     }
 
     public function rateSubmit(Request $request){
+        if (!Auth::check()){
+            return back()->with('warningMsg', 'First Login Then Submit Your Rate');
+        }
         $lawyer_rate = Rate::where('registration_id',$request->lawyer_id)->first();
         if ($lawyer_rate){
             $lawyer_rate->update([
@@ -33,19 +36,14 @@ class LawyerController extends Controller
             $case_rate = $lawyer_rate->case_rate;
             $clint_rate = $lawyer_rate->clint_rate;
             $rate_array = [$education_rate, $case_rate, $clint_rate];
-            $rate_item = 0;
             $sum_rate = 0;
             foreach ($rate_array as $rate){
                 if ($rate > 0){
-                    $rate_item++;
                     $sum_rate += $rate;
                 }
             }
-            if ($rate_item){
-                $average_rate = number_format((float)$sum_rate/$rate_item, 2);
-            }else{
-                $average_rate = 0;
-            }
+
+            $average_rate = number_format((float)$sum_rate/3, 2);
 
             $lawyer_rate->update([
                 'average_rate' => $average_rate,
@@ -55,7 +53,7 @@ class LawyerController extends Controller
             Rate::create([
                 'registration_id' => $request->lawyer_id,
                 'clint_rate' => $request->client_rate,
-                'average_rate' => $request->client_rate,
+                'average_rate' => number_format((float) $request->client_rate/3, 2),
             ]);
             return redirect()->back()->with('Successfully Submit Your Rating');
         }
