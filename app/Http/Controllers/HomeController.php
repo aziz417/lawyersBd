@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rate;
+use App\Models\Slider;
+use App\Models\User;
+use App\Registration;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,6 +32,9 @@ class HomeController extends Controller
 
     public function frontend()
     {
-        return  view('frontend.home');
+        $sliders = Slider::status()->get();
+        $top_10_lawyers = Registration::with('rate', 'image')->get()->sortByDesc('rate.average_rate')->take(10);
+//        dd($top_10_lawyers->toArray());
+        return  view('frontend.home', compact('sliders', 'top_10_lawyers'));
     }
 }

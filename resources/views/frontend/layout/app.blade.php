@@ -13,14 +13,10 @@
 </head>
 <body data-spy="scroll" data-target="#main-navbar">
 @include('frontend.layout.includes.header')
-@include('frontend.layout.includes.slider')
-
-@include('frontend.layout.includes.all-css')
 
 @yield('content')
 
-
- @include('frontend.layout.includes.footer')
+@include('frontend.layout.includes.footer')
 
  @include('frontend.layout.includes.all-js')
 @yield('script')

@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     $('body').scrollspy({ target: '#main-navbar' })
-    
+
     $('#slider_1').owlCarousel({
         loop:true,
         margin:10,
@@ -9,6 +9,13 @@ $( document ).ready(function() {
         items: 1,
     })
     $('#test-slider').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        dots: true,
+        items: 1,
+    })
+    $('#test-slider1').owlCarousel({
         loop:true,
         margin:10,
         nav:false,

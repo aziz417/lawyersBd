@@ -5,7 +5,6 @@
             .error{
                 color: red;
             }
-
         </style>
     @endsection
     <!-- Team -->
@@ -81,6 +80,5 @@
             });
 
         });
-
     </script>
 @endsection
