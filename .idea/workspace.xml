@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_29_042637_add_about_say_you_to_registrations_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/RateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/RateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/flashMsg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/flashMsg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/registration-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +311,10 @@
       <workItem from="1640174382154" duration="37000" />
       <workItem from="1640231157942" duration="14142000" />
       <workItem from="1640316237426" duration="13195000" />
-      <workItem from="1640495801752" duration="7167000" />
+      <workItem from="1640495801752" duration="8789000" />
+      <workItem from="1640527279292" duration="588000" />
+      <workItem from="1640585764047" duration="5099000" />
+      <workItem from="1640750700923" duration="10567000" />
     </task>
     <servers />
   </component>

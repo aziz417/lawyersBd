@@ -24,7 +24,7 @@
     }
     .notificationwarningMsg{
         position: fixed;
-        z-index: 9999999;
+        z-index: 999999999999;
         width: 25%;
         right: 0;
         background: #bbde79;

@@ -1322,6 +1322,22 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <div class="col-sm-2 col">
+        <small>
+            About Say <span class="float-right">:</span>
+        </small>
+    </div>
+    <div class="col-sm-10">
+        <textarea type="email" required
+               name="about_say_you" class="form-control form-control-sm"
+        >{{ isset($register) ? $register->about_say_you : old('about_say_you') }}</textarea>
+        @error('about_say_you')
+        <small id="question_feedback" class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+</div>
+
 {{--            Professional Experience            --}}
 @if(isset($register))
     <div class="profession-section appendNewProfession">

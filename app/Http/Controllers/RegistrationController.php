@@ -220,6 +220,7 @@ class RegistrationController extends Controller
             'masters_subject_degree' => $request->masters_subject_degree,
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
+            'about_say_you' => $request->about_say_you,
         ]);
 
 //        if ($request->quota) {
@@ -436,6 +437,7 @@ class RegistrationController extends Controller
             'masters_subject_degree' => $request->masters_subject_degree,
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
+            'about_say_you' => $request->about_say_you,
         ]);
         if ($request->quota) {
             foreach ($request->quota as $key => $row) {
@@ -721,6 +723,7 @@ class RegistrationController extends Controller
             'masters_subject_degree' => $request->masters_subject_degree,
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
+            'about_say_you' => $request->about_say_you,
         ]);
 
         $registration->image()->create([
@@ -978,6 +981,8 @@ class RegistrationController extends Controller
             'masters_subject_degree' => $request->masters_subject_degree,
             'masters_result' => $request->masters_result,
             'masters_course_duration' => $request->masters_course_duration,
+            'about_say_you' => $request->about_say_you,
+
         ]);
 
         $registration->image()->update([

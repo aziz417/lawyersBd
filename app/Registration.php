@@ -84,6 +84,7 @@ class Registration extends Model
         'masters_subject_degree',
         'masters_result',
         'masters_course_duration',
+        'about_say_you',
     ];
     public function image()
     {
@@ -99,11 +100,20 @@ class Registration extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
-    public function Rate(){
-        return $this->belongsTo(Rate::class);
+    public function rate(){
+        return $this->belongsTo(Rate::class,'id', 'registration_id');
     }
     public function User(){
         return $this->belongsTo(User::class);
     }
+
+    public function scopeStatus($query)
+    {
+        return $query->where('status', 'publish');
+    }
+
+//    public function top10Lawyer(){
+//
+//    }
 
 }

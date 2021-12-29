@@ -141,7 +141,7 @@
                     var other_result_placeholder = classType.substr(0, 1).toUpperCase() + classType.substr(1);
                 }
 
-                $('.' + classType + '_result_append').append(`<input name="${classType}_other_result" class="form-control form-control-sm ${classType}_other_result"
+                $('.' + classType + '_result_append').append(`<input max="5" name="${classType}_other_result" class="form-control form-control-sm ${classType}_other_result"
                     type="text" placeholder="Enter Your ${other_result_placeholder} Result">`);
             }
         }
