@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'category Create')
+@section('title', 'Category Create')
 
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">

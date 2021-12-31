@@ -35,8 +35,8 @@
                     <a class="m-1" href="{{ route('admin') }}">
                         Dashboard
                     </a>
-
                 </li>
+                <li><a href="{{ route('rating.Calculation') }}">Rating Update</a></li>
             </ul>
         </div>
 

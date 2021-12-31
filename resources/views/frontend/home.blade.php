@@ -13,6 +13,40 @@
         @endforelse
     </div>
 
+    <section id="team" class="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="title-box">
+                        <h2 class="section-title">Senior Lawyers</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @forelse($senior_lawyers as $key => $lawyer)
+                    <div class="col-sm-4">
+                        <div class="team-box">
+                            <img style="height: 230px !important;" class="img-responsive img-full" src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
+                                 alt="team">
+                            <div class="team-detail">
+                                <ul>
+                                    <li><h3>{{ $lawyer->applicants_name }}</h3></li>
+                                    <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
+                                    <li><h4 class="font-weight-bold">Phone Number {{ ucfirst(@$lawyer->mobile_number) }} </h4></li>
+                                    <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
+                                </ul>
+                                <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})" style="width: 100%">Hire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
+                @endforelse
+            </div>
+        </div>
+        @include('frontend.components.hire-now-modal', $types = $caseTypes)
+    </section>
 
     <!-- Practice areas -->
     <section id="practice" class="practice">
@@ -28,91 +62,66 @@
             <div class="row">
                 @forelse($top_10_lawyers as $lawyer)
                     <div class="col-sm-6 col-md-4">
-                        <div class="practice-box">
-                            <img class="img-responsive img-full"
-                                 src="{{ $lawyer->image()->where('type', 'profile')->first() ? $lawyer->image()->where('type', 'profile')->first()->url : '' }}">
-                            <div class="overlay">
-                                <div class="c-table">
-                                    <div class="ct-cell">
-                                        <input id="average-rate" value="{{ $lawyer->rate->average_rate ?? '' }}"
-                                               name="input-2" class="rating-loading average-rate" data-min="0"
-                                               data-max="5"
-                                               data-step="0.1">
-                                        <h3 class="practice-title">{{ $lawyer->applicants_name }}</h3>
+                        <a href="{{ route('lawyer.details', $lawyer->id) }}">
+                            <div class="practice-box">
+                                <img class="img-responsive img-full"
+                                     src="{{ $lawyer->image()->where('type', 'profile')->first() ? $lawyer->image()->where('type', 'profile')->first()->url : '' }}">
+                                <div class="overlay">
+                                    <div class="c-table">
+                                        <div class="ct-cell">
+                                            <input id="average-rate" value="{{ $lawyer->rate->average_rate ?? '' }}"
+                                                   name="input-2" class="rating-loading average-rate" data-min="0"
+                                                   data-max="5"
+                                                   data-step="0.1">
+                                            <h3 class="practice-title">{{ $lawyer->applicants_name }}</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @empty
                     <p class="text-center">No Layers</p>
                 @endforelse
             </div>
+            <a style="float: right;" class="float-right btn btn-success" href="{{ route('lawyer.list') }}">More</a>
         </div>
     </section>
 
     <!-- Testimonial -->
     <section id="testimonial" class="testimonial">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-11 col-sm-offset-1">
+                <div class="col-sm-12">
+                    <div class="title-box">
+                        <h2 class="section-title">Top Three Lawyers And Their About</h2>
+                    </div>
+
                     <div id="test-slider" class="owl-carousel">
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <img class="img-responsive img-full"
-                                         src="{{ asset('frontend') }}/assets/images/testimonial-1.jpg"
-                                         alt="testimonial">
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>
-                                        Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-                                        vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
-                                        a, Aenean imperdiet. Etiam ultricies nisi vel tellus. PhaseIlus viverra nulla ut
-                                        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                                        augue. Phasellus viverra nulls ut metus varius laoreet.
-                                    </p>
-                                    <span>K. Survy | CEO, Google</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <img class="img-responsive img-full"
-                                         src="{{ asset('frontend') }}/assets/images/testimonial-2.jpg"
-                                         alt="testimonial">
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of essentially unchanged. It was popularised in
-                                        the 1960s with the Letraset sheets containing Lorem Ipsum passages.
-                                    </p>
-                                    <span>K. Survy | CEO, Google</span>
+                        @forelse($top_10_lawyers as $key => $lawyer)
+                            @if ($key > 2)
+                                @break
+                            @endif
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <img class="img-responsive img-full"
+                                             src="{{ $lawyer->image()->where('type', 'profile')->first() ?
+                                             $lawyer->image()->where('type', 'profile')->first()->url : '' }}"
+                                             alt="testimonial">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <p>
+                                            {{ $lawyer->about_say_you }}
+                                        </p>
+                                        <a style="display: block; color: white; float: right" href="{{ route('lawyer.details', $lawyer->id) }}">More</a>
+                                        <span>{{ $lawyer->applicants_name }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <img class="img-responsive img-full"
-                                         src="{{ asset('frontend') }}/assets/images/testimonial-3.jpg"
-                                         alt="testimonial">
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>
-                                        This is Texas Lawyers, an awesome template for Lawyers. It provides everything
-                                        and more for a lower. Search no more, Download this now.This is Texas Lawyers,
-                                        an awesome template for Lawyers. It provides everything and more for a lower.
-                                        Search no more,printer took a galley of essentially unchanged. It was
-                                        popularised in the 1960s with the Letraset sheets containing Lorem Ipsum.
-                                    </p>
-                                    <span>K. Survy | CEO, Google</span>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <p class="text-center">No Layers</p>
+                        @endforelse
                     </div>
                 </div>
             </div>

@@ -13,8 +13,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="title-box">
-                        <p class="section-subtitle">You may want to</p>
-                        <h2 class="section-title">Know the attorneys</h2>
+                        <h2 class="section-title">Lawyer List</h2>
                     </div>
                 </div>
             </div>
@@ -30,6 +29,7 @@
                                 <ul>
                                     <li><h3>{{ $lawyer->applicants_name }}</h3></li>
                                     <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
+                                    <li><h4 class="font-weight-bold">Phone Number {{ ucfirst(@$lawyer->mobile_number) }} </h4></li>
                                     <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
                                 </ul>
                                 <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})" style="width: 100%">Hire Now</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CaseType;
 use App\Models\Rate;
 use App\Models\Slider;
 use App\Models\User;
@@ -32,9 +33,16 @@ class HomeController extends Controller
 
     public function frontend()
     {
+        $caseTypes = CaseType::all();
+
         $sliders = Slider::status()->get();
-        $top_10_lawyers = Registration::with('rate', 'image')->get()->sortByDesc('rate.average_rate')->take(10);
-//        dd($top_10_lawyers->toArray());
-        return  view('frontend.home', compact('sliders', 'top_10_lawyers'));
+        $top_10_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(10);
+
+        $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(5);
+        $senior_lawyers = $all_lawyers->filter(function ($lawyer){
+           return $lawyer->category()->where('position', 'senior')->first();
+        });
+
+        return  view('frontend.home', compact('sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
     }
 }
