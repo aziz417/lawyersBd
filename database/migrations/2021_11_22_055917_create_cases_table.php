@@ -24,11 +24,11 @@ class CreateCasesTable extends Migration
             $table->string('document')->nullable();
             $table->string('slug')->nullable();
             $table->string('status')->default('0')->comment('
-             0, new case,
-             1, progressing
-             2, running case,
-             3, in complete case,
-             4, chancel case
+             0, chancel case
+             1, new case,
+             2, progressing
+             3, running case,
+             4, in complete case,
              5, case successfully done,
             ');
             $table->longText('description')->nullable();

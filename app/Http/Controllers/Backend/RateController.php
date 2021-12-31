@@ -119,7 +119,6 @@ class RateController extends Controller
                    return number_format((float)$explode_result[0]+1, 2);
                }
            }
-
         }
     }
 }

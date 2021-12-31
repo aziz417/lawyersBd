@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Cases;
 use App\Models\Category;
 use App\Models\District;
 use App\Models\Experience;
@@ -97,8 +98,8 @@ class Registration extends Model
     public function Quotas(){
         return $this->hasMany(Quota::class);
     }
-    public function Category(){
-        return $this->belongsTo(Category::class);
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
     public function rate(){
         return $this->belongsTo(Rate::class,'id', 'registration_id');
@@ -106,14 +107,12 @@ class Registration extends Model
     public function User(){
         return $this->belongsTo(User::class);
     }
-
     public function scopeStatus($query)
     {
         return $query->where('status', 'publish');
     }
 
-//    public function top10Lawyer(){
-//
-//    }
-
+    public function cases(){
+        return $this->hasMany(Cases::class, 'lawyer_id','id');
+    }
 }

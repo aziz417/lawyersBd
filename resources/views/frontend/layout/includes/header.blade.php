@@ -46,8 +46,8 @@
                 <a class="" href="{{ route('admin') }}">
                    Dashboard
                 </a>
-
                 </li>
+                <li><a href="{{ route('rating.Calculation') }}">Rating Update</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -27,5 +27,4 @@ class Cases extends Model
     public function type(){
         return $this->belongsTo(CaseType::class, 'case_type_id');
     }
-
 }
