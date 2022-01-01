@@ -1316,7 +1316,6 @@
                         </select>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -1325,7 +1324,7 @@
 <div class="form-group row">
     <div class="col-sm-2 col">
         <small>
-            About Say <span class="float-right">:</span>
+            About Your Self <span class="float-right">:</span>
         </small>
     </div>
     <div class="col-sm-10">
