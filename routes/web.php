@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ReplyController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\SlidersController;
 use App\Http\Controllers\Backend\SocialController;
@@ -54,6 +55,8 @@ Route::get('case/or/gd', function (){
     return view('frontend.pages.CaseOrGd');
 })->name('case.or.gd');
 
+// message controller
+Route::resource('messages', App\Http\Controllers\MessageController::class);
 
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/test', [HomeController::class, 'frontend'])->name('home');
@@ -74,6 +77,14 @@ Route::group(['middleware' => ['auth']], function (){
     })->name('pdf.view');
     Route::get('show/rating/system', [RateController::class, 'rateShow'])->name('rate.show');
     Route::get('rating/update', [RateController::class, 'ratingCalculation'])->name('rating.Calculation');
+
+    /******************************* Start => Message sections *********************************/
+    Route::resource('messages', App\Http\Controllers\Backend\MessageController::class)->only(['index', 'show', 'destroy']);
+    /******************************* End => Message sections *********************************/
+    /******************************* Start => Message sections *********************************/
+    Route::resource('replies', ReplyController::class);
+    Route::get("message-replies/{message}", [ReplyController::class, 'messageReplies'])->name('message.replies');
+    /******************************* End => Message sections *********************************/
 
 });
 
