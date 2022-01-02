@@ -26,7 +26,7 @@
                                  alt="team">
                             <div class="team-detail">
                                 <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}" name="input-2" class="rating-loading average-rate" data-min="0" data-max="5" data-step="0.1">
-                                <ul>
+                                <ul class="mb-5">
                                     <li><h3>{{ $lawyer->applicants_name }}</h3></li>
                                     <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
                                     <li><h4 class="font-weight-bold"> Contact: 01797506292 </h4><a
