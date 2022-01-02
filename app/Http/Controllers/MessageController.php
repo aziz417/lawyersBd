@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MessageRequest;
 use App\Mail\MessageMail;
-use App\Models\Message;
+use App\Models\MailMessages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -36,7 +36,7 @@ class MessageController extends Controller
             $email_details= $request->only(['name', 'email', 'subject', 'message']);
 
             Mail::to(config('mail.from.address'))->send(new MessageMail($email_details));
-            Message::create($email_details);
+            MailMessages::create($email_details);
 
             DB::commit();
             return redirect()->back()->with('success', 'Message Successfully Send');
@@ -48,7 +48,7 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show(MailMessages $message)
     {
         //
     }
@@ -59,7 +59,7 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
+    public function edit(MailMessages $message)
     {
         //
     }
@@ -71,7 +71,7 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update(Request $request, MailMessages $message)
     {
         //
     }
@@ -82,7 +82,7 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(MailMessages $message)
     {
         //
     }

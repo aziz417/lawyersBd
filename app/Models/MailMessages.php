@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @method static create(string[] $array)
- * @method static latest()
- * @method static select(string $string)
- */
-class Message extends Model
+class MailMessages extends Model
 {
+
+    /**
+     * @method static create(string[] $array)
+     * @method static latest()
+     * @method static select(string $string)
+     */
+
     use HasFactory;
     protected $fillable = ['name', 'email', 'subject', 'message'];
 
     public function replies(){
-        return $this->hasMany(Reply::Class);
+        return $this->hasMany(MailMessages::Class, 'id', 'mail_messages_id');
     }
 
     const PERMISSION = [
@@ -26,5 +28,4 @@ class Message extends Model
         'reply delete',
         'reply show',
     ];
-
 }

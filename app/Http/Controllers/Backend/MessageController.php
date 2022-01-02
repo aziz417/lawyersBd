@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Message;
+use App\Models\MailMessages;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -13,7 +13,7 @@ class MessageController extends Controller
         $keyword = $request->keyword;
 
         //get all Messages
-        $messages = Message::latest();
+        $messages = MailMessages::latest();
 
         if ($keyword) {
             $keyword = '%' . $keyword . '%';
@@ -30,11 +30,11 @@ class MessageController extends Controller
     }
 
     // message show admin panel
-    public function show(Message $message){
+    public function show(MailMessages $message){
         return view('backend.pages.messages.details', compact('message'));
     }
 
-    public function destroy(Message $message)
+    public function destroy(MailMessages $message)
     {
         $message->delete();
         return redirect()->back()->with('success', 'Message successfully deleted');

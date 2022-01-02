@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class Reply extends Model
+class MailReplies extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['message_id', 'reply_email', 'reply_subject', 'reply_message', 'created_by'];
+    protected $fillable = ['mail_messages_id', 'reply_email', 'reply_subject', 'reply_message', 'created_by'];
 
     public function createdUser(){
         return $this->belongsTo(User::class, 'created_by');

@@ -66,7 +66,6 @@
             if (localStorage.getItem("userStore") !== null) {
                 let values = localStorage.getItem('userStore');
                 var allData = JSON.parse(values);
-                console.log('age')
                 if (allData[1]['value'] === $("#type").val()){
                     $.get('{{ url('draft/store') }}', { data: allData }, function (response){
                         if (response){

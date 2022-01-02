@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.replies.store') }}" method="post">
+                <form action="{{ route('replies.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="message_id" value="{{ @$message->id }}">
                     <div class="form-group">

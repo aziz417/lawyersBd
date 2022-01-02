@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReplyRequest;
-use App\Models\Message;
-use App\Models\Reply;
+use App\Models\MailMessages;
+use App\Models\MailReplies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 class ReplyController extends Controller
 {
 
-    public function messageReplies(Message $message)
+    public function messageReplies(MailMessages $message)
     {
         $replies = $message->replies()->paginate(10);
         return view("backend.pages.messages.replies", compact('replies', 'message'));
@@ -57,7 +57,7 @@ class ReplyController extends Controller
         $reply_details = $request->only(['message_id', 'reply_email', 'reply_subject', 'reply_message', 'name']);
 
         Mail::to($reply_details['reply_email'])->send(new \App\Mail\ReplyMessage($reply_details));
-        Reply::create($reply_details);
+        MailReplies::create($reply_details);
 
         return redirect()->back()->with('success', 'Reply Sent Successfully');
     }
@@ -81,7 +81,7 @@ class ReplyController extends Controller
     }
 
 
-    public function destroy(Reply $reply)
+    public function destroy(MailReplies $reply)
     {
         $reply->delete();
         return redirect()->back()->with('success', 'Reply Successfully Deleted');
@@ -89,7 +89,7 @@ class ReplyController extends Controller
 
     protected function sendMailToAllMessages(Request $request)
     {
-        $all_messages = Message::all();
+        $all_messages = MailMessages::all();
         foreach ($all_messages as $message) {
             $details = [
                 'message_id' => $message->id,
@@ -99,14 +99,14 @@ class ReplyController extends Controller
                 'name' => $message->name
             ];
             Mail::to($details['reply_email'])->send(new \App\Mail\ReplyMessage($details));
-            Reply::create($details);
+            MailReplies::create($details);
         }
     }
 
     protected function sendMailToSelectedMessages(Request $request)
     {
         $messages = explode(',', $request->messages[0]);
-        $messages = Message::whereIn('id', $messages)->get();
+        $messages = MailMessages::whereIn('id', $messages)->get();
         foreach ($messages as $message) {
             $details = [
                 'message_id' => $message->id,
@@ -116,7 +116,7 @@ class ReplyController extends Controller
                 'name' => $message->name
             ];
             Mail::to($details['reply_email'])->send(new \App\Mail\ReplyMessage($details));
-            Reply::create($details);
+            MailReplies::create($details);
         }
     }
 

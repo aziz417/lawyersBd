@@ -39,19 +39,19 @@
                                                     <select name="perPage" id="perPage" onchange="submit()"
                                                             class="input-sm form-control custom_field_height">
                                                         <option
-                                                            value="10"{{ request('perPage') == 10 ? ' selected' : '' }}>
+                                                                value="10"{{ request('perPage') == 10 ? ' selected' : '' }}>
                                                             10
                                                         </option>
                                                         <option
-                                                            value="25"{{ request('perPage') == 25 ? ' selected' : '' }}>
+                                                                value="25"{{ request('perPage') == 25 ? ' selected' : '' }}>
                                                             25
                                                         </option>
                                                         <option
-                                                            value="50"{{ request('perPage') == 50 ? ' selected' : '' }}>
+                                                                value="50"{{ request('perPage') == 50 ? ' selected' : '' }}>
                                                             50
                                                         </option>
                                                         <option
-                                                            value="100"{{ request('perPage') == 100 ? ' selected' : '' }}>
+                                                                value="100"{{ request('perPage') == 100 ? ' selected' : '' }}>
                                                             100
                                                         </option>
                                                     </select>
@@ -84,42 +84,35 @@
                         </div>
 
                         <div class="table-responsive m-t-md">
-                            @canany(['message reply'])
-                                <div class="d-flex mb-2">
-                                    <button class="btn btn-sm btn-success mr-2 sendMailSelectedMessageBtn">Send mail to
-                                        selected messages
-                                    </button>
-                                    <button class="btn btn-sm btn-info sendMailAllMessagesBtn">Send mail to all messages
-                                    </button>
-                                </div>
-                            @endcanany
+                            <div class="d-flex mb-2">
+                                <button class="btn btn-sm btn-success mr-2 sendMailSelectedMessageBtn">Send mail to
+                                    selected messages
+                                </button>
+                                <button class="btn btn-sm btn-info sendMailAllMessagesBtn">Send mail to all messages
+                                </button>
+                            </div>
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    @canany(['message reply'])
-                                        <th class="text-left" width="75">
-                                            <input type="checkbox" id="checkAll"> <label for="checkAll">All</label>
-                                        </th>
-                                    @endcanany
+                                    <th class="text-left" width="75">
+                                        <input type="checkbox" id="checkAll"> <label for="checkAll">All</label>
+                                    </th>
+
                                     <th class="text-left">User Name</th>
                                     <th class="text-left">User Email</th>
                                     <th class="text-left">Subject</th>
                                     <th class="text-left">Message</th>
                                     <th>Replied Count</th>
-                                    @canany(['message show', 'message delete', 'message reply', 'message reply show', 'message reply delete'])
-                                        <th width="25%">Action</th>
-                                    @endcanany
+                                    <th width="25%">Action</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 @foreach(@$messages as $message)
                                     <tr>
-                                        @canany(['message reply'])
-                                            <td class="text-left">
-                                                <input type="checkbox" value="{{ $message->id }}" class="checkedMe">
-                                            </td>
-                                        @endcanany
+                                        <td class="text-left">
+                                            <input type="checkbox" value="{{ $message->id }}" class="checkedMe">
+                                        </td>
                                         <td class="text-left">{{ ucfirst(Str::limit(@$message->name, 50)) }}</td>
                                         <td class="text-left">{{ @$message->email }}</td>
                                         <td class="text-left">{{ ucfirst(Str::limit(@$message->subject, 50)) }}</td>
@@ -128,49 +121,39 @@
                                             <span class="badge badge-primary">{{ @$message->replies()->count() }}</span>
                                         </td>
                                         @include("backend.pages.messages.reply-modal", ['id' => $message->id])
-                                        @canany(['message show', 'message delete', 'message reply', 'message reply show', 'message reply delete'])
-                                            <td>
-                                                @canany(['message reply'])
-                                                    <button type="button" class="btn btn-sm btn-primary"
-                                                            data-toggle="modal"
-                                                            data-target="#exampleModal-{{$message->id}}"
-                                                            data-whatever="@fat"
-                                                            title="Reply"
-                                                    >
-                                                        <i class="fa fa-reply"></i>
-                                                    </button>
-                                                @endcanany
-                                                @canany(['message reply show', 'message reply delete'])
-                                                    <a href="{{ route('message.replies', @$message->id)  }}"
-                                                       title="Show Reply Details"
-                                                       class="btn btn-success btn-sm cus_btn">
-                                                        <i class="fa fa-comment"></i>
-                                                    </a>
-                                                @endcanany
-                                                @canany(['message show'])
-                                                    <a href="{{ route('messages.show', @$message->id)  }}"
-                                                       title="Show Message Details"
-                                                       class="btn btn-warning btn-sm cus_btn">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                @endcanany
-                                                @canany(['message delete'])
-                                                    <button onclick="deleteRow({{ @$message->id }})"
-                                                            href="JavaScript:void(0)"
-                                                            title="Delete the message"
-                                                            class="btn btn-danger btn-sm cus_btn">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"
+                                                    data-toggle="modal"
+                                                    data-target="#exampleModal-{{$message->id}}"
+                                                    data-whatever="@fat"
+                                                    title="Reply"
+                                            >
+                                                <i class="fa fa-reply"></i>
+                                            </button>
+                                            <a href="{{ route('message.replies', @$message->id)  }}"
+                                               title="Show Reply Details"
+                                               class="btn btn-success btn-sm cus_btn">
+                                                <i class="fa fa-comment"></i>
+                                            </a>
+                                            <a href="{{ route('messages.show', @$message->id)  }}"
+                                               title="Show Message Details"
+                                               class="btn btn-warning btn-sm cus_btn">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <button onclick="deleteRow({{ @$message->id }})"
+                                                    href="JavaScript:void(0)"
+                                                    title="Delete the message"
+                                                    class="btn btn-danger btn-sm cus_btn">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
 
-                                                    <form id="row-delete-form{{ @$message->id }}" method="POST"
-                                                          class="d-none"
-                                                          action="{{ route('messages.destroy', @$message->id) }}">
-                                                        @method('DELETE')
-                                                        @csrf()
-                                                    </form>
-                                                @endcanany
-                                            </td>
-                                        @endcanany
+                                            <form id="row-delete-form{{ @$message->id }}" method="POST"
+                                                  class="d-none"
+                                                  action="{{ route('messages.destroy', @$message->id) }}">
+                                                @method('DELETE')
+                                                @csrf()
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
