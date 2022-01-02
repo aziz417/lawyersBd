@@ -10,17 +10,17 @@
         <div class="col-lg-12">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                    <a href="{{ route('home') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="{{ route('admin.messages.index') }}">Messages</a>
+                    <a href="{{ route('messages.index') }}">Messages</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <strong>Details</strong>
                 </li>
             </ol>
             <a class="btn btn-sm btn-primary pull-right m-t-n-md"
-               href="{{ route('admin.messages.index') }}"><i
+               href="{{ route('messages.index') }}"><i
                     class="fa fa-arrow-left"></i> <strong>Back</strong></a>
         </div>
     </div>

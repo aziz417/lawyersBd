@@ -29,6 +29,6 @@ class MessageMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->email_details['subject'])->view('pages.messages.message');
+        return $this->subject($this->email_details['subject'])->view('frontend.pages.messages.message');
     }
 }

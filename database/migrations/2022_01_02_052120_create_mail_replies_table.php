@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRepliesTable extends Migration
+class CreateMailRepliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('mail_replies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('message_id')->constrained('messages')->cascadeOnDelete();
+            $table->foreignId('mail_messages_id')->constrained('mail_messages')->cascadeOnDelete();
             $table->string('reply_subject');
             $table->string('reply_email');
             $table->longText('reply_message');
@@ -31,6 +31,6 @@ class CreateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('mail_replies');
     }
 }

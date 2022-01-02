@@ -27,16 +27,23 @@
                 @forelse($senior_lawyers as $key => $lawyer)
                     <div class="col-sm-4">
                         <div class="team-box">
-                            <img style="height: 230px !important;" class="img-responsive img-full" src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
+                            <img style="height: 230px !important;" class="img-responsive img-full"
+                                 src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
                                  alt="team">
                             <div class="team-detail">
-                                <ul>
+                                <ul class="mb-5">
                                     <li><h3>{{ $lawyer->applicants_name }}</h3></li>
-                                    <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
-                                    <li><h4 class="font-weight-bold">Phone Number {{ ucfirst(@$lawyer->mobile_number) }} </h4></li>
-                                    <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
+                                    <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span
+                                                    class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span>
+                                        </h4></li>
+                                    <li><h4 class="font-weight-bold"> Contact: 01797506292 </h4><a
+                                                class="btn btn-success pull-left" href="{{ url('/') }}/#EmailContactForm" onclick="mailForm({{ $lawyer }})">Mail</a><a
+                                                class="btn btn-primary pull-right" href="{{ url('chatify/'.$lawyer->id) }}">Message</a></li>
+                                    <li><h4><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></h4></li>
                                 </ul>
-                                <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})" style="width: 100%">Hire Now</button>
+                                <button class="btn btn-success w-full mt-6" onclick="hireNow({{ @$lawyer->user->id }})"
+                                        style="width: 100%">Hire Now
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -114,7 +121,8 @@
                                         <p>
                                             {{ $lawyer->about_say_you }}
                                         </p>
-                                        <a style="display: block; color: white; float: right" href="{{ route('lawyer.details', $lawyer->id) }}">More</a>
+                                        <a style="display: block; color: white; float: right"
+                                           href="{{ route('lawyer.details', $lawyer->id) }}">More</a>
                                         <span>{{ $lawyer->applicants_name }}</span>
                                     </div>
                                 </div>
@@ -134,8 +142,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="title-box">
-                        <p class="section-subtitle">You may want to</p>
-                        <h2 class="section-title">Contact us</h2>
+                        <h2 class="section-title"><span id="contactTitle" class="text-success">Admin</span> With Contact</h2>
                     </div>
                 </div>
             </div>
@@ -154,7 +161,8 @@
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <form id="contactForm" action="php/contact_form.php" method="post">
+                    <form id="EmailContactForm" action="{{ route('messages.store') }}" method="post">
+                        @csrf
                         <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="ion-person"></i>
@@ -165,7 +173,13 @@
                                     <span class="input-group-addon">
                                         <i class="ion-email"></i>
                                     </span>
-                            <input class="form-control" name="email" type="email" placeholder="Email address" required>
+                            <input class="form-control" id="lawyerEmail" name="email" type="email" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="ion-email"></i>
+                                    </span>
+                            <input class="form-control" name="subject" type="text" placeholder="Subject" required>
                         </div>
                         <div class="input-group">
                                     <span class="input-group-addon custom-addon">
@@ -174,11 +188,10 @@
                             <textarea class="form-control" rows="8" placeholder="Write Message"
                                       name="message"></textarea>
                         </div>
-                        <button id="cfsubmit" type="submit" class="btn btn-default btn-block">Send your Message <span
+                        <button type="submit" class="btn btn-default btn-block">Send your Message <span
                                     class="ion-paper-airplane"></span></button>
                     </form>
 
-                    <div id="contactFormResponse"></div>
                 </div>
             </div>
         </div>

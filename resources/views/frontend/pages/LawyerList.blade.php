@@ -29,8 +29,9 @@
                                 <ul>
                                     <li><h3>{{ $lawyer->applicants_name }}</h3></li>
                                     <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span></h4></li>
-                                    <li><h4 class="font-weight-bold">Phone Number {{ ucfirst(@$lawyer->mobile_number) }} </h4></li>
-                                    <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
+                                    <li><h4 class="font-weight-bold"> Contact: 01797506292 </h4><a
+                                                class="btn btn-success pull-left" href="{{ url('/') }}/#EmailContactForm" onclick="mailForm({{ $lawyer }})">Mail</a><a
+                                                class="btn btn-primary pull-right">Message</a></li>                                    <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
                                 </ul>
                                 <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})" style="width: 100%">Hire Now</button>
                             </div>
