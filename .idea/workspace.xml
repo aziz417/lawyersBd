@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/MessageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ReplyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MessageRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/ReplyRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/MessageMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/ReplyMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Reply.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_16_080855_create_messages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_13_154207_create_replies_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/messageMailModal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/replies.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/reply-modal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/reply_message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/pages/messages/message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -322,6 +299,7 @@
       <workItem from="1640925287476" duration="6229000" />
       <workItem from="1641009201319" duration="687000" />
       <workItem from="1641022514961" duration="3211000" />
+      <workItem from="1641053363730" duration="662000" />
     </task>
     <servers />
   </component>
