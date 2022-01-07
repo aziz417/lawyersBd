@@ -94,11 +94,14 @@
                     </ul>
                 </li>
             @endif
+
+            @if(Auth::user()->role == 'lawyer' || Auth::user()->role == 'user')
+                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
+                    <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case {{ Auth::user()->role == 'lawyer' ? 'Manage' : '' }}</span></a>
+                </li>
+            @endif
             {{--           just lawyer--}}
             @if(Auth::user()->role == 'lawyer')
-                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
-                    <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case Manage</span></a>
-                </li>
                 <li class="{{ request()->routeIs('rate.*') ? 'active' : ''  }}">
                     <a href="{{ route('rate.show') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span
                                 class="nav-label">Your Rating Panel</span></a>
