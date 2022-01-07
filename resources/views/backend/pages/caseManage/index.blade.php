@@ -12,9 +12,12 @@
                     <strong>Cases</strong>
                 </li>
             </ol>
-            <a class="btn btn-sm btn-primary pull-right m-t-n-md boardCreateModalShow"
-               href="{{ route('rate.show') }}"><i
-                        class="fa fa-plus"></i> <strong>Your Rating</strong></a>
+            @if(Auth::user()->role == 'lawyer')
+                <a class="btn btn-sm btn-primary pull-right m-t-n-md boardCreateModalShow"
+                   href="{{ route('rate.show') }}"><i
+                            class="fa fa-plus"></i> <strong>Your Rating</strong></a>
+            @endif
+
         </div>
     </div>
 
@@ -37,8 +40,9 @@
                                     <th>Case Title</th>
                                     <th>Case Date</th>
                                     <th>Case Cote Date</th>
-                                    <th>Client Email</th>
-                                    <th>Client Phone Number</th>
+                                    <th>{{ Auth::user()->role == 'lawyer' ? 'Client' : 'Lawyer' }} Name</th>
+                                    <th>{{ Auth::user()->role == 'lawyer' ? 'Client' : 'Lawyer' }} Email</th>
+                                    <th>{{ Auth::user()->role == 'lawyer' ? 'Client' : 'Lawyer' }} Phone Number</th>
                                     <th>Case Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -53,22 +57,45 @@
                                         <td>{{ $case->title }}</td>
                                         <td>{{ $case->caseDate }}</td>
                                         <td>{{ $case->coteDate }}</td>
-                                        <td>{{ $case->user()->first()->register()->first()->email }}</td>
-                                        <td>{{ $case->user()->first()->register()->first()->mobile_number }}</td>
+                                        @if(Auth::user()->role == 'lawyer')
+                                            <td>{{ $case->user->applicants_name }}</td>
+                                            <td>{{ $case->user->email }}</td>
+                                            <td>{{ $case->user->mobile_number }}</td>
+                                        @elseif(Auth::user()->role == 'user')
+                                            <td>{{ $case->lawyer->applicants_name }}</td>
+                                            <td>{{ $case->lawyer->email }}</td>
+                                            <td>{{ $case->lawyer->mobile_number }}</td>
+                                        @endif
                                         <td>
-                                            <select class="status_bg py-1 px-2" id="caseSubmitId-{{ $case->id }}">
+                                            <select class="status_bg py-1 px-2" id="caseSubmitId-{{ $case->id }}" {{ Auth::user()->role == 'user' ? 'disabled' : '' }}>
                                                 @foreach($case_status as $key => $status)
                                                     <option {{ $case->status == $key ? 'selected' : '' }} value="{{ $key }}" class="{{ $status }}">{{ $status }}</option>
                                                 @endforeach
                                             </select>
-                                            <button class="py-1 px-2" onclick="caseSumbit({{ $case->id }})">Update</button>
+                                            @if(Auth::user()->role == 'lawyer')
+                                                <button class="py-1 px-2" onclick="caseSumbit({{ $case->id }})">Update</button>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('case.details', $case->id) }}" title="Show">
+                                            <a href="{{ route('case.details', $case->id) }}" title="Details">
                                                 <div class="btn btn-info cus_btn">
-                                                    <i class="fa fa-pencil-square-o"></i> <strong>Details</strong>
+                                                    <i class="fa fa-pencil-square-o"></i>
                                                 </div>
                                             </a>
+                                            <a href="{{ url('chatify', Auth::user()->role == 'lawyer' ? $case->user->id : $case->lawyer->id) }}" title="Message">
+                                                <div class="btn btn-primary cus_btn">
+                                                    <i class="fa fa-comment"></i>
+                                                </div>
+                                            </a>
+                                            <form class="mt-2" action="{{ route('messages.index')}}" method="get"
+                                                  role="form">
+                                                <input name="keyword" type="hidden"
+                                                       value="{{ Auth::user()->role == 'lawyer' ? $case->user->email : $case->lawyer->email }}"
+                                                >
+                                                <button type="submit"
+                                                        class="btn btn-success cus_btn"><i class="fa fa-envelope"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty

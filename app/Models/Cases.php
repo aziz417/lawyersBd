@@ -28,6 +28,9 @@ class Cases extends Model
     public function register(){
         return $this->belongsTo(Registration::class, 'user_id');
     }
+    public function lawyer(){
+        return $this->belongsTo(Registration::class, 'lawyer_id');
+    }
     public function type(){
         return $this->belongsTo(CaseType::class, 'case_type_id');
     }

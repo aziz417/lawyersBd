@@ -55,6 +55,9 @@ class User extends Authenticatable
     public function cases(){
         return $this->hasMany(Cases::class, 'lawyer_id');
     }
+    public function userCases(){
+        return $this->hasMany(Cases::class, 'user_id');
+    }
 
     public function rate(){
         return $this->belongsTo(Rate::class, 'id', 'registration_id');
