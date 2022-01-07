@@ -1,17 +1,45 @@
 @extends('frontend.layout.app')
 @section('content')
 
-    <div id="test-slider1" class="owl-carousel owl-carousel-custom-design">
-        @forelse($sliders as $slider)
-            <div class="item1">
-                <img style="width: 100%; height: 660px !important;" class="img-responsive1"
-                     src="{{ $slider->image->url }}"
-                     alt="testimonial">
-            </div>
-        @empty
-            <p class="text-center">No slider</p>
-        @endforelse
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @forelse($sliders as $key => $slider)
+                <li data-target="#bs-carousel" data-slide-to="{{$key}}" class="{{ $key === 0 ? 'active' : '' }}"></li>
+            @empty
+                <p class="text-center">No slider</p>
+            @endforelse
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            @forelse($sliders as $key => $slider)
+                <div class="item slides {{ $key === 0 ? 'active' : '' }}">
+                    <div class="slide-{{ $key++ }}">
+                        <img style="width: 100%; height: 660px !important;" class="img-responsive1"
+                             src="{{ $slider->image->url }}"
+                             alt="testimonial">
+                    </div>
+                </div>
+            @empty
+                <p class="text-center">No slider</p>
+            @endforelse
+        </div>
     </div>
+
+
+    {{--    <div id="test-slider1" class="owl-carousel owl-carousel-custom-design">--}}
+    {{--        @forelse($sliders as $slider)--}}
+    {{--            <div class="item1">--}}
+    {{--                <img style="width: 100%; height: 660px !important;" class="img-responsive1"--}}
+    {{--                     src="{{ $slider->image->url }}"--}}
+    {{--                     alt="testimonial">--}}
+    {{--            </div>--}}
+    {{--        @empty--}}
+    {{--            <p class="text-center">No slider</p>--}}
+    {{--        @endforelse--}}
+    {{--    </div>--}}
 
     <section id="team" class="team">
         <div class="container">
@@ -37,8 +65,11 @@
                                                     class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span>
                                         </h4></li>
                                     <li><h4 class="font-weight-bold"> Contact: {{ $lawyer->mobile_number }} </h4><a
-                                                class="btn btn-success pull-left" href="{{ url('/') }}/#EmailContactForm" onclick="mailForm({{ $lawyer }})">Mail</a><a
-                                                class="btn btn-primary pull-right" href="{{ url('chatify/'.$lawyer->id) }}">Message</a></li>
+                                                class="btn btn-success pull-left"
+                                                href="{{ url('/') }}/#EmailContactForm"
+                                                onclick="mailForm({{ $lawyer }})">Mail</a><a
+                                                class="btn btn-primary pull-right"
+                                                href="{{ url('chatify/'.$lawyer->id) }}">Message</a></li>
                                     <li><h4><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></h4></li>
                                 </ul>
                                 <button class="btn btn-success w-full mt-6" onclick="hireNow({{ @$lawyer->user->id }})"
@@ -104,33 +135,49 @@
                         <h2 class="section-title">Top Three Lawyers And Their About</h2>
                     </div>
 
-                    <div id="test-slider" class="owl-carousel">
-                        @forelse($top_10_lawyers as $key => $lawyer)
-                            @if ($key > 2)
-                                @break
-                            @endif
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <img class="img-responsive img-full"
-                                             src="{{ $lawyer->image()->where('type', 'profile')->first() ?
-                                             $lawyer->image()->where('type', 'profile')->first()->url : '' }}"
-                                             alt="testimonial">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <p>
-                                            {{ $lawyer->about_say_you }}
-                                        </p>
-                                        <a style="display: block; color: white; float: right"
-                                           href="{{ route('lawyer.details', $lawyer->id) }}">More</a>
-                                        <span>{{ $lawyer->applicants_name }}</span>
+                    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+                        <!-- Overlay -->
+                        <div class="overlay"></div>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            @forelse($top_10_lawyers as $key => $lawyer)
+                                <li data-target="#bs-carousel" data-slide-to="{{$key}}" class="{{ $key === 0 ? 'active' : '' }}"></li>
+                            @empty
+                            @endforelse
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            @forelse($top_10_lawyers as $key => $lawyer)
+                                @if ($key > 2)
+                                    @break
+                                @endif
+                                <div class="item slides {{ $key === 0 ? 'active' : '' }}">
+                                    <div class="slide-{{ $key++ }}">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <img class="img-responsive img-full"
+                                                     src="{{ $lawyer->image()->where('type', 'profile')->first() ?
+                                                                 $lawyer->image()->where('type', 'profile')->first()->url : '' }}"
+                                                     alt="testimonial">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p>
+                                                    {{ $lawyer->about_say_you }}
+                                                </p>
+                                                <a style="display: block; color: white; float: right"
+                                                   href="{{ route('lawyer.details', $lawyer->id) }}">More</a>
+                                                <span>{{ $lawyer->applicants_name }}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @empty
-                            <p class="text-center">No Layers</p>
-                        @endforelse
+                            @empty
+                                <p class="text-center">No slider</p>
+                            @endforelse
+                        </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -142,25 +189,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="title-box">
-                        <h2 class="section-title"><span id="contactTitle" class="text-success">Admin</span> With Contact</h2>
+                        <h2 class="section-title"><span id="contactTitle" class="text-success">Admin</span> With Contact
+                        </h2>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-6">
-                    <img src="{{ asset('frontend') }}/assets/images/logo.png" alt="logo" class="contact-logo">
-                    <p>
-                        This is Texas Lawyers, an awesome template for Lawyers. It provides everything and more for a
-                        lower. Search no more, Download this now.This is Texas Lawyers, an awesome template for Lawyers.
-                    </p>
-                    <ul>
-                        <li><span class="ion-location"></span>322, Adress, Lorem Ipsum Avenue, London, Earth</li>
-                        <li><span class="ion-android-call"></span>(888) 123-456-7890</li>
-                        <li><span class="ion-paper-airplane"></span>thisisfakeemail@noreply.com</li>
-                    </ul>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-sm-offset-3">
                     <form id="EmailContactForm" action="{{ route('messages.store') }}" method="post">
                         @csrf
                         <div class="input-group">
@@ -173,7 +209,8 @@
                                     <span class="input-group-addon">
                                         <i class="ion-email"></i>
                                     </span>
-                            <input class="form-control" id="lawyerEmail" name="email" type="email" placeholder="Email address" required>
+                            <input class="form-control" id="lawyerEmail" name="email" type="email"
+                                   placeholder="Email address" required>
                         </div>
                         <div class="input-group">
                                     <span class="input-group-addon">

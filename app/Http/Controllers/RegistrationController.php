@@ -637,7 +637,7 @@ class RegistrationController extends Controller
 
         if ($request->file('photo')) {
             $image = $request->file('photo');
-            $image_name = FileHandler::upload($image, 'sliders', ['width' => '160', 'height' => '160']);
+            $image_name = FileHandler::upload($image, 'profile', ['width' => '160', 'height' => '160']);
         }
 
         if ($request->file('signature')) {
@@ -885,20 +885,56 @@ class RegistrationController extends Controller
                 $request->masters_subject_degree = $addSubject;
             }
         }
-        $image_name = 'no image';
-        $signature_img = 'no image';
 
         if ($request->file('photo')) {
             $image = $request->file('photo');
-            $image_name = FileHandler::upload($image, 'sliders', ['width' => '160', 'height' => '160']);
-        }else {
+            $image_name = FileHandler::upload($image, 'profile', ['width' => '160', 'height' => '160']);
+            $oldImage = $registration->image()->where('type', 'profile')->first();
+            if ($oldImage){
+                FileHandler::delete($registration->image()->where('type', 'profile')->first()->base_path); //image delete
+                $oldImage->update([ // image update
+                    'url' => Storage::url($image_name),
+                    'base_path' => $image_name,
+                    'type' => 'profile',
+                ]);
+            }else{
+                if ($request->file('profile_image')) {
+                    $registration->image()->create([
+                        'url' => Storage::url($image_name),
+                        'base_path' => $image_name,
+                        'type' => 'profile',
+                    ]);
+                }
+            }
+
+            $image_name = Storage::url($image_name);
+        }else{
             $image_name = $registration->image;
         }
 
         if ($request->file('signature')) {
             $image = $request->file('signature');
             $signature_img = FileHandler::upload($image, 'signature', ['width' => '160', 'height' => '160']);
-        }else {
+            $signatureOldImage = $registration->image()->where('type', 'signature')->first();
+
+            if ($signatureOldImage) {
+                FileHandler::delete($registration->image()->where('type', 'signature')->first()->base_path); //image delete
+                $signatureOldImage->update([ // image update
+                    'url' => Storage::url($signature_img),
+                    'base_path' => $signature_img,
+                    'type' => 'signature',
+                ]);
+            } else {
+                if ($request->file('signature')) {
+                    $registration->image()->create([
+                        'url' => Storage::url($signature_img),
+                        'base_path' => $signature_img,
+                        'type' => 'signature',
+                    ]);
+                }
+            }
+            $signature_img = Storage::url($signature_img);
+        }else{
             $signature_img = $registration->signature_img;
         }
 
@@ -915,6 +951,12 @@ class RegistrationController extends Controller
             $request->permanent_post_office = $request->present_post_office;
             $request->permanent_post_code = $request->present_post_code;
         }
+        // user update
+        $registration->user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
         $registration->update([
             'category_id' => $request->category_id,
@@ -985,37 +1027,26 @@ class RegistrationController extends Controller
 
         ]);
 
-        $registration->image()->update([
-            'url' => Storage::url($image_name),
-            'base_path' => $image_name,
-            'type' => 'profile',
-        ]);
-        $registration->image()->update([
-            'url' => Storage::url($signature_img),
-            'base_path' => $signature_img,
-            'type' => 'signature',
-        ]);
-
-        if ($request->quota) {
-            foreach ($request->quota as $key => $row) {
-                $quota = Quota::where('registration_id', $registration->id)
-                    ->where('quota', $row)->first();
-                if ($quota) {
-                    $quota->update([
-                        'registration_id' => $registration->id,
-                        'quota' => $request->quota[$key],
-                    ]);
-                } else {
-                    Quota::create([
-                        'registration_id' => $registration->id,
-                        'quota' => $request->quota[$key]
-                    ]);
-                }
-            }
-        }
+//        if ($request->quota) {
+//            foreach ($request->quota as $key => $row) {
+//                $quota = Quota::where('registration_id', $registration->id)
+//                    ->where('quota', $row)->first();
+//                if ($quota) {
+//                    $quota->update([
+//                        'registration_id' => $registration->id,
+//                        'quota' => $request->quota[$key],
+//                    ]);
+//                } else {
+//                    Quota::create([
+//                        'registration_id' => $registration->id,
+//                        'quota' => $request->quota[$key]
+//                    ]);
+//                }
+//            }
+//        }
 
         if ($request->designation) {
-            Quota::where('registration_id', $registration->id)->whereNotIn('quota', $request->quota)->delete();
+//            Quota::where('registration_id', $registration->id)->whereNotIn('quota', $request->quota)->delete();
             foreach ($request->experienceRows as $key => $row) {
                 $experience = Experience::Where('id', $row)->first();
                 if ($experience) {
@@ -1167,7 +1198,6 @@ class RegistrationController extends Controller
     // Select permanent_upazila
     public function selectItems(Request $request)
     {
-        info('ghg');
         $data = [];
         if ($request->name === 'present_upazila') {
             $upazilas = Upazila::where('district_id', $request->id)->get();

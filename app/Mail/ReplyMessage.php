@@ -29,6 +29,6 @@ class ReplyMessage extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->reply_details['reply_subject'])->view('admin.pages.messages.reply_message');
+        return $this->subject($this->reply_details['reply_subject'])->view('backend.pages.messages.reply_message');
     }
 }

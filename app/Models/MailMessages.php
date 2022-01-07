@@ -18,7 +18,7 @@ class MailMessages extends Model
     protected $fillable = ['name', 'email', 'subject', 'message'];
 
     public function replies(){
-        return $this->hasMany(MailMessages::Class, 'id', 'mail_messages_id');
+        return $this->hasMany(MailReplies::Class, 'mail_message_id', 'id');
     }
 
     const PERMISSION = [

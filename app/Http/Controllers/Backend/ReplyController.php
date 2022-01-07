@@ -48,13 +48,13 @@ class ReplyController extends Controller
         //End => send mail to selected customers section
 
         $request->validate([
-            'message_id' => 'required|integer',
+            'mail_message_id' => 'required|integer',
             'reply_email' => 'required|email',
             'reply_subject' => 'required',
             'reply_message' => 'required',
         ]);
 
-        $reply_details = $request->only(['message_id', 'reply_email', 'reply_subject', 'reply_message', 'name']);
+        $reply_details = $request->only(['mail_message_id', 'reply_email', 'reply_subject', 'reply_message', 'name']);
 
         Mail::to($reply_details['reply_email'])->send(new \App\Mail\ReplyMessage($reply_details));
         MailReplies::create($reply_details);
@@ -92,7 +92,7 @@ class ReplyController extends Controller
         $all_messages = MailMessages::all();
         foreach ($all_messages as $message) {
             $details = [
-                'message_id' => $message->id,
+                'mail_message_id' => $message->id,
                 'reply_email' => $message->email,
                 'reply_subject' => $request->reply_subject,
                 'reply_message' => $request->reply_message,
@@ -109,7 +109,7 @@ class ReplyController extends Controller
         $messages = MailMessages::whereIn('id', $messages)->get();
         foreach ($messages as $message) {
             $details = [
-                'message_id' => $message->id,
+                'mail_message_id' => $message->id,
                 'reply_email' => $message->email,
                 'reply_subject' => $request->reply_subject,
                 'reply_message' => $request->reply_message,

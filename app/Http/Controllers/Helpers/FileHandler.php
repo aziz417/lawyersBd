@@ -18,7 +18,7 @@ class FileHandler
 
         $resized_image = Image::make($image)->resize($size['width'], $size['height'])->stream();
 
-        Storage::put($image_path, $resized_image);
+        Storage::disk('public')->put($image_path, $resized_image);
         return $image_path;
     }
 

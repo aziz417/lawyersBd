@@ -5,7 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ClientController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserPasswordRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserProfileRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641187428.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641187451.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641191139.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641191169.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641197383.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641197405.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641197720.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641197738.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641198017.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641198031.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/client/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ReplyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ReplyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Helpers/FileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Helpers/FileHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ReplyMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ReplyMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cases.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cases.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MailMessages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MailMessages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MailReplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MailReplies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_02_052120_create_mail_replies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_02_052120_create_mail_replies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/menu_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/menu_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/elements/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/messages/reply-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/messages/reply-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/slider/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +209,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Providers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -187,9 +222,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Providers" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\frontend\pages" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Requests" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Controllers\Backend" />
     </key>
@@ -311,6 +346,13 @@
       <workItem from="1641009201319" duration="687000" />
       <workItem from="1641022514961" duration="3211000" />
       <workItem from="1641053869827" duration="5571000" />
+      <workItem from="1641184133161" duration="18284000" />
+      <workItem from="1641224929844" duration="306000" />
+      <workItem from="1641237151471" duration="1918000" />
+      <workItem from="1641315212522" duration="15000" />
+      <workItem from="1641442046217" duration="7926000" />
+      <workItem from="1641464409212" duration="27000" />
+      <workItem from="1641526551388" duration="16288000" />
     </task>
     <servers />
   </component>

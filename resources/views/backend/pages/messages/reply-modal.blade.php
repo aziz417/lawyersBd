@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <form action="{{ route('replies.store') }}" method="post">
                     @csrf
-                    <input type="hidden" name="message_id" value="{{ @$message->id }}">
+                    <input type="hidden" name="mail_message_id" value="{{ @$message->id }}">
                     <div class="form-group">
                         <label for="name" class="col-form-label">Name</label>
                         <input name="name" value="{{ ucfirst(Str::limit(@$message->name, 50)) }}" type="text" class="form-control" id="name">
