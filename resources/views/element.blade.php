@@ -344,7 +344,7 @@
             <div class="col-sm-2">
                 <div>
                     @if(isset($register->image) && !empty($register->image))
-                        <img id="profile_old_img" src="{{ asset('uploads/applications').'/'.$register->image }}"
+                        <img id="profile_old_img" src="{{ $register->image }}"
                              width="100px" height="100px"
                         >
                     @endif
@@ -378,7 +378,7 @@
             <div class="col-sm-2">
                 <div>
                     @if(isset($register->signature_img) && !empty($register->signature_img))
-                        <img id="signature_old_img" src="{{ asset('uploads/applications').'/'.$register->signature_img }}"
+                        <img id="signature_old_img" src="{{ $register->signature_img }}"
                              width="100px" height="100px"
                         >
                     @endif
@@ -640,7 +640,6 @@
         </div>
     </div>
 </div>
-
 {{--            Contact Info        --}}
 <div class="info mt-2">
     <div class="info-heading mb-3">

@@ -8,6 +8,7 @@ use App\Models\Slider;
 use App\Models\User;
 use App\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -34,8 +35,8 @@ class HomeController extends Controller
     public function frontend()
     {
         $caseTypes = CaseType::all();
-
-        $sliders = Slider::status()->get();
+        $sliders = Slider::with('image')->status()->get();
+//        dd($sliders->toArray());
         $top_10_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(10);
 
         $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(5);

@@ -15,10 +15,11 @@ class CreateMailRepliesTable extends Migration
     {
         Schema::create('mail_replies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mail_messages_id')->constrained('mail_messages')->cascadeOnDelete();
+            $table->foreignId('mail_message_id')->constrained('mail_messages')->cascadeOnDelete();
             $table->string('reply_subject');
             $table->string('reply_email');
             $table->longText('reply_message');
+            $table->string('name')->nullable();
             $table->integer('created_by')->nullable();
             $table->timestamps();
         });

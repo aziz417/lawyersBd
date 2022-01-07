@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MailReplies extends Model
 {
-    protected $fillable = ['mail_messages_id', 'reply_email', 'reply_subject', 'reply_message', 'created_by'];
+    protected $fillable = ['mail_message_id', 'reply_email', 'reply_subject', 'reply_message', 'created_by'];
 
     public function createdUser(){
         return $this->belongsTo(User::class, 'created_by');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\ReplyController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\SlidersController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\frontend\CasesController;
 use App\Http\Controllers\frontend\LawyerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade;
@@ -86,6 +88,11 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get("message-replies/{message}", [ReplyController::class, 'messageReplies'])->name('message.replies');
     /******************************* End => Message sections *********************************/
 
+    /******************************* Start => Admin Profile sections *********************************/
+    Route::get('/profile', [UserProfileController::class, 'profile'])->name('profile');
+    Route::PATCH('/profile/{user}/update', [UserProfileController::class, 'profileUpdate'])->name('profile.update');
+    Route::PATCH('/password/change', [UserProfileController::class, 'changePassword'])->name('password.change');
+    /******************************* End => Admin Profile sections *********************************/
 });
 
 
@@ -103,6 +110,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('case/manage', [CaseController::class, 'caseManage'])->name('case.manage');
     Route::get('case/status/update', [CaseController::class, 'caseStatusUpdate'])->name('case.status.update');
     Route::get('case/{id}/details', [CaseController::class, 'caseDetails'])->name('case.details');
+    Route::get('all/clients', [ClientController::class, 'index'])->name('client.index');
     /************* slider sections *************/
     Route::resource('sliders', SlidersController::class)->except( 'show');
     Route::get('sliders/change-status/{slider}', [SlidersController::class, 'changeStatus'])

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Registration;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,9 @@ class Cases extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function register(){
+        return $this->belongsTo(Registration::class, 'user_id');
     }
     public function type(){
         return $this->belongsTo(CaseType::class, 'case_type_id');

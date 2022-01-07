@@ -98,7 +98,7 @@
                                 @foreach(@$sliders as $slider)
                                     <tr>
                                         <td>
-                                            <img width="100" height="50" src="{{ @$slider->image->url }}"
+                                            <img width="100" height="50" src="{{ $slider->image->url }}"
                                                  alt="Slide Image">
                                         </td>
                                         <td class="text-left">{{ ucfirst(Str::limit(@$slider->title, 50)) }}</td>
