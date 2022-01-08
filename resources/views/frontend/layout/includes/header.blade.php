@@ -19,7 +19,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="{{ class_basename(Illuminate\Support\Facades\Route::current()->controller) == 'HomeController' ? 'active' : ''  }}"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
                 <li class="{{ request()->routeIs('lawyer.*') ? 'active' : ''  }}"><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
-                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}"><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
+                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}"><a href="{{ route('case.create') }}">Cases</a></li>
                 <li class="{{ request()->routeIs('contact.*') ? 'active' : ''  }}"><a href="{{ url('/') }}#contact">Contact</a></li>
                 <li>
                     @if(!Auth::check())
@@ -29,7 +29,7 @@
                             <button style="margin-top: 29px" class="dropbtn">Profile</button>
                             <div class="dropdown-content">
                                 <a style="color: #fff !important;" href="{{ route('profile') }}">Profile</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a style="color: white" class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out"></i> Logout
                                 </a>

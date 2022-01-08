@@ -2,7 +2,7 @@
 
     .notificationMsg{
         position: fixed;
-        z-index: 99;
+        z-index: 9999;
         width: 25%;
         right: 0;
         background: #2f9445;
@@ -13,7 +13,7 @@
     }
     .notificationErrorMsg{
         position: fixed;
-        z-index: 99;
+        z-index: 9999;
         width: 25%;
         right: 0;
         background: red;
