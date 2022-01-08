@@ -1,6 +1,8 @@
 @extends('frontend.layout.app')
 @section('content')
+{{--    message--}}
     @include('flashMsg')
+
 
     <!-- Consultation -->
     <section id="consultation" class="consultation">
