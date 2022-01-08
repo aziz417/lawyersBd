@@ -1,6 +1,5 @@
 @extends('frontend.layout.app')
 @section('content')
-
     <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>
@@ -40,7 +39,6 @@
     {{--            <p class="text-center">No slider</p>--}}
     {{--        @endforelse--}}
     {{--    </div>--}}
-
     <section id="team" class="team">
         <div class="container">
             <div class="row">
@@ -232,12 +230,48 @@
                 </div>
             </div>
         </div>
+        @include('frontend.components.hire-now-modal', $types = $caseTypes)
+
     </section>
 @endsection
 @section('script')
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        function hireNow(id){
+            $("#lawyer_id").val(id);
+            $("#exampleModalCenter").modal('show');
+        }
+
+        function fromSubmit(){
+            $('#caseSubmit').submit();
+        }
+        $(document).ready(function () {
+            $('#caseSubmit').validate({ // initialize the plugin
+                rules: {
+                    title: {
+                        required: true
+                    },
+                    caseTypeId: {
+                        required: true,
+                    },
+                    caseDate: {
+                        required: true,
+                    },
+                    coteDate: {
+                        required: true,
+                    },
+                }
+
+            });
+
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('.average-rate').rating({displayOnly: true});
         });
     </script>
+
 @endsection
+

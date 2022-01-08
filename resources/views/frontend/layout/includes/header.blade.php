@@ -14,22 +14,21 @@
                 <img class="img-responsive" src="{{ asset('frontend') }}/assets/images/logo.png" alt="logo">
             </a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
-                <li><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="{{ class_basename(Illuminate\Support\Facades\Route::current()->controller) == 'HomeController' ? 'active' : ''  }}"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
+                <li class="{{ request()->routeIs('lawyer.*') ? 'active' : ''  }}"><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
+                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}"><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
+                <li class="{{ request()->routeIs('contact.*') ? 'active' : ''  }}"><a href="{{ url('/') }}#contact">Contact</a></li>
                 <li>
                     @if(!Auth::check())
                         <a href="{{ route('admin') }}">Login Or Registration</a>
                     @else
                         <div class="dropdown">
-                            <button class="dropbtn">Profile</button>
+                            <button style="margin-top: 29px" class="dropbtn">Profile</button>
                             <div class="dropdown-content">
-                                <a href="#">Profile</a>
+                                <a style="color: #fff !important;" href="{{ route('profile') }}">Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out"></i> Logout
@@ -47,7 +46,11 @@
                    Dashboard
                 </a>
                 </li>
-                <li><a href="{{ route('rating.Calculation') }}">Rating Update</a></li>
+                @if(Auth::check())
+                    @if(Auth::user()->role == 'lawyer')
+                        <li><a href="{{ route('rating.calculation') }}">Rating Update</a></li>
+                    @endif
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
