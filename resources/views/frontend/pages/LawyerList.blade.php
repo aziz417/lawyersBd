@@ -7,6 +7,8 @@
             }
         </style>
     @endsection
+@include('flashMsg')
+
     <!-- Team -->
     <section id="team" class="team">
         <div class="container">

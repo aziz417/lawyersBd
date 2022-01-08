@@ -1,7 +1,6 @@
 @extends('frontend.layout.app')
 @section('content')
     @include('flashMsg')
-
     <!-- Fun Facts -->
     <section>
         <div class="container">

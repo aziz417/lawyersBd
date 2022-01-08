@@ -13,7 +13,6 @@
 </head>
 <body data-spy="scroll" data-target="#main-navbar">
 @include('frontend.layout.includes.header')
-
 @yield('content')
 
 @include('frontend.layout.includes.footer')

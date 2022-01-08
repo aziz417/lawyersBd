@@ -9,7 +9,7 @@
             <ul class="nav navbar-nav navbar-right custom-nb">
                 <li class="active"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
-                <li><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
+                <li><a href="{{ route('case.create') }}">Case</a></li>
                 <li><a href="{{ url('/') }}#contact">Contact</a></li>
                 <li>
                     @if(!Auth::check())
@@ -18,8 +18,8 @@
                         <div class="dropdown">
                             <button class="dropbtn">Profile</button>
                             <div class="dropdown-content">
-                                <a href="{{ route('profile') }}">Profile</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a style="color:#000;" href="{{ route('profile') }}">Profile</a>
+                                <a style="color: #000" class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out"></i> Logout
                                 </a>

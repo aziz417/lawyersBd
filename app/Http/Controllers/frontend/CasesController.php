@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use App\Models\Cases;
+use App\Models\CaseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -42,5 +43,11 @@ class CasesController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', $exception->getMessage());
         }
+    }
+
+    public function create(){
+        $caseTypes = CaseType::all();
+        $cases = Cases::all();
+        return  view('frontend.pages.CaseOrGd', compact('caseTypes', 'cases'));
     }
 }

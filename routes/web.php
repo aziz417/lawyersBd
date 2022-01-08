@@ -53,15 +53,13 @@ Route::get('why/choose-online-service', function (){
     return view('frontend.pages.WhyChooseOnlineService');
 })->name('why-choose-online-service');
 
-Route::get('case/or/gd', function (){
-    return view('frontend.pages.CaseOrGd');
-})->name('case.or.gd');
+Route::get('/case/create', [CasesController::class, 'create'])->name('case.create');
 
 // message controller
 Route::resource('messages', App\Http\Controllers\MessageController::class);
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/test', [HomeController::class, 'frontend'])->name('home');
+    Route::get('/home', [HomeController::class, 'frontend'])->name('home');
 //    Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('search/register/{register?}', [RegistrationController::class, 'searchRegister'])->name('search.register');
     Route::get('experience/delete', [RegistrationController::class, 'deleteExperience'])->name('experience.delete');

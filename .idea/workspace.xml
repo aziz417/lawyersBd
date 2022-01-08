@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641624355.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641625488.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641625565.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1641625633.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/menu_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/menu_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/flashMsg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/flashMsg.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/CaseOrGd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/CaseOrGd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -323,7 +333,7 @@
       <workItem from="1641442046217" duration="7926000" />
       <workItem from="1641464409212" duration="27000" />
       <workItem from="1641526551388" duration="21776000" />
-      <workItem from="1641613475312" duration="5610000" />
+      <workItem from="1641613475312" duration="11389000" />
     </task>
     <servers />
   </component>
