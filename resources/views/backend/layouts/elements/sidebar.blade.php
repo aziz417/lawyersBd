@@ -10,7 +10,7 @@
                     @php
                         $user = Auth::user()->register;
                     @endphp
-                    <img src="{{ $user->image()->first()->url }}"
+                    <img src="{{ $user->image()->first()->url ?? '' }}"
                          alt="image" class="rounded-circle"
                          style="width: 48px; height: 48px"
                     />

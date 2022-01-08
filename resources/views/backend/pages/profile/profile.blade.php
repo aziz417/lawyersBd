@@ -22,7 +22,7 @@
         <div class="row m-t-lg">
             <div class="col-md-4 mb-lg-0 jumbotron">
                 <div class="profile-image">
-                    <img src="{{ $userRegister->image()->first()->url }}" class="rounded-circle circle-border m-b-md" alt="profile">
+                    <img src="{{ $userRegister->image()->first()->url ?? '' }}" class="rounded-circle circle-border m-b-md" alt="profile">
                 </div>
 
                 <div class="profile-info">
@@ -56,9 +56,11 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" href="{{ route('register.update', $userRegister->id) }}">
-                                <h3>Update All Information</h3>
-                            </a>
+                            @if(Auth::user()->role != 'admin')
+                                <a class="nav-link text-dark" href="{{ route('register.update', $userRegister->id) }}">
+                                    <h3>Update All Information</h3>
+                                </a>
+                            @endif
                         </li>
                     </ul>
 
