@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth']], function (){
         }
     })->name('pdf.view');
     Route::get('show/rating/system', [RateController::class, 'rateShow'])->name('rate.show');
-    Route::get('rating/update', [RateController::class, 'ratingCalculation'])->name('rating.Calculation');
+    Route::get('rating/update', [RateController::class, 'ratingCalculation'])->name('rating.calculation');
 
     /******************************* Start => Message sections *********************************/
     Route::resource('messages', App\Http\Controllers\Backend\MessageController::class)->only(['index', 'show', 'destroy']);

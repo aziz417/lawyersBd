@@ -10,7 +10,7 @@
                 <li class="active"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
                 <li><a href="{{ route('case.or.gd') }}">Case or GD</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ url('/') }}#contact">Contact</a></li>
                 <li>
                     @if(!Auth::check())
                         <a href="{{ route('login') }}">Login Or Registration</a>
@@ -18,7 +18,7 @@
                         <div class="dropdown">
                             <button class="dropbtn">Profile</button>
                             <div class="dropdown-content">
-                                <a href="#">Profile</a>
+                                <a href="{{ route('profile') }}">Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out"></i> Logout
@@ -36,7 +36,11 @@
                         Dashboard
                     </a>
                 </li>
-                <li><a href="{{ route('rating.Calculation') }}">Rating Update</a></li>
+                @if(Auth::check())
+                    @if(Auth::user()->role == 'lawyer')
+                        <li><a href="{{ route('rating.calculation') }}">Rating Update</a></li>
+                    @endif
+                @endif
             </ul>
         </div>
 
