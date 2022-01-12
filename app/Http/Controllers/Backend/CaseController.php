@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CaseRequest;
 use App\Models\Cases;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class CaseController extends Controller
 //        $categories = $categories->latest()->paginate($perPage);
 //        $categories = $categories->latest()->paginate($perPage);
         if (Auth::user()->role == 'lawyer'){
-        $cases = Auth::user()->cases()->latest()->paginate(10);
+            $cases = Auth::user()->cases()->latest()->paginate(10);
         }else{
             $cases = Auth::user()->userCases()->latest()->paginate(10);
         }
@@ -48,5 +49,21 @@ class CaseController extends Controller
     public function caseDetails($id){
         $case = Cases::with('type', 'user')->where('id', $id)->first();
         return view('backend.pages.caseManage.details', compact('case'));
+    }
+
+    public function appliedCases(){
+        if (Auth::user()->role == 'lawyer'){
+            $submittedCases = Auth::user()->requestCases()->where('status', 'submitted')->get();
+            return  view('backend.pages.caseManage.submittedCaseIndex',
+                compact('caseTypes', 'submittedCases'));
+
+        }elseif (Auth::user()->role == 'user'){
+            $cases = Cases::with('submittedLawyers')
+                ->where('status', 'submitted')
+                ->where('user_id', Auth::id())->get();
+            return  view('backend.pages.caseManage.submittedCaseIndex', compact('cases'));
+        }else{
+            return redirect(url('/'))->with('warning', 'Please Login Lawyer Or User');
+        }
     }
 }

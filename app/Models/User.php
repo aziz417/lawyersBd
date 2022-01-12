@@ -52,14 +52,26 @@ class User extends Authenticatable
         return $this->belongsTo(Registration::class, 'registration_id');
     }
 
-    public function cases(){
+    public function casesWithCondition(){
         return $this->hasMany(Cases::class, 'lawyer_id');
     }
-    public function userCases(){
+    public function userCasesWithCondition(){
         return $this->hasMany(Cases::class, 'user_id');
+    }
+
+    public function cases(){
+        return $this->casesWithCondition()->whereNotIn('status', ['submitted']);
+    }
+
+    public function userCases(){
+        return $this->userCasesWithCondition()->whereNotIn('status', ['submitted']);
     }
 
     public function rate(){
         return $this->belongsTo(Rate::class, 'id', 'registration_id');
+    }
+
+    public function requestCases(){
+        return $this->belongsToMany(Cases::class, 'case_request', 'lawyer_id', 'case_id');
     }
 }

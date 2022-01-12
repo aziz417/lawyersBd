@@ -34,4 +34,8 @@ class Cases extends Model
     public function type(){
         return $this->belongsTo(CaseType::class, 'case_type_id');
     }
+
+    public function submittedLawyers(){
+        return $this->belongsToMany(User::class, 'case_request', 'case_id', 'lawyer_id');
+    }
 }

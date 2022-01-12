@@ -9,7 +9,11 @@
             <ul class="nav navbar-nav navbar-right custom-nb">
                 <li class="active"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
+                @if(Auth::check())
+                @if(Auth::user()->role == 'user' || Auth::user()->role == 'lawyer')
                 <li><a href="{{ route('case.create') }}">Case</a></li>
+                @endif
+                @endif
                 <li><a href="{{ url('/') }}#contact">Contact</a></li>
                 <li>
                     @if(!Auth::check())

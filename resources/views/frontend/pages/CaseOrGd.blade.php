@@ -1,8 +1,28 @@
 @extends('frontend.layout.app')
-@section('content')
-{{--    message--}}
-    @include('flashMsg')
+@section('style')
+    <style type="text/css">
+        .error {
+            color: red;
+        }
 
+        .hireNowModal input {
+            border: 2px solid #dddddd;
+        }
+
+        .hireNowModal select {
+            border: 2px solid #dddddd;
+        }
+
+        .hireNowModal textarea {
+            border: 2px solid #dddddd;
+        }
+
+    </style>
+@endsection
+@section('content')
+
+    {{--    message--}}
+    @include('flashMsg')
 
     <!-- Consultation -->
     <section id="consultation" class="consultation">
@@ -10,41 +30,114 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="title-box">
-                        <h2 class="section-title">Case List</h2>
+                        <h2 class="section-title">{{ Auth::user()->role == 'lawyer' ? 'New' : 'Your' }} Cases</h2>
                     </div>
                 </div>
             </div>
+            @if(Auth::user()->role == 'user')
+                @forelse($cases->chunk(3) as $chunkCases)
 
-            <div class="row">
-                @forelse($cases as $case)
-                    <div class="col-sm-4">
-                        <div class="team-box">
-                            <div class="team-detail">
-                                <h3 style="margin-top: 0" class="mt-0"><strong>Title:</strong> {{ $case->title }}</h3>
-                                <h4 class="font-weight-bold"><strong>Description:</strong> {{ ucfirst(@$case->description) }}</h4>
-                                <a href="{{ route('case.details', $case->id) }}">Details</a>
-                                <button class="btn btn-success w-full" onclick="hireNow({{ @$case->user->id }})" style="width: 100%">Applied</button>
+                    <div class="row">
+                        @forelse($chunkCases as $case)
+                            <div class="col-sm-4">
+                                <div class="team-box">
+                                    <div class="team-detail">
+                                        <h3 style="margin-top: 0" class="mt-0">
+                                            <strong>Title:</strong> {{ ucfirst(Str::limit($case->title, 50)) }}</h3>
+                                        <h4 class="font-weight-bold">
+                                            <strong>Description:</strong> {{ ucfirst(Str::limit($case->description, 50)) }}
+                                        </h4>
+                                        <a class="btn btn-primary"
+                                           href="{{ route('applied.case.details', $case->id) }}">Details</a> <span class="btn btn-success text-white">Applied: {{ $case->submittedLawyers()->count() }}</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @empty
+                        @endforelse
                     </div>
                 @empty
                     <p class="text-capitalize text-center text-3xl justify-center">Case Not Found</p>
                 @endforelse
-            </div>
+            @endif
+
+            @if(Auth::user()->role == 'lawyer')
+                @forelse($newCases->chunk(3) as $chunkCases)
+                    <div class="row">
+                        @forelse($chunkCases as $case)
+                            <div class="col-sm-4">
+                                <div class="team-box">
+                                    <div class="team-detail">
+                                        <h3 style="margin-top: 0" class="mt-0">
+                                            <strong>Title:</strong> {{ ucfirst(Str::limit($case->title, 50)) }}</h3>
+                                        <h4 class="font-weight-bold">
+                                            <strong>Description:</strong> {{ ucfirst(Str::limit($case->description, 50)) }}
+                                        </h4>
+                                        <a class="btn btn-primary"
+                                           href="{{ route('applied.case.details', $case->id) }}">Details</a>
+                                        <a href="{{ route('case.apply', $case->id) }}" class="btn btn-success">Apply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                @empty
+                    <p class="text-capitalize text-center text-3xl justify-center">Case Not Found</p>
+                @endforelse
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="title-box">
+                            <h2 class="section-title">Your Submitted Cases</h2>
+                        </div>
+                    </div>
+                </div>
+
+                @forelse($submittedCases->chunk(3) as $chunkCases)
+                    <div class="row">
+                        @forelse($chunkCases as $case)
+
+                            <div class="col-sm-4">
+                                <div class="team-box">
+                                    <div class="team-detail">
+                                        <h3 style="margin-top: 0" class="mt-0">
+                                            <strong>Title:</strong> {{ ucfirst(Str::limit($case->title, 50)) }}</h3>
+                                        <h4 class="font-weight-bold">
+                                            <strong>Description:</strong> {{ ucfirst(Str::limit($case->description, 50)) }}
+                                        </h4>
+                                        <a class="btn btn-primary"
+                                           href="{{ route('applied.case.details', $case->id) }}">Details</a>
+                                        <button class="btn btn-success">Applied</button>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                @empty
+                    <p class="text-capitalize text-center text-3xl justify-center">Case Not Found</p>
+                @endforelse
+            @endif
         </div>
+        @if(Auth::check())
+        @if(Auth::user()->role == 'user')
         <div class="container">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" style="font-size: 25px" id="exampleModalLongTitle">Submit Your Case</h5>
                 </div>
                 <div class="modal-body p-6">
-                    <form class="hireNowModal" id="caseSubmit" enctype="multipart/form-data" method="post" action="{{ route('case.store') }}">
+                    <form class="hireNowModal" id="caseSubmit" enctype="multipart/form-data" method="post"
+                          action="{{ route('case.store') }}">
                         @csrf
 
-                        <input name="case_id" type="hidden" id="case_id">
+                        <input name="submitted_case" value="submitted" type="hidden">
+                        <input name="lawyer_id" value="0" type="hidden">
                         <div class="form-group">
                             <label for="title">Title<span class="text-danger">*</span></label>
-                            <input type="text" name="title" class="form-control" id="title" required placeholder="Money Loss">
+                            <input type="text" name="title" class="form-control" id="title" required
+                                   placeholder="Money Loss">
                         </div>
                         <div class="form-group">
                             <label for="caseType">Case Type<span class="text-danger">*</span></label>
@@ -67,20 +160,52 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea name="description" type="text" class="form-control" id="description" ></textarea>
+                            <textarea name="description" type="text" class="form-control" id="description"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="documentation">Documentation</label>
-                            <input name="documentation" type="file" class="form-control" id="documentation" placeholder="1234 Main St">
+                            <input name="documentation" type="file" class="form-control" id="documentation"
+                                   placeholder="1234 Main St">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                    <button type="submit" class="btn btn-primary" id="caseSubmit" onclick="fromSubmit()">Case Submit
                     </button>
-                    <button type="submit" class="btn btn-primary" id="caseSubmit" onclick="fromSubmit()">Case Submit</button>
                 </div>
             </div>
         </div>
+        @endif
+        @endif
     </section>
+@endsection
+@section('script')
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        function fromSubmit() {
+            $('#caseSubmit').submit();
+        }
+
+        $(document).ready(function () {
+            $('#caseSubmit').validate({ // initialize the plugin
+                rules: {
+                    title: {
+                        required: true
+                    },
+                    caseTypeId: {
+                        required: true,
+                    },
+                    caseDate: {
+                        required: true,
+                    },
+                    coteDate: {
+                        required: true,
+                    },
+                }
+
+            });
+
+        });
+    </script>
 @endsection
