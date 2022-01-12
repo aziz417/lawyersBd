@@ -58,9 +58,9 @@
                                         <td>{{ $case->caseDate }}</td>
                                         <td>{{ $case->coteDate }}</td>
                                         @if(Auth::user()->role == 'lawyer')
-                                            <td>{{ $case->user->applicants_name }}</td>
-                                            <td>{{ $case->user->email }}</td>
-                                            <td>{{ $case->user->mobile_number }}</td>
+                                            <td>{{ $case->register->applicants_name }}</td>
+                                            <td>{{ $case->register->email }}</td>
+                                            <td>{{ $case->register->mobile_number }}</td>
                                         @elseif(Auth::user()->role == 'user')
                                             <td>{{ $case->lawyer->applicants_name }}</td>
                                             <td>{{ $case->lawyer->email }}</td>
@@ -82,7 +82,7 @@
                                                     <i class="fa fa-pencil-square-o"></i>
                                                 </div>
                                             </a>
-                                            <a href="{{ url('chatify', Auth::user()->role == 'lawyer' ? $case->user->id : $case->lawyer->id) }}" title="Message">
+                                            <a href="{{ url('chatify', Auth::user()->role == 'lawyer' ? $case->register->id : $case->lawyer->id) }}" title="Message">
                                                 <div class="btn btn-primary cus_btn">
                                                     <i class="fa fa-comment"></i>
                                                 </div>

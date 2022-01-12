@@ -25,7 +25,7 @@
                     <div class="ibox-content">
                         <div class="row">
                             <div class="col-lg-12">
-                                <a class="pull-right btn btn-success" href="{{ route('rating.Calculation') }}">Update Your Rating</a>
+                                <a class="pull-right btn btn-success" href="{{ route('rating.calculation') }}">Update Your Rating</a>
                                 <h2 class="text-center my-4">Rating Panel:</h2>
                             </div>
                             <div class="col-lg-3">

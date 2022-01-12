@@ -99,6 +99,9 @@
                 <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}">
                     <a href="{{ route('case.manage') }}"><i class="fa fa-adjust"></i> <span class="nav-label">Case {{ Auth::user()->role == 'lawyer' ? 'Manage' : '' }}</span></a>
                 </li>
+                <li class="{{ request()->routeIs('applied.*') ? 'active' : ''  }}">
+                    <a href="{{ route('applied.cases') }}"><i class="fa fa-adjust"></i>Applied Cases</a>
+                </li>
             @endif
             {{--           just lawyer--}}
             @if(Auth::user()->role == 'lawyer')

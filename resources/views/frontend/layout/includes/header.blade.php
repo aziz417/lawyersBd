@@ -17,10 +17,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="{{ class_basename(Illuminate\Support\Facades\Route::current()->controller) == 'HomeController' ? 'active' : ''  }}"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
-                <li class="{{ request()->routeIs('lawyer.*') ? 'active' : ''  }}"><a href="{{ route('lawyer.list') }}">Lawyer list</a></li>
-                <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}"><a href="{{ route('case.create') }}">Cases</a></li>
-                <li class="{{ request()->routeIs('contact.*') ? 'active' : ''  }}"><a href="{{ url('/') }}#contact">Contact</a></li>
+                <li class="{{ class_basename(Illuminate\Support\Facades\Route::current()->controller) == 'HomeController' ? 'active' : ''  }}">
+                    <a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
+                <li class="{{ request()->routeIs('lawyer.*') ? 'active' : ''  }}"><a href="{{ route('lawyer.list') }}">Lawyer
+                        list</a></li>
+                @if(Auth::check())
+                    @if(Auth::user()->role == 'user' || Auth::user()->role == 'lawyer')
+                        <li class="{{ request()->routeIs('case.*') ? 'active' : ''  }}"><a
+                                    href="{{ route('case.create') }}">Cases</a></li>
+                    @endif
+                @endif
+                <li class="{{ request()->routeIs('contact.*') ? 'active' : ''  }}"><a href="{{ url('/') }}#contact">Contact</a>
+                </li>
                 <li>
                     @if(!Auth::check())
                         <a href="{{ route('admin') }}">Login Or Registration</a>
@@ -34,7 +42,8 @@
                                     <i class="fa fa-sign-out"></i> Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     @csrf
                                 </form>
                             </div>
@@ -42,9 +51,9 @@
                     @endif
                 </li>
                 <li>
-                <a class="" href="{{ route('admin') }}">
-                   Dashboard
-                </a>
+                    <a class="" href="{{ route('admin') }}">
+                        Dashboard
+                    </a>
                 </li>
                 @if(Auth::check())
                     @if(Auth::user()->role == 'lawyer')

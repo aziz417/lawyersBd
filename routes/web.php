@@ -91,6 +91,11 @@ Route::group(['middleware' => ['auth']], function (){
     Route::PATCH('/profile/{user}/update', [UserProfileController::class, 'profileUpdate'])->name('profile.update');
     Route::PATCH('/password/change', [UserProfileController::class, 'changePassword'])->name('password.change');
     /******************************* End => Admin Profile sections *********************************/
+
+    Route::get('case/{case}/apply', [CasesController::class, 'caseApply'])->name('case.apply');
+    Route::get('applied/case/{case}/details', [CasesController::class, 'appliedCaseDetails'])->name('applied.case.details');
+    Route::get('applied/cases', [CaseController::class, 'appliedCases'])->name('applied.cases');
+    Route::get('lawyer/hire/{case}/{lawyer}', [CasesController::class, 'lawyerHire'])->name('lawyer.hire');
 });
 
 
