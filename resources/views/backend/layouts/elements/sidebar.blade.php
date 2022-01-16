@@ -49,7 +49,7 @@
                     <span class="nav-label">Messages</span>
                 </a>
             </li>
-
+            {{--            just admin or user--}}
             @if(Auth::user()->role == 'admin' || Auth::user()->role == 'user')
                 <li class="{{ request()->routeIs('all.users') ? 'active' : ''  }}">
                     <a href="{{ route('all.users', 'lawyer') }}"><i class="fa fa-user"></i> <span
