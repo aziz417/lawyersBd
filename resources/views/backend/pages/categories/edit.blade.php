@@ -42,17 +42,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="position">Position</label>
-                                                <input type="text" id="position" name="position"
-                                                       value="{{ $category->position ?? old('position') }}" class="form-control">
-                                                @error('position')
-                                                <small id="position" class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
-                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary ModalSubmit">Update</button>
                                 </form>

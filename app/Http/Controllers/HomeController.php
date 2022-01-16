@@ -39,9 +39,9 @@ class HomeController extends Controller
 //        dd($sliders->toArray());
         $top_10_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(10);
 
-        $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(5);
+        $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate');
         $senior_lawyers = $all_lawyers->filter(function ($lawyer){
-           return $lawyer->category()->where('position', 'senior')->first();
+           return $lawyer->category()->where('title', 'senior')->first();
         });
 
         return  view('frontend.home', compact('sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
