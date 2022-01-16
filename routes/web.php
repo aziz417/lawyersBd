@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ClientController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ReplyController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\SlidersController;
@@ -96,6 +97,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('applied/case/{case}/details', [CasesController::class, 'appliedCaseDetails'])->name('applied.case.details');
     Route::get('applied/cases', [CaseController::class, 'appliedCases'])->name('applied.cases');
     Route::get('lawyer/hire/{case}/{lawyer}', [CasesController::class, 'lawyerHire'])->name('lawyer.hire');
+    Route::get('dashboard/{user}', [DashboardController::class, 'userAll'])->name('all.users');
 });
 
 

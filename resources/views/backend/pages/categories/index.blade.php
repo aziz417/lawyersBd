@@ -35,7 +35,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Title and Position</th>
+                                    <th>Title</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -43,7 +43,7 @@
                                 @forelse($categories as $key => $category)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ $category->title.' '.$category->position }}</td>
+                                        <td>{{ $category->title }}</td>
                                         <td>
                                             <a href="{{ route('categories.edit', $category->id) }}" title="Edit">
                                                 <div class="btn btn-info cus_btn">

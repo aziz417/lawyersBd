@@ -26,10 +26,10 @@
                         class="custom-select custom-select-sm post_name_en"
                         name="category_id"
                 >
-                    <option value="">Select category and position</option>
+                    <option value="">Select category</option>
                     @foreach($categories as $category)
                         <option {{ isset($register) && $register->category_id == $category->id ? 'Selected' : '' }}
-                                value="{{ @$category->id }}">{{ @$category->title.' '.@$category->position }}</option>
+                                value="{{ @$category->id }}">{{ @$category->title }}</option>
                     @endforeach
 
                 </select>

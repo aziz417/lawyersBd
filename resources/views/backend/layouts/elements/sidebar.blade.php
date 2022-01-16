@@ -50,8 +50,18 @@
                 </a>
             </li>
 
+            @if(Auth::user()->role == 'admin' || Auth::user()->role == 'user')
+                <li class="{{ request()->routeIs('all.users') ? 'active' : ''  }}">
+                    <a href="{{ route('all.users', 'lawyer') }}"><i class="fa fa-user"></i> <span
+                                class="nav-label">Lawyers</span></a>
+                </li>
+            @endif
             {{--            just admin--}}
             @if(Auth::user()->role == 'admin')
+                <li class="{{ request()->routeIs('all.users.*') ? 'active' : ''  }}">
+                    <a href="{{ route('all.users', 'user') }}"><i class="fa fa-users"></i> <span
+                                class="nav-label">Users</span></a>
+                </li>
                 <li class="{{ request()->routeIs('boards.*') ? 'active' : ''  }}">
                     <a href="{{ route('boards.index') }}"><i class="fa fa-adjust"></i> <span
                                 class="nav-label">Boards</span></a>

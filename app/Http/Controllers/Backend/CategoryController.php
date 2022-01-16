@@ -44,7 +44,6 @@ class CategoryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'position' => 'required',
         ]);
 
         DB::beginTransaction();
@@ -54,7 +53,6 @@ class CategoryController extends Controller
             Category::create([
                 'title' => $request->title,
                 'slug' => $request->slug,
-                'position' => $request->position,
             ]);
 
             DB::commit();
@@ -85,7 +83,6 @@ class CategoryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'position' => 'required',
         ]);
 
         DB::beginTransaction();
@@ -94,7 +91,6 @@ class CategoryController extends Controller
             $category->update([
                 'title' => $request->title,
                 'slug' => $request->slug,
-                'position' => $request->position,
             ]);
 
             DB::commit();
