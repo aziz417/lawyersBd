@@ -1,30 +1,81 @@
 @extends('frontend.layout.app')
 @section('content')
     @include('flashMsg')
-    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-        <!-- Overlay -->
-        <div class="overlay"></div>
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            @forelse($sliders as $key => $slider)
-                <li data-target="#bs-carousel" data-slide-to="{{$key}}" class="{{ $key === 0 ? 'active' : '' }}"></li>
-            @empty
-                <p class="text-center">No slider</p>
-            @endforelse
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            @forelse($sliders as $key => $slider)
-                <div class="item slides {{ $key === 0 ? 'active' : '' }}">
-                    <div class="slide-{{ $key++ }}">
-                        <img style="width: 100%; height: 660px !important;" class="img-responsive1"
-                             src="{{ $slider->image->url }}"
-                             alt="testimonial">
+
+    <div class="col-sm-3" style="background: #ccc;padding-bottom: 29px;">
+        <div class="row" style="margin-top: 80px">
+            <h3 style="color: #000" class="text-center"><strong>Top Three Senior Lawyers</strong></h3>
+            @forelse($senior_lawyers as $topSeniorKey => $lawyer)
+                <div class="col-sm-12">
+                    <div class="team-box" style="margin-bottom: 0">
+                        <div class="team-detail" style="padding: 0">
+                            <div style="padding: 5px 10px 35px 10px;;">
+                                <h4 style="margin-bottom: 0">
+                                    <span class="mr-5" style="float: left"><strong>{{ $lawyer->applicants_name }}</strong></span>
+                                    <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
+                                </h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                @if($loop->index >= 2)
+                    @break
+                @endif
             @empty
-                <p class="text-center">No slider</p>
+                <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
             @endforelse
+        </div>
+
+        <div class="row" style="margin-top: 20px">
+            <h3 style="color: #000" class="text-center"><strong>Top Three Lawyers</strong></h3>
+            @forelse($top_10_lawyers as $topThreeKey => $lawyer)
+                <div class="col-sm-12">
+                    <div class="team-box" style="margin-bottom: 0">
+                        <div class="team-detail" style="padding: 0">
+                            <div style="padding: 5px 10px 35px 10px;;">
+                                <h4 style="margin-bottom: 0">
+                                    <span class="mr-5" style="float: left"><strong>{{ $lawyer->applicants_name }}</strong></span>
+                                    <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if($loop->index >= 2)
+                    @break
+                @endif
+            @empty
+                <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
+            @endforelse
+        </div>
+    </div>
+    <div class="col-sm-9" style="padding-right: 0">
+        <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @forelse($sliders as $key => $slider)
+                    <li data-target="#bs-carousel" data-slide-to="{{$key}}"
+                        class="{{ $key === 0 ? 'active' : '' }}"></li>
+                @empty
+                    <p class="text-center">No slider</p>
+                @endforelse
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @forelse($sliders as $key => $slider)
+                    <div class="item slides {{ $key === 0 ? 'active' : '' }}">
+                        <div class="slide-{{ $key++ }}">
+                            <img style="width: 100%; height: 660px !important;" class="img-responsive1"
+                                 src="{{ $slider->image->url }}"
+                                 alt="testimonial">
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-center">No slider</p>
+                @endforelse
+            </div>
         </div>
     </div>
 
@@ -40,10 +91,10 @@
     {{--            <p class="text-center">No slider</p>--}}
     {{--        @endforelse--}}
     {{--    </div>--}}
-    <section id="team" class="team">
+    <section id="team" class="team mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+            <div class="row" >
+                <div class="col-sm-12"  style="margin-top: 60px">
                     <div class="title-box">
                         <h2 class="section-title">Senior Lawyers</h2>
                     </div>
@@ -134,13 +185,15 @@
                         <h2 class="section-title">Top Three Lawyers And Their About</h2>
                     </div>
 
-                    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+                    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000"
+                         id="bs-carousel">
                         <!-- Overlay -->
                         <div class="overlay"></div>
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
                             @forelse($top_10_lawyers as $key => $lawyer)
-                                <li data-target="#bs-carousel" data-slide-to="{{$key}}" class="{{ $key === 0 ? 'active' : '' }}"></li>
+                                <li data-target="#bs-carousel" data-slide-to="{{$key}}"
+                                    class="{{ $key === 0 ? 'active' : '' }}"></li>
                             @empty
                             @endforelse
                         </ol>
@@ -239,14 +292,15 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script>
-        function hireNow(id){
+        function hireNow(id) {
             $("#lawyer_id").val(id);
             $("#exampleModalCenter").modal('show');
         }
 
-        function fromSubmit(){
+        function fromSubmit() {
             $('#caseSubmit').submit();
         }
+
         $(document).ready(function () {
             $('#caseSubmit').validate({ // initialize the plugin
                 rules: {
