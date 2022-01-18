@@ -11,7 +11,7 @@
                         <div class="team-detail" style="padding: 0">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h4 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ $lawyer->applicants_name }}</strong></span>
+                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                                 </h4>
                             </div>
@@ -34,7 +34,7 @@
                         <div class="team-detail" style="padding: 0">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h4 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ $lawyer->applicants_name }}</strong></span>
+                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                                 </h4>
                             </div>
