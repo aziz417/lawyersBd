@@ -54,8 +54,8 @@ class CaseController extends Controller
     public function appliedCases(){
         if (Auth::user()->role == 'lawyer'){
             $submittedCases = Auth::user()->requestCases()->where('status', 'submitted')->get();
-            return  view('backend.pages.caseManage.submittedCaseIndex',
-                compact('caseTypes', 'submittedCases'));
+            return view('backend.pages.caseManage.submittedCaseIndex',
+                compact('submittedCases'));
 
         }elseif (Auth::user()->role == 'user'){
             $cases = Cases::with('submittedLawyers')

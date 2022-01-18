@@ -5,60 +5,6 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-5 col-sm-offset-5">
-                    <div class="my-5">
-                        <h2>{{ isset($lawyer->user->rate->clint_rate) && $lawyer->user->rate->clint_rate ? 'Update' : 'Submit' }}
-                            Your Rate:</h2>
-                        <form action="{{ route('submit.rate') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="lawyer_id" value="{{ $lawyer->user_id }}">
-                            <input id="input-9" name="client_rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
-                                   required class="rating-loading">
-                            <button type="submit" id="submit" class="btn btn-primary">Submit</button>&nbsp;
-                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <h2 class="section-title text-center"><span
-                                class="text-danger">{{ $lawyer->applicants_name }}</span> Rating Panel</h2>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="p-4">
-                        <h2>Average Rate:</h2>
-                        <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}"
-                               class="rating-loading" data-min="0" data-max="5" data-step="0.1">
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="p-4">
-                        <h2>Client Rate:</h2>
-                        <input id="client-rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
-                               class="rating-loading" data-min="0" data-max="5" data-step="0.1">
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="p-4">
-                        <h2>Case Rate:</h2>
-                        <input id="case-rate" value="{{ $lawyer->user->rate->case_rate ?? 0 }}" class="rating-loading"
-                               data-min="0" data-max="5" data-step="0.1">
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="p-4">
-                        <h2>Education Rate:</h2>
-                        <input id="education-rate" value="{{ $lawyer->user->rate->education_rate ?? 0 }}"
-                               class="rating-loading" data-min="0" data-max="5" data-step="0.1">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
                 <div class="col-sm-12 my-5 pt-5">
                     <div class="title-box">
                         <h2 class="section-title">My Circumstance</h2>
@@ -148,8 +94,63 @@
                         </div>
                     </div>
                 @empty
-                    <h2 class="text-center">No Satisfied clients</h2>
+                    <h5 class="text-center">No Satisfied clients</h5>
                 @endforelse
+            </div>
+
+            <div class="container" style="margin-top: 50px">
+                <div class="row">
+                    <div class="col-sm-5 col-sm-offset-5">
+                        <div class="my-5">
+                            <h2>{{ isset($lawyer->user->rate->clint_rate) && $lawyer->user->rate->clint_rate ? 'Update' : 'Submit' }}
+                                Your Rate:</h2>
+                            <form action="{{ route('submit.rate') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lawyer_id" value="{{ $lawyer->user_id }}">
+                                <input id="input-9" name="client_rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
+                                       required class="rating-loading">
+                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>&nbsp;
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h2 class="section-title text-center"><span
+                                    class="text-danger">{{ $lawyer->applicants_name }}</span> Rating Panel</h2>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="p-4">
+                            <h2>Average Rate:</h2>
+                            <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}"
+                                   class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="p-4">
+                            <h2>Client Rate:</h2>
+                            <input id="client-rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
+                                   class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="p-4">
+                            <h2>Case Rate:</h2>
+                            <input id="case-rate" value="{{ $lawyer->user->rate->case_rate ?? 0 }}" class="rating-loading"
+                                   data-min="0" data-max="5" data-step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="p-4">
+                            <h2>Education Rate:</h2>
+                            <input id="education-rate" value="{{ $lawyer->user->rate->education_rate ?? 0 }}"
+                                   class="rating-loading" data-min="0" data-max="5" data-step="0.1">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

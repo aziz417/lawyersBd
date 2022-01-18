@@ -13,7 +13,7 @@ class MessageController extends Controller
         $keyword = $request->keyword;
 
         //get all Messages
-        $messages = MailMessages::latest();
+        $messages = MailMessages::where('email', Auth()->user()->email)->latest();
 
         if ($keyword) {
             $keyword = '%' . $keyword . '%';

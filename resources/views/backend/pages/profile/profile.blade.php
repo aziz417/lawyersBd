@@ -38,6 +38,13 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::user()->role == 'lawyer')
+                    <div>
+                        <br>
+                        <h2><strong>About Your Self:</strong></h2>
+                        <p>{{ @$userRegister->about_say_you }}</p>
+                    </div>
+                @endif
             </div>
             <div class="col-md-8">
                 <div class="tabs-container">
