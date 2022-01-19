@@ -19,38 +19,41 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            @forelse($lawyers as $lawyer)
-                <div class="col-sm-4">
-                    <div class="team-box">
-                        <img style="height: 230px !important;" class="img-responsive img-full"
-                             src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
-                             alt="team">
-                        <div class="team-detail">
-                            <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}" name="input-2"
-                                   class="rating-loading average-rate" data-min="0" data-max="5" data-step="0.1">
-                            <ul class="mb-5">
-                                <li><h3>{{ $lawyer->applicants_name }}</h3></li>
-                                <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span
-                                                class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span>
-                                    </h4></li>
-                                <li><h4 class="font-weight-bold"> Contact: {{ $lawyer->mobile_number }}</h4><a
-                                            class="btn btn-success pull-left" href="{{ url('/') }}/#EmailContactForm"
-                                            onclick="mailForm({{ $lawyer }})">Mail</a><a
-                                            class="btn btn-primary pull-right">Message</a></li>
-                                <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
-                            </ul>
-                            <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})"
-                                    style="width: 100%">Hire Now
-                            </button>
+        @forelse($lawyers->chunk(3) as $lawyerChunk)
+            <div class="row">
+                @forelse($lawyerChunk as $lawyer)
+                    <div class="col-sm-4">
+                        <div class="team-box">
+                            <img style="height: 230px !important;" class="img-responsive img-full"
+                                 src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
+                                 alt="team">
+                            <div class="team-detail">
+                                <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}"
+                                       name="input-2"
+                                       class="rating-loading average-rate" data-min="0" data-max="5" data-step="0.1">
+                                <ul class="mb-5">
+                                    <li><h3>{{ $lawyer->applicants_name }}</h3></li>
+                                    <li><h4 class="font-weight-bold">{{ ucfirst(@$lawyer->category->title) }} <span
+                                                    class="text-danger font-weight-bold">{{ ucfirst(@$lawyer->category->position) }}</span>
+                                        </h4></li>
+                                    <li><h4 class="font-weight-bold"> Contact: {{ $lawyer->mobile_number }}</h4><a
+                                                class="btn btn-success pull-left"
+                                                href="{{ url('/') }}/#EmailContactForm"
+                                                onclick="mailForm({{ $lawyer }})">Mail</a><a
+                                                class="btn btn-primary pull-right">Message</a></li>
+                                    <li><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></li>
+                                </ul>
+                                <button class="btn btn-success w-full" onclick="hireNow({{ @$lawyer->user->id }})"
+                                        style="width: 100%">Hire Now
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @empty
-                <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
-            @endforelse
-        </div>
+                @empty
+                    <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
+                @endforelse
+            </div>
+        @endforelse
     </div>
     @include('frontend.components.hire-now-modal', $types = $caseTypes)
 </section>
