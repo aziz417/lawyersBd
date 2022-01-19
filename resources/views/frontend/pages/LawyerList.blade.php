@@ -53,6 +53,7 @@
                     <p class="text-capitalize text-center text-3xl justify-center">Lawyer Not Found</p>
                 @endforelse
             </div>
+            @empty
         @endforelse
     </div>
     @include('frontend.components.hire-now-modal', $types = $caseTypes)
