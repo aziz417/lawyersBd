@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerList.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -339,7 +335,7 @@
       <workItem from="1642394414364" duration="2332000" />
       <workItem from="1642479929468" duration="10881000" />
       <workItem from="1642523541119" duration="10000" />
-      <workItem from="1642578220228" duration="561000" />
+      <workItem from="1642578220228" duration="1084000" />
     </task>
     <servers />
   </component>
