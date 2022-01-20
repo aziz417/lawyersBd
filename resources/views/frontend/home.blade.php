@@ -3,12 +3,12 @@
 
 
     <div class="col-sm-3" style="background: #ccc;padding-bottom: 29px;">
-        <div class="row" style="margin-top: 80px">
+        <div class="row" style="margin-top: 50px">
             <h3 style="color: #000" class="text-center"><strong>Top Three Senior Lawyers</strong></h3>
             @forelse($senior_lawyers as $topSeniorKey => $lawyer)
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0">
-                        <div class="team-detail" style="padding: 0">
+                        <div class="team-detail" style="padding: 0!important;">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h4 style="margin-bottom: 0">
                                     <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
@@ -26,12 +26,12 @@
             @endforelse
         </div>
 
-        <div class="row" style="margin-top: 20px">
+        <div class="row" style="margin-top: 10px">
             <h3 style="color: #000" class="text-center"><strong>Top Three Lawyers</strong></h3>
             @forelse($top_10_lawyers as $topThreeKey => $lawyer)
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0">
-                        <div class="team-detail" style="padding: 0">
+                        <div class="team-detail" style="padding: 0!important;">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h4 style="margin-bottom: 0">
                                     <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
