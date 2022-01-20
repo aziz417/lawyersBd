@@ -10,7 +10,7 @@
 @include('flashMsg')
 
 <!-- Team -->
-<section id="team" class="team">
+<section style="margin-top: 55px !important;" id="team" class="team">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

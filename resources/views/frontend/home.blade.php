@@ -108,7 +108,7 @@
     <section id="team" class="team mt-5">
         <div class="container">
             <div class="row" >
-                <div class="col-sm-12"  style="margin-top: 60px">
+                <div class="col-sm-12"  style="margin-top: 10px">
                     <div class="title-box">
                         <h2 class="section-title">Senior Lawyers</h2>
                     </div>
