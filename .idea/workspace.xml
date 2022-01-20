@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="" />
+    <list default="true" id="c74bf375-00b9-4606-8c42-653f4e3210af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/ClientRate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2022_01_20_071739_create_client_rates_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CasesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/LawyerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/LawyerDetails.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/registration-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration-form.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +217,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="16048544-64c8-4c10-9149-4c0940dcdeb9" name="Default Changelist" comment="" />
+      <changelist id="c74bf375-00b9-4606-8c42-653f4e3210af" name="Default Changelist" comment="" />
       <created>1607317970463</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -336,6 +349,7 @@
       <workItem from="1642479929468" duration="10881000" />
       <workItem from="1642523541119" duration="10000" />
       <workItem from="1642578220228" duration="1084000" />
+      <workItem from="1642655068167" duration="11416000" />
     </task>
     <servers />
   </component>

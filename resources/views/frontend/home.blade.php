@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 @section('content')
-    @include('flashMsg')
+
 
     <div class="col-sm-3" style="background: #ccc;padding-bottom: 29px;">
         <div class="row" style="margin-top: 80px">
@@ -65,7 +65,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 @forelse($sliders as $key => $slider)
-                    <div class="item slides {{ $key === 0 ? 'active' : '' }}">
+                    <div style="height: 500px" class="item slides {{ $key === 0 ? 'active' : '' }}">
                         <div class="slide-{{ $key++ }}">
                             <img style="width: 100%; height: 660px !important;" class="img-responsive1"
                                  src="{{ $slider->image->url }}"
@@ -77,8 +77,22 @@
                 @endforelse
             </div>
         </div>
-    </div>
 
+            <div class="col-sm-4">
+                <h2><strong>Register Now:</strong></h2>
+                <p style="font-size: 16px">You can create a account for <br> <a href="{{ route('registration', 'user') }}">User</a> and for <a href="{{ route('registration', 'lawyer') }}">Lawyer</a></p>
+            </div>
+            <div class="col-sm-4">
+                <h2><strong>Create A Case:</strong></h2>
+                <a style="font-size: 16px" href="{{ route('case.create') }}">Case Create</a>
+            </div>
+            <div class="col-sm-4">
+                <h2><strong>Our Lawyers And Users</strong></h2>
+                <h3>Lawyers: {{ $totalLayers ?? 0  }} || Users: {{ $totalUsers ?? 0  }} </h3>
+            </div>
+
+    </div>
+    @include('flashMsg')
 
     {{--    <div id="test-slider1" class="owl-carousel owl-carousel-custom-design">--}}
     {{--        @forelse($sliders as $slider)--}}

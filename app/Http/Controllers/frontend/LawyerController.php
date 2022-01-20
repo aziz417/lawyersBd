@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Cases;
 use App\Models\CaseType;
+use App\Models\ClientRate;
 use App\Models\Rate;
 use App\Models\User;
 use App\Registration;
@@ -21,7 +22,12 @@ class LawyerController extends Controller
 
     public function lawyer($id){
         $lawyer = Registration::with('category', 'cases')->where('id', $id)->first();
-
+        if (Auth::check()){
+            $thisLawyerThisUserRate = ClientRate::where('lawyer_id', $id)->where('user_id', Auth::user()->id)->first();
+            $thisLawyerThisUserRate = $thisLawyerThisUserRate ? $thisLawyerThisUserRate->rate : 0;
+        }else{
+            $thisLawyerThisUserRate = 0;
+        }
         $position['fight']    = $lawyer->cases()->whereNotIn('status', [0,1])->get()->count();
 
         $position['success']  = $lawyer->cases()->where('status', 5)->get()->count();
@@ -40,17 +46,35 @@ class LawyerController extends Controller
         $win_cases = Cases::where('lawyer_id', $id)->where('status', 5)->get();
 
         $satisfied_5_clients = Cases::with('user')->where('status', 5)->where('lawyer_id', $id)->distinct('user_id')->get()->take(5);
-        return view('frontend.pages.LawyerDetails', compact('lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients'));
+        return view('frontend.pages.LawyerDetails', compact('lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients', 'thisLawyerThisUserRate'));
     }
 
     public function rateSubmit(Request $request){
         if (!Auth::check()){
             return back()->with('warningMsg', 'First Login Then Submit Your Rate');
         }
+
         $lawyer_rate = Rate::where('registration_id', $request->lawyer_id)->first();
         if ($lawyer_rate){
+            $exsitCLientRate = ClientRate::where([
+                'user_id' => Auth::user()->id,
+                'lawyer_id' => $request->lawyer_id,
+            ])->first();
+            if ($exsitCLientRate){
+                $exsitCLientRate->update([
+                    'rate' => $request->client_rate,
+                ]);
+            }else{
+                ClientRate::create([
+                    'user_id' => Auth::user()->id,
+                    'lawyer_id' => $request->lawyer_id,
+                    'rate' => $request->client_rate,
+                ]);
+            }
+
+            $clientAvg = ClientRate::where('lawyer_id', $request->lawyer_id)->avg('rate');
             $lawyer_rate->update([
-                'clint_rate' => $request->client_rate,
+                'clint_rate' => $clientAvg,
             ]);
 
             $education_rate = $lawyer_rate->education_rate;
@@ -71,9 +95,27 @@ class LawyerController extends Controller
             ]);
             return redirect()->back()->with('Rating Updated Successfully');
         }else{
+
+            $exsitCLientRate = ClientRate::where([
+                'user_id' => Auth::user()->id,
+                'lawyer_id' => $request->lawyer_id,
+            ])->first();
+            if ($exsitCLientRate){
+                $exsitCLientRate->update([
+                    'rate' => $request->client_rate,
+                ]);
+            }else{
+                ClientRate::create([
+                    'user_id' => Auth::user()->id,
+                    'lawyer_id' => $request->lawyer_id,
+                    'rate' => $request->client_rate,
+                ]);
+            }
+
+            $clientAvg = ClientRate::where('lawyer_id', $request->lawyer_id)->avg('rate');
             Rate::create([
                 'registration_id' => $request->lawyer_id,
-                'clint_rate' => $request->client_rate,
+                'clint_rate' => $clientAvg,
                 'average_rate' => number_format((float) $request->client_rate/3, 2),
             ]);
             return redirect()->back()->with('Successfully Submit Your Rating');
