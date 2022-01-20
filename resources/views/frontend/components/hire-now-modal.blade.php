@@ -27,7 +27,7 @@
                     <input name="lawyer_id" type="hidden" id="lawyer_id">
                     <div class="form-group">
                         <label for="title">Title<span class="text-danger">*</span></label>
-                        <input type="text" name="title" class="form-control" id="title" required placeholder="Money Loss">
+                        <input type="text" name="title" class="form-control" id="title" required placeholder="Title">
                     </div>
                     <div class="form-group">
                         <label for="caseType">Case Type<span class="text-danger">*</span></label>
