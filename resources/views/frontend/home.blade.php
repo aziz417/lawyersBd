@@ -87,8 +87,8 @@
                 <a style="font-size: 16px" href="{{ route('case.create') }}">Case Create</a>
             </div>
             <div class="col-sm-4">
-                <h2><strong>Our Lawyers And Users</strong></h2>
-                <h3>Lawyers: {{ $totalLayers ?? 0  }} || Users: {{ $totalUsers ?? 0  }} </h3>
+                <h3><strong>Our Lawyers And Users</strong></h3>
+                <h4 style="font-size: 16px">Lawyers: {{ $totalLayers ?? 0  }} || Users: {{ $totalUsers ?? 0  }} </h4>
             </div>
 
     </div>
