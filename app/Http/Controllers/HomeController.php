@@ -34,6 +34,8 @@ class HomeController extends Controller
 
     public function frontend()
     {
+        $totalUsers = Registration::where('type', 'user')->get()->count();
+        $totalLayers = Registration::where('type', 'lawyer')->get()->count();
         $caseTypes = CaseType::all();
         $sliders = Slider::with('image')->status()->get();
 //        dd($sliders->toArray());
@@ -44,6 +46,6 @@ class HomeController extends Controller
            return $lawyer->category()->where('title', 'senior lawyer')->first();
         });
 
-        return  view('frontend.home', compact('sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
+        return  view('frontend.home', compact('totalLayers','totalUsers', 'sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
     }
 }

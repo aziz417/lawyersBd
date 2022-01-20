@@ -46,41 +46,41 @@
 
 {{--    draft auto save--}}
     <script>
-        $("#submit").on('click', function (){
-            localStorage.removeItem("userStore");
-        })
-        function resetForm(){
-            $("#userStore")[0].reset();
-        }
-        $(function() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-Token': $('meta[name="_token"]').attr('content')
-                }
-            });
-        });
-        $(document).ready(function (){
+       {{-- $("#submit").on('click', function (){--}}
+       {{--     localStorage.removeItem("userStore");--}}
+       {{-- })--}}
+       {{-- function resetForm(){--}}
+       {{--     $("#userStore")[0].reset();--}}
+       {{-- }--}}
+       {{-- $(function() {--}}
+       {{--     $.ajaxSetup({--}}
+       {{--         headers: {--}}
+       {{--             'X-CSRF-Token': $('meta[name="_token"]').attr('content')--}}
+       {{--         }--}}
+       {{--     });--}}
+       {{-- });--}}
+       {{-- $(document).ready(function (){--}}
 
-            // localStorage.removeItem("userStore");
+       {{--     // localStorage.removeItem("userStore");--}}
 
-            if (localStorage.getItem("userStore") !== null) {
-                let values = localStorage.getItem('userStore');
-                var allData = JSON.parse(values);
-                if (allData[1]['value'] === $("#type").val()){
-                    $.get('{{ url('draft/store') }}', { data: allData }, function (response){
-                        if (response){
-                            localStorage.removeItem("userStore");
-                            window.location.replace(window.location.origin+'/register/update/'+response);
-                        }
-                    })
-                }
-            }
-        })
+       {{--     if (localStorage.getItem("userStore") !== null) {--}}
+       {{--         let values = localStorage.getItem('userStore');--}}
+       {{--         var allData = JSON.parse(values);--}}
+       {{--         if (allData[1]['value'] === $("#type").val()){--}}
+       {{--             $.get('{{ url('draft/store') }}', { data: allData }, function (response){--}}
+       {{--                 if (response){--}}
+       {{--                     localStorage.removeItem("userStore");--}}
+       {{--                     window.location.replace(window.location.origin+'/register/update/'+response);--}}
+       {{--                 }--}}
+       {{--             })--}}
+       {{--         }--}}
+       {{--     }--}}
+       {{-- })--}}
 
-       $('input, select').keypress(getEvent).change(getEvent)
-       function getEvent() {
-           localStorage.setItem('userStore', JSON.stringify($("#userStore").serializeArray()));
-       }
+       {{--$('input, select').keypress(getEvent).change(getEvent)--}}
+       {{--function getEvent() {--}}
+       {{--    localStorage.setItem('userStore', JSON.stringify($("#userStore").serializeArray()));--}}
+       {{--}--}}
 
     </script>
     <script>

@@ -70,20 +70,20 @@ class CasesController extends Controller
                     ->where('user_id', Auth::id())->get();
                 return  view('frontend.pages.CaseOrGd', compact('caseTypes', 'cases'));
             }else{
-                return redirect(url('/'))->with('warning', 'Please Login Lawyer Or User');
+                return redirect(url('/'))->with('warningMsg', 'Please Login Lawyer Or User');
             }
         }else{
-            return redirect(url('/'))->with('warning', 'Please First Login');
+            return redirect(url('/'))->with('warningMsg', 'Please First Login');
         }
     }
 
     public function caseApply($id){
         if (!Auth::check()){
-            return redirect()->back()->with('waring', ' Please Lawyer Login And Try Again');
+            return redirect()->back()->with('warningMsg', ' Please Lawyer Login And Try Again');
         }
 
         if (Auth::check() && Auth::user()->role != 'lawyer'){
-            return redirect()->back()->with('waring', ' Please Lawyer Login And Try Again');
+            return redirect()->back()->with('warningMsg', ' Please Lawyer Login And Try Again');
         }
         CaseRequest::create([
             'case_id' => $id,

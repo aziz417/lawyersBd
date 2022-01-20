@@ -107,7 +107,8 @@
                             <form action="{{ route('submit.rate') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="lawyer_id" value="{{ $lawyer->user_id }}">
-                                <input id="input-9" name="client_rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
+
+                                <input id="input-9" name="client_rate" value="{{ $thisLawyerThisUserRate ?? 0 }}"
                                        required class="rating-loading">
                                 <button type="submit" id="submit" class="btn btn-primary">Submit</button>&nbsp;
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>

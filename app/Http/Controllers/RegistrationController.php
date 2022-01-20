@@ -439,23 +439,23 @@ class RegistrationController extends Controller
             'masters_course_duration' => $request->masters_course_duration,
             'about_say_you' => $request->about_say_you,
         ]);
-        if ($request->quota) {
-            foreach ($request->quota as $key => $row) {
-                $quota = Quota::where('registration_id', $registration->id)
-                    ->where('quota', $row)->first();
-                if ($quota) {
-                    $quota->update([
-                        'registration_id' => $registration->id,
-                        'quota' => $request->quota[$key],
-                    ]);
-                } else {
-                    Quota::create([
-                        'registration_id' => $registration->id,
-                        'quota' => $request->quota[$key]
-                    ]);
-                }
-            }
-        }
+//        if ($request->quota) {
+//            foreach ($request->quota as $key => $row) {
+//                $quota = Quota::where('registration_id', $registration->id)
+//                    ->where('quota', $row)->first();
+//                if ($quota) {
+//                    $quota->update([
+//                        'registration_id' => $registration->id,
+//                        'quota' => $request->quota[$key],
+//                    ]);
+//                } else {
+//                    Quota::create([
+//                        'registration_id' => $registration->id,
+//                        'quota' => $request->quota[$key]
+//                    ]);
+//                }
+//            }
+//        }
 
         if ($request->designation) {
             Quota::where('registration_id', $registration->id)->whereNotIn('quota', $request->quota)->delete();

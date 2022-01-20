@@ -18,13 +18,13 @@
             <div class="form-group row">
                 <div class="col-sm-3 col">
                     <small>
-                        Category and position <span class="float-right">:</span>
+                        Category<span class="float-right">:</span>
                     </small>
                 </div>
                 <div class="col-sm-9">
                     <select
                             class="custom-select custom-select-sm post_name_en"
-                            name="category_id"
+                            name="category_id" {{ $type == 'lawyer' ? 'required' : '' }}
                     >
                         <option value="">Select category</option>
                         @foreach($categories as $category)
@@ -43,7 +43,7 @@
                 </small>
             </div>
             <div class="col-sm-9">
-                <input type="text"
+                <input type="text" required
                        value="{{ isset($register) ? $register->applicants_name : old('applicants_name') }}"
                        name="applicants_name" class="form-control form-control-sm applicants_name_en"
                        placeholder="Enter applicants name in English"
@@ -338,6 +338,7 @@
                                class="custom-file-input form-control-sm"
                                id="inputGroupFile01 imgInp"
                                name="photo"
+                               required
                                onchange="readURL(this);"
                         >
                         <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
@@ -671,7 +672,7 @@
             </div>
             <div class="col-sm-9">
                 <input
-                        type="number"
+                        type="number" required
                         value="{{ isset($register) ? $register->mobile_number : old('mobile_number') }}"
                         name="mobile_number" class="form-control form-control-sm mobile_number"
                         placeholder="Enter your mobile number"
@@ -686,7 +687,7 @@
                 </small>
             </div>
             <div class="col-sm-9">
-                <input type="email" value="{{ isset($register) ? $register->email : old('email') }}"
+                <input required type="email" value="{{ isset($register) ? $register->email : old('email') }}"
                        name="email" class="form-control form-control-sm email"
                        placeholder="Enter Your email"
                 >
@@ -702,7 +703,7 @@
                 </small>
             </div>
             <div class="col-sm-9">
-                <input type="password"
+                <input type="password" required minlength="8"
                        name="password" class="form-control form-control-sm password"
                        placeholder="Enter Your password"
                 >
@@ -1356,8 +1357,8 @@
                 </small>
             </div>
             <div class="col-sm-10">
-        <textarea type="email"
-                  name="about_say_you" class="form-control form-control-sm"
+        <textarea
+                name="about_say_you" class="form-control form-control-sm"
         >{{ isset($register) ? $register->about_say_you : old('about_say_you') }}</textarea>
                 @error('about_say_you')
                 <small id="question_feedback" class="text-danger">{{ $message }}</small>
