@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c74bf375-00b9-4606-8c42-653f4e3210af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/uploads/documentations/case-1642673765.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/caseDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/caseDetails.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,6 +343,7 @@
       <workItem from="1642578220228" duration="1084000" />
       <workItem from="1642655068167" duration="11926000" />
       <workItem from="1642669764373" duration="439000" />
+      <workItem from="1642672805079" duration="1826000" />
     </task>
     <servers />
   </component>

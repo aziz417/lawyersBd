@@ -90,7 +90,7 @@
 
                                         @forelse($case->submittedLawyers as $lawyer)
                                             <h3 style="margin-top: 0" class="mt-0">
-                                                <strong>Name:</strong> {{ ucfirst(Str::limit($lawyer->applicants_name, 50)) }}</h3>
+                                                <strong>Name:</strong> {{ ucfirst(Str::limit($lawyer->name, 50)) }}</h3>
                                             <a class="btn btn-primary"
                                                href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                                             <a class="btn btn-success"
