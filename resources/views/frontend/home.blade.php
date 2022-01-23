@@ -1,6 +1,8 @@
 @extends('frontend.layout.app')
 @section('content')
-
+<style>
+    h4{font-size: 16px !important;}
+</style>
 
     <div class="col-sm-2" style="background: #ccc;">
         <div class="row" style="margin-top: 50px">
@@ -11,7 +13,7 @@
                         <div class="team-detail" style="padding: 0!important;">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h5 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
+                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                                 </h5>
                             </div>
@@ -34,7 +36,7 @@
                         <div class="team-detail" style="padding: 0!important;">
                             <div style="padding: 5px 10px 35px 10px;;">
                                 <h5 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
+                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                                 </h5>
                             </div>
