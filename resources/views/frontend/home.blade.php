@@ -2,6 +2,7 @@
 @section('content')
 <style>
     h4{font-size: 16px !important;}
+    h5{font-size: 12px !important;}
 </style>
 
     <div class="col-sm-2" style="background: #ccc;">
