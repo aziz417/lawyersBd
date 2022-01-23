@@ -19,10 +19,145 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-content text-center p-md">
-                        <h2><span class="text-navy">Welcome <span class="text-danger font-bold">{{ Auth()->user()->role }}</span> Dashboard</span></h2>
+                        <h2><span class="text-navy">Welcome <span
+                                        class="text-danger font-bold">{{ Auth()->user()->role }}</span> Dashboard</span>
+                        </h2>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>{{ @$usersCount ? @$usersCount->count() : 0 }}</h3>
+                        <p>Lawyers</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="{{ route('all.users', 'lawyer') }}" class="small-box-footer">More info</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ @$usersCount ? @$usersCount->count() : 0 }}</h3>
+                        <p>Users</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="{{ route('all.users', 'user') }}" class="small-box-footer">More info</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{ @$caseCategoryCount ? @$caseCategoryCount->count() : 0 }}</h3>
+
+                        <p>Categories</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-list-ul"></i>
+                    </div>
+                    <a href="{{ route('categories.index') }}" class="small-box-footer">More info</a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>{{ @$caseTypesCount ? @$caseTypesCount->count() : 0 }}</h3>
+                        <p>Case Types</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-shield"></i>
+                    </div>
+                    <a href="{{ route('caseTypes.index') }}" class="small-box-footer">More info
+                </div>
+            </div>
+
+{{--            <div class="col-lg-3 col-6">--}}
+{{--                <!-- small box -->--}}
+{{--                <div class="small-box bg-primary">--}}
+{{--                    <div class="inner">--}}
+{{--                        <h3>{{ @$subscribers->count() }}</h3>--}}
+{{--                        <p>Subscribers</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="icon">--}}
+{{--                        <i class="fa fa-user-shield"></i>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{ route('admin.subscribers.index') }}" class="small-box-footer">More info <i--}}
+{{--                                class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- ./col -->--}}
+{{--            <div class="col-lg-3 col-6">--}}
+{{--                <!-- small box -->--}}
+{{--                <div class="small-box bg-danger">--}}
+{{--                    <div class="inner">--}}
+{{--                        <h3>{{ @$categories->count() }}</h3>--}}
+
+{{--                        <p>Categories</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="icon">--}}
+{{--                        <i class="fa fa-list-ul"></i>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{ route('admin.categories.index') }}" class="small-box-footer">More info <i--}}
+{{--                                class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- ./col -->--}}
+
+{{--            <!-- ./col -->--}}
+{{--            <div class="col-lg-3 col-6">--}}
+{{--                <!-- small box -->--}}
+{{--                <div class="small-box bg-dark">--}}
+{{--                    <div class="inner">--}}
+{{--                        <h3>{{ @$monthlyVisits }}</h3>--}}
+
+{{--                        <p>Last {{ @count($analyticsData) - 1 }} day's Visits</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="icon">--}}
+{{--                        <i class="fa fa-eye"></i>--}}
+{{--                    </div>--}}
+{{--                    <a href="javascript:void(0)" class="small-box-footer">More info <i--}}
+{{--                                class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- ./col -->--}}
+
+{{--            <!-- ./col -->--}}
+{{--            <div class="col-lg-3 col-6">--}}
+{{--                <!-- small box -->--}}
+{{--                <div class="small-box bg-info">--}}
+{{--                    <div class="inner">--}}
+{{--                        <h3>{{ @$todayVisits }}</h3>--}}
+
+{{--                        <p>Today's Visits</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="icon">--}}
+{{--                        <i class="fa fa-eye"></i>--}}
+{{--                    </div>--}}
+{{--                    <a href="javascript:void(0)" class="small-box-footer">More info <i--}}
+{{--                                class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- ./col -->--}}
+
+{{--            <div class="col-lg-12 col-12">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body pb-0">--}}
+{{--                        <div id="chart"></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 

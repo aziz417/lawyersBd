@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cases;
 use App\Models\CaseType;
+use App\Models\Category;
 use App\Models\Rate;
 use App\Models\Slider;
 use App\Models\User;
@@ -29,7 +31,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.dashboard');
+        $lawyersCount = Registration::where('type', 'lawyer')->get();
+        $usersCount = Registration::where('type', 'user')->get();
+        $caseCategoryCount = Category::all();
+        $caseTypesCount = CaseType::all();
+
+        return view('backend.pages.dashboard', compact(
+            'lawyersCount', 'usersCount', 'caseCategoryCount', 'caseTypesCount'));
     }
 
     public function frontend()
@@ -40,12 +48,16 @@ class HomeController extends Controller
         $sliders = Slider::with('image')->status()->get();
 //        dd($sliders->toArray());
         $top_10_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(10);
+        $top_3_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(2);
 
         $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate');
         $senior_lawyers = $all_lawyers->filter(function ($lawyer){
            return $lawyer->category()->where('title', 'senior lawyer')->first();
         });
+        $top_3_senior_lawyers = $senior_lawyers;
 
-        return  view('frontend.home', compact('totalLayers','totalUsers', 'sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
+        $totalCases = Cases::all();
+
+        return  view('frontend.home', compact('totalCases','top_3_lawyers', 'top_3_senior_lawyers','totalLayers','totalUsers', 'sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
     }
 }

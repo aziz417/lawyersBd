@@ -23,10 +23,14 @@ class LawyerController extends Controller
     public function lawyer($id){
         $lawyer = Registration::with('category', 'cases')->where('id', $id)->first();
         if (Auth::check()){
+            $successCase = Cases::where(['lawyer_id' => $id,
+                'user_id' => Auth::user()->id,
+                'status' => 5])->first();
             $thisLawyerThisUserRate = ClientRate::where('lawyer_id', $id)->where('user_id', Auth::user()->id)->first();
             $thisLawyerThisUserRate = $thisLawyerThisUserRate ? $thisLawyerThisUserRate->rate : 0;
         }else{
             $thisLawyerThisUserRate = 0;
+            $successCase = 0;
         }
         $position['fight']    = $lawyer->cases()->whereNotIn('status', [0,1])->get()->count();
 
@@ -46,7 +50,7 @@ class LawyerController extends Controller
         $win_cases = Cases::where('lawyer_id', $id)->where('status', 5)->get();
 
         $satisfied_5_clients = Cases::with('user')->where('status', 5)->where('lawyer_id', $id)->distinct('user_id')->get()->take(5);
-        return view('frontend.pages.LawyerDetails', compact('lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients', 'thisLawyerThisUserRate'));
+        return view('frontend.pages.LawyerDetails', compact('successCase','lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients', 'thisLawyerThisUserRate'));
     }
 
     public function rateSubmit(Request $request){
