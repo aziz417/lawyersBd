@@ -34,6 +34,17 @@ class CaseController extends Controller
         return view('backend.pages.caseManage.index', compact('cases'));
     }
 
+    public function caseShowWithStatus($status)
+    {
+        if (Auth::user()->role == 'lawyer'){
+            $cases = Auth::user()->cases()->where('status', $status)->latest()->paginate(10);
+        }else{
+            $cases = Auth::user()->userCases()->where('status', $status)->latest()->paginate(10);
+        }
+
+        return view('backend.pages.caseManage.index', compact('cases'));
+    }
+
     public function caseStatusUpdate(Request $request){
         $caseId = $request->caseId;
         $caseStatus = $request->caseStatus;

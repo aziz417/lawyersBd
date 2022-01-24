@@ -181,82 +181,36 @@
                         <div class="row">
                             <h4 style="color: #000" class="text-center"><strong>Reviews</strong></h4>
                             <div class="submit_your_review mb-5" >
-                                <form>
+                                <form action="{{ route('reviews.store') }}" method="post">
+                                    @csrf
                                     <input name="lawyer_id" type="hidden" value="{{ $lawyer->id }}">
-                                    <textarea style="border: 1px solid #CCCCCC" name="comment" class="form-control">Write your opinion</textarea>
+                                    <textarea style="border: 1px solid #CCCCCC" name="title" class="form-control" placeholder="Write your opinion"></textarea>
                                     <button class="mt-2 float-right" type="submit">Send</button>
                                 </form>
                             </div>
 
                             <div style="height: 300px; overflow-y: scroll" class="review-section">
+                                @forelse($reviews as $review)
+                                    @php
+                                        $user = App\Registration::with('image')->where('user_id', $review->user_id)->first();
+                                    @endphp
                                 <div class="col-sm-12">
                                     <div class="team-box" style="margin-bottom: 0">
                                         <div class="team-detail" style="padding: 0!important;">
-                                            <div style="padding: 5px 10px 35px 10px;">
+                                            <div style="padding: 10px;">
                                                 <img style="width: 30px; height: 30px; border-radius: 100%"
-                                                     src="{{ $lawyer->image()->where('type', 'profile')->first()->url ?? '' }}">
+                                                     src="{{ $user->image()->where('type', 'profile')->first()->url ?? '' }}">
                                                 <span class="mr-5"
-                                                ><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
-                                                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Delectus
-                                                    error ex, fuga illum incidunt magnam minima neque quam suscipit
-                                                    veritatis?</p>
+                                                ><strong>{{ Str::limit($user->applicants_name, 14) }}</strong></span>
+                                                <p class="mt-3">{{ @$review->title }}</p>
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="team-box" style="margin-bottom: 0">
-                                        <div class="team-detail" style="padding: 0!important;">
-                                            <div style="padding: 5px 10px 35px 10px;">
-                                                <img style="width: 30px; height: 30px; border-radius: 100%"
-                                                     src="{{ $lawyer->image()->where('type', 'profile')->first()->url ?? '' }}">
-                                                <span class="mr-5"
-                                                ><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
-                                                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Delectus
-                                                    error ex, fuga illum incidunt magnam minima neque quam suscipit
-                                                    veritatis?</p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="team-box" style="margin-bottom: 0">
-                                        <div class="team-detail" style="padding: 0!important;">
-                                            <div style="padding: 5px 10px 35px 10px;">
-                                                <img style="width: 30px; height: 30px; border-radius: 100%"
-                                                     src="{{ $lawyer->image()->where('type', 'profile')->first()->url ?? '' }}">
-                                                <span class="mr-5"
-                                                ><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
-                                                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Delectus
-                                                    error ex, fuga illum incidunt magnam minima neque quam suscipit
-                                                    veritatis?</p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="team-box" style="margin-bottom: 0">
-                                        <div class="team-detail" style="padding: 0!important;">
-                                            <div style="padding: 5px 10px 35px 10px;">
-                                                <img style="width: 30px; height: 30px; border-radius: 100%"
-                                                     src="{{ $lawyer->image()->where('type', 'profile')->first()->url ?? '' }}">
-                                                <span class="mr-5"
-                                                ><strong>{{ Str::limit($lawyer->applicants_name, 14) }}</strong></span>
-                                                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Delectus
-                                                    error ex, fuga illum incidunt magnam minima neque quam suscipit
-                                                    veritatis?</p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+                                    <p>No Reviews</p>
+                                @endforelse
                             </div>
                         </div>
 

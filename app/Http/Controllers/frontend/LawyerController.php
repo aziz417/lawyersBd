@@ -7,6 +7,7 @@ use App\Models\Cases;
 use App\Models\CaseType;
 use App\Models\ClientRate;
 use App\Models\Rate;
+use App\Models\Review;
 use App\Models\User;
 use App\Registration;
 use Illuminate\Http\Request;
@@ -49,8 +50,9 @@ class LawyerController extends Controller
         $win_case = Cases::where('lawyer_id', $id)->where('status', 5)->first();
         $win_cases = Cases::where('lawyer_id', $id)->where('status', 5)->get();
 
+        $reviews = Review::where('lawyer_id', $id)->get();
         $satisfied_5_clients = Cases::with('user')->where('status', 5)->where('lawyer_id', $id)->distinct('user_id')->get()->take(5);
-        return view('frontend.pages.LawyerDetails', compact('successCase','lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients', 'thisLawyerThisUserRate'));
+        return view('frontend.pages.LawyerDetails', compact('reviews','successCase','lawyer', 'position', 'win_cases', 'win_case', 'satisfied_5_clients', 'thisLawyerThisUserRate'));
     }
 
     public function rateSubmit(Request $request){

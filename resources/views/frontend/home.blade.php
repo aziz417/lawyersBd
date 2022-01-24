@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <div class="row" >
+        <div class="row" style="margin-top: 20px">
             <div class="col-sm-12"  style="margin-top: 10px">
                 <div class="title-box">
                     <h3 class="section-title">Senior Lawyers</h3>
@@ -103,7 +103,7 @@
             <div class="team-detail" style="padding: 10px!important;">
                 <div>
                     <h4 style="margin: 0; text-align: center">
-                        Create here your case<a style="font-size: 16px" href="{{ route('case.create') }}">Case Create</a>
+                        Create here your case <a style="font-size: 16px" href="{{ route('case.create') }}">Case Create</a>
                     </h4>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                                  alt="team">
                             <div class="team-detail">
                                 <ul class="mb-5">
-                                    <li><h3>{{ $lawyer->applicants_name }}</h3></li>
+                                    <li><h3>{{ Str::limit($lawyer->applicants_name, 12) }}</h3></li>
                                     <li><a
                                                 class="btn btn-success pull-left"
                                                 href="{{ url('/') }}/#EmailContactForm"

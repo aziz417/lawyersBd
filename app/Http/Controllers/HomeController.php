@@ -10,6 +10,7 @@ use App\Models\Slider;
 use App\Models\User;
 use App\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
@@ -31,13 +32,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lawyersCount = Registration::where('type', 'lawyer')->get();
-        $usersCount = Registration::where('type', 'user')->get();
-        $caseCategoryCount = Category::all();
-        $caseTypesCount = CaseType::all();
+        $id = Auth::user()->id;
+        if(Auth::user()->role == 'admin'){
+            $lawyersCount = Registration::where('type', 'lawyer')->get();
+            $usersCount = Registration::where('type', 'user')->get();
+            $caseCategoryCount = Category::all();
+            $caseTypesCount = CaseType::all();
 
-        return view('backend.pages.dashboard', compact(
-            'lawyersCount', 'usersCount', 'caseCategoryCount', 'caseTypesCount'));
+            return view('backend.pages.dashboard', compact(
+                'lawyersCount', 'usersCount', 'caseCategoryCount', 'caseTypesCount'));
+        }
+
+        if(Auth::user()->role == 'lawyer'){
+            $successCase = Cases::where('status', 5)->where('lawyer_id', $id)->get();
+            $newCase = Cases::where('status', 1)->where('lawyer_id', $id)->get();
+            $runningCase = Cases::where('status', 3)->where('lawyer_id', $id)->get();
+            $chancelCase = Cases::where('status', 0)->where('lawyer_id', $id)->get();
+            $allCase = Cases::where('lawyer_id', $id)->get();
+
+            return view('backend.pages.dashboard', compact(
+                'allCase','successCase', 'newCase', 'runningCase', 'chancelCase'));
+        }
+
+        if(Auth::user()->role == 'user'){
+            $successCase = Cases::where('status', 5)->where('user_id', $id)->get();
+            $newCase = Cases::where('status', 1)->where('user_id', $id)->get();
+            $runningCase = Cases::where('status', 3)->where('user_id', $id)->get();
+            $inProgressCase = Cases::where('status', 2)->where('user_id', $id)->get();
+            $allCase = Cases::where('user_id', $id)->get();
+
+            return view('backend.pages.dashboard', compact(
+                'allCase','successCase', 'newCase', 'runningCase', 'inProgressCase'));
+        }
     }
 
     public function frontend()
