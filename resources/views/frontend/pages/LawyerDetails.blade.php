@@ -106,7 +106,7 @@
                         <div class="client-box">
                             <a href="#">
                                 <img class="img-responsive img-full"
-                                     src="{{ isset($client->image->url) ? $client->image->url : '' }}" alt="user image">
+                                     src="{{ isset($client->user->register->image()->where('type', 'profile')->first()->url) ? $client->user->register->image()->where('type', 'profile')->first()->url : '' }}" alt="user image">
                             </a>
                         </div>
                     </div>
