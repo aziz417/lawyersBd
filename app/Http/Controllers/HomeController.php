@@ -74,6 +74,7 @@ class HomeController extends Controller
         $sliders = Slider::with('image')->status()->get();
 //        dd($sliders->toArray());
         $top_10_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(10);
+        $top_3_lawyers_and_about = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(3);
         $top_3_lawyers = Registration::with('rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate')->take(2);
 
         $all_lawyers = Registration::with('category', 'rate', 'image')->where('type', 'lawyer')->get()->sortByDesc('rate.average_rate');
@@ -84,6 +85,6 @@ class HomeController extends Controller
 
         $totalCases = Cases::all();
 
-        return  view('frontend.home', compact('totalCases','top_3_lawyers', 'top_3_senior_lawyers','totalLayers','totalUsers', 'sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes'));
+        return  view('frontend.home', compact('totalCases','top_3_lawyers', 'top_3_senior_lawyers','totalLayers','totalUsers', 'sliders', 'top_10_lawyers', 'senior_lawyers', 'caseTypes', 'top_3_lawyers_and_about'));
     }
 }

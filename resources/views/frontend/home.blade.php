@@ -232,7 +232,7 @@
                         <div class="overlay"></div>
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            @forelse($top_10_lawyers as $key => $lawyer)
+                            @forelse($top_3_lawyers_and_about as $key => $lawyer)
                                 <li data-target="#bs-carousel" data-slide-to="{{$key}}"
                                     class="{{ $key === 0 ? 'active' : '' }}"></li>
                             @empty
@@ -240,10 +240,7 @@
                         </ol>
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            @forelse($top_10_lawyers as $key => $lawyer)
-                                @if ($key > 2)
-                                    @break
-                                @endif
+                            @forelse($top_3_lawyers_and_about as $key => $lawyer)
                                 <div class="item slides {{ $key === 0 ? 'active' : '' }}">
                                     <div class="slide-{{ $key++ }}">
                                         <div class="row">
