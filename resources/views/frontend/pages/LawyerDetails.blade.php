@@ -144,7 +144,7 @@
 
                             <div class="col-sm-3">
                                 <div class="p-4">
-                                    <h3>Average Rate:</h3>
+                                    <h3>Average:</h3>
                                     <input id="average-rate" value="{{ $lawyer->user->rate->average_rate ?? 0 }}"
                                            class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                                 </div>
@@ -152,7 +152,7 @@
 
                             <div class="col-sm-3">
                                 <div class="p-4">
-                                    <h3>Client Rate:</h3>
+                                    <h3>Client:</h3>
                                     <input id="client-rate" value="{{ $lawyer->user->rate->clint_rate ?? 0 }}"
                                            class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                                 </div>
@@ -160,7 +160,7 @@
 
                             <div class="col-sm-3">
                                 <div class="p-4">
-                                    <h3>Case Rate:</h3>
+                                    <h3>Case:</h3>
                                     <input id="case-rate" value="{{ $lawyer->user->rate->case_rate ?? 0 }}"
                                            class="rating-loading"
                                            data-min="0" data-max="5" data-step="0.1">
@@ -169,7 +169,7 @@
 
                             <div class="col-sm-3">
                                 <div class="p-4">
-                                    <h3>Education Rate:</h3>
+                                    <h3>Education:</h3>
                                     <input id="education-rate" value="{{ $lawyer->user->rate->education_rate ?? 0 }}"
                                            class="rating-loading" data-min="0" data-max="5" data-step="0.1">
                                 </div>
