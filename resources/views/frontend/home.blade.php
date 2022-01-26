@@ -16,9 +16,9 @@
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0!important;">
                         <div class="team-detail" style="padding: 5px 12px !important;">
-                            <div>
-                                <span class="mr-5"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
-                                <a  style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
+                            <div class="d-flex justify-content-between">
+                                <span class="mr-2"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
+                                <a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                             </div>
                         </div>
                     </div>
