@@ -15,9 +15,9 @@
             @forelse($top_3_senior_lawyers as $topSeniorKey => $lawyer)
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0!important;">
-                        <div class="team-detail" style="padding: 5px 12px !important;">
+                        <div class="team-detail" style="padding: 5px !important;">
                             <div class="d-flex justify-content-between">
-                                <span class="mr-2"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
+                                <span><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
                                 <a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                             </div>
                         </div>
@@ -36,10 +36,10 @@
             @forelse($top_3_lawyers as $topThreeKey => $lawyer)
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0">
-                        <div class="team-detail" style="padding: 5px 12px !important;">
-                            <div>
+                        <div class="team-detail" style="padding: 5px !important;">
+                            <div class="d-flex justify-content-between">
 
-                                    <span class="mr-5" ><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
+                                    <span><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
 
                             </div>
