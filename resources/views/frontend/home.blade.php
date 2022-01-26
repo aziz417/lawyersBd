@@ -3,20 +3,22 @@
 <style>
     h4{font-size: 16px !important;}
     h5{font-size: 12px !important;}
+
+    .title-box-custom:after {
+        bottom: -8px;
+    }
 </style>
 
-    <div class="col-sm-2" style="background: #ccc;">
-        <div class="row" style="margin-top: 50px">
+    <div class="col-sm-2" style="background: #ccc; padding-bottom: 10px;">
+        <div class="row" style="margin-top: 56px">
             <h4 style="color: #000" class="text-center"><strong>Top Three Senior Lawyers</strong></h4>
             @forelse($top_3_senior_lawyers as $topSeniorKey => $lawyer)
                 <div class="col-sm-12">
-                    <div class="team-box" style="margin-bottom: 0">
-                        <div class="team-detail" style="padding: 0!important;">
-                            <div style="padding: 5px 10px 35px 10px;;">
-                                <h5 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
-                                    <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
-                                </h5>
+                    <div class="team-box" style="margin-bottom: 0!important;">
+                        <div class="team-detail" style="padding: 5px 12px !important;">
+                            <div>
+                                <span class="mr-5"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
+                                <a  style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                             </div>
                         </div>
                     </div>
@@ -30,16 +32,16 @@
         </div>
 
         <div class="row" style="margin-top: 10px">
-            <h4 style="color: #000" class="text-center"><strong>Top Two Lawyers</strong></h4>
+            <h4 style="color: #000; margin: 0 auto !important;" class="text-center"><strong>Top Two Lawyers</strong></h4>
             @forelse($top_3_lawyers as $topThreeKey => $lawyer)
                 <div class="col-sm-12">
                     <div class="team-box" style="margin-bottom: 0">
-                        <div class="team-detail" style="padding: 0!important;">
-                            <div style="padding: 5px 10px 35px 10px;;">
-                                <h5 style="margin-bottom: 0">
-                                    <span class="mr-5" style="float: left"><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
+                        <div class="team-detail" style="padding: 5px 12px !important;">
+                            <div>
+
+                                    <span class="mr-5" ><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
                                     <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
-                                </h5>
+
                             </div>
                         </div>
                     </div>
@@ -65,9 +67,9 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 @forelse($sliders as $key => $slider)
-                    <div style="height: 410px" class="item slides {{ $key === 0 ? 'active' : '' }}">
+                    <div style="height: 385px" class="item slides {{ $key === 0 ? 'active' : '' }}">
                         <div class="slide-{{ $key++ }}">
-                            <img style="width: 100%; height: 410px !important;" class="img-responsive1"
+                            <img style="width: 100%; height: 385px !important;" class="img-responsive1"
                                  src="{{ $slider->image->url }}"
                                  alt="testimonial">
                         </div>
@@ -78,15 +80,15 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top: 20px">
+        <div class="row">
             <div class="col-sm-12"  style="margin-top: 10px">
-                <div class="title-box">
-                    <h3 class="section-title">Senior Lawyers</h3>
+                <div class="title-box title-box-custom" style="margin-bottom: 15px !important;">
+                    <h3 style="margin-bottom: 0 !important;" class="section-title">Senior Lawyers</h3>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-2" style="background: #ccc; margin-top: 50px">
+    <div class="col-sm-2" style="background: #ccc; margin-top: 56px; padding-bottom: 10px;">
         <h4 style="color: #000; margin-top: 7px" class="text-center"><strong>Register Now</strong></h4>
         <div class="team-box" style="margin-bottom: 0">
             <div class="team-detail" style="padding: 10px!important;">
@@ -98,7 +100,7 @@
             </div>
         </div>
 
-        <h4 style="color: #000; margin-top: 7px" class="text-center"><strong>Case Create</strong></h4>
+        <h4 style="color: #000; margin: 0 auto" class="text-center"><strong>Case Create</strong></h4>
         <div class="team-box" style="margin-bottom: 0">
             <div class="team-detail" style="padding: 10px!important;">
                 <div>
@@ -115,17 +117,6 @@
                 <div>
                     <h4 style="margin: 0; text-align: center">
                         Lawyers: {{ $totalLayers ?? 0  }} || Users: {{ $totalUsers ?? 0  }}
-                    </h4>
-                </div>
-            </div>
-        </div>
-
-        <h4 style="color: #000; margin-top: 7px" class="text-center"><strong>Cases</strong></h4>
-        <div class="team-box" style="margin-bottom: 0">
-            <div class="team-detail" style="padding: 10px!important;">
-                <div>
-                    <h4 style="margin: 0; text-align: center">
-                        Cases: {{ $totalCases->count()  }}
                     </h4>
                 </div>
             </div>
