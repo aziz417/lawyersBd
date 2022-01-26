@@ -14,11 +14,11 @@
             <h4 style="color: #000" class="text-center"><strong>Top Three Senior Lawyers</strong></h4>
             @forelse($top_3_senior_lawyers as $topSeniorKey => $lawyer)
                 <div class="col-sm-12">
-                    <div class="team-box" style="margin-bottom: 0!important;">
+                    <div class="team-box" style="margin-bottom: 0!important; padding: 7px">
                         <div class="team-detail" style="padding: 5px !important;">
                             <div class="d-flex justify-content-between">
                                 <span><strong>{{ Str::limit($lawyer->applicants_name, 10) }}</strong></span>
-                                <a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
+                                <a style="float: right" href="{{ route('lawyer.details', $lawyer->id) }}">Details</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
             <h4 style="color: #000; margin: 0 auto !important;" class="text-center"><strong>Top Two Lawyers</strong></h4>
             @forelse($top_3_lawyers as $topThreeKey => $lawyer)
                 <div class="col-sm-12">
-                    <div class="team-box" style="margin-bottom: 0">
+                    <div class="team-box" style="margin-bottom: 0; padding: 7px">
                         <div class="team-detail" style="padding: 5px !important;">
                             <div class="d-flex justify-content-between">
 
@@ -67,9 +67,9 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 @forelse($sliders as $key => $slider)
-                    <div style="height: 385px" class="item slides {{ $key === 0 ? 'active' : '' }}">
+                    <div style="height: 352px" class="item slides {{ $key === 0 ? 'active' : '' }}">
                         <div class="slide-{{ $key++ }}">
-                            <img style="width: 100%; height: 385px !important;" class="img-responsive1"
+                            <img style="width: 100%; height: 352px !important;" class="img-responsive1"
                                  src="{{ $slider->image->url }}"
                                  alt="testimonial">
                         </div>
@@ -83,15 +83,15 @@
         <div class="row">
             <div class="col-sm-12"  style="margin-top: 10px">
                 <div class="title-box title-box-custom" style="margin-bottom: 15px !important;">
-                    <h3 style="margin-bottom: 0 !important;" class="section-title">Senior Lawyers</h3>
+                    <h3 style="margin-bottom: 0 !important; font-size: 20px !important;" class="section-title">Senior Lawyers</h3>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-sm-2" style="background: #ccc; margin-top: 56px; padding-bottom: 10px;">
         <h4 style="color: #000; margin-top: 7px" class="text-center"><strong>Register Now</strong></h4>
-        <div class="team-box" style="margin-bottom: 0">
-            <div class="team-detail" style="padding: 10px!important;">
+        <div class="team-box" style="margin-bottom: 0; padding: 7px">
+            <div class="team-detail" style="padding: 8px!important;">
                 <div>
                     <h4 style="margin: 0; text-align: center">
                         You can create a account for <br> <a href="{{ route('registration', 'user') }}">User</a> and for <a href="{{ route('registration', 'lawyer') }}">Lawyer</a>
@@ -101,8 +101,8 @@
         </div>
 
         <h4 style="color: #000; margin: 0 auto" class="text-center"><strong>Case Create</strong></h4>
-        <div class="team-box" style="margin-bottom: 0">
-            <div class="team-detail" style="padding: 10px!important;">
+        <div class="team-box" style="margin-bottom: 0; padding: 7px">
+            <div class="team-detail" style="padding: 8px!important;">
                 <div>
                     <h4 style="margin: 0; text-align: center">
                         Create here your case <a style="font-size: 16px" href="{{ route('case.create') }}">Case Create</a>
@@ -112,8 +112,8 @@
         </div>
 
         <h4 style="color: #000; margin-top: 7px" class="text-center"><strong>Our Lawyers And Users</strong></h4>
-        <div class="team-box" style="margin-bottom: 0">
-            <div class="team-detail" style="padding: 10px!important;">
+        <div class="team-box" style="margin-bottom: 0; padding: 7px">
+            <div class="team-detail" style="padding: 8px!important;">
                 <div>
                     <h4 style="margin: 0; text-align: center">
                         Lawyers: {{ $totalLayers ?? 0  }} || Users: {{ $totalUsers ?? 0  }}
@@ -141,22 +141,22 @@
                 @forelse($senior_lawyers as $key => $lawyer)
                     <div class="col-sm-3">
                         <div class="team-box">
-                            <img style="height: 180px !important;" class="img-responsive img-full"
+                            <img style="height: 155px !important;" class="img-responsive img-full"
                                  src="{{ @$lawyer->image()->where('type', 'profile')->first()->url }}"
                                  alt="team">
-                            <div class="team-detail">
+                            <div class="team-detail" style="padding-top: 0!important;">
                                 <ul class="mb-5">
-                                    <li><h3>{{ Str::limit($lawyer->applicants_name, 12) }}</h3></li>
-                                    <li><a
+                                    <li><h3 style="font-size: 20px !important;">{{ Str::limit($lawyer->applicants_name, 12) }}</h3></li>
+                                    <li><a style="padding: 2px 12px !important;"
                                                 class="btn btn-success pull-left"
                                                 href="{{ url('/') }}/#EmailContactForm"
-                                                onclick="mailForm({{ $lawyer }})">Mail</a><a
+                                                onclick="mailForm({{ $lawyer }})">Mail</a><a style="padding: 2px 12px !important;"
                                                 class="btn btn-primary pull-right"
                                                 href="{{ url('chatify/'.$lawyer->id) }}">Message</a></li>
                                     <li><h4><a href="{{ route('lawyer.details', $lawyer->id) }}">Details</a></h4></li>
                                 </ul>
                                 <button class="btn btn-success w-full mt-6" onclick="hireNow({{ @$lawyer->user->id }})"
-                                        style="width: 100%">Hire Now
+                                        style="width: 100%; padding: 2px 12px !important;">Hire Now
                                 </button>
                             </div>
                         </div>
