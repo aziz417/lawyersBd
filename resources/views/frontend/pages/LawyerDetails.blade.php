@@ -70,10 +70,10 @@
                                 @forelse($win_cases as $key => $case)
                                     <div class="item slides {{ $key === 0 ? 'active' : '' }}">
                                         <div class="slide-{{ $key++ }}">
-                                            <div class="slider-1-item-box">
+                                            <div class="slider-1-item-box" style="color: #0f0e0f">
                                                 <h2>{{ $case->title }}</h2>
-                                                <p>
-                                                    {{ $case->description }}
+                                                <p style="font-size: 25px">
+                                                    {{ Str::limit($case->description, 300) }}
                                                 </p>
                                             </div>
                                         </div>
