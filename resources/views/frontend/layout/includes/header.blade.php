@@ -10,8 +10,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img class="img-responsive" src="{{ asset('frontend') }}/assets/images/logo.png" alt="logo">
+            <a class="navbar-brand" style="padding: 10px 15px !important;" href="{{ url('/') }}">
+                <img class="img-responsive" style="width: 128px !important;" src="{{ asset('frontend') }}/assets/images/logo-png.png" alt="logo">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
