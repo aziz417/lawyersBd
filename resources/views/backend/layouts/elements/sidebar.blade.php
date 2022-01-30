@@ -46,9 +46,17 @@
             <li class="{{ request()->routeIs('messages.*') ? 'active' : ''  }} {{ request()->routeIs('reply.*') ? 'active' : ''  }}">
                 <a href="{{ route('messages.index') }}">
                     <i class="fa fa-envelope-o"></i>
+                    <span class="nav-label">Mail</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{ url('chatify', Auth::user()->id) }}">
+                    <i class="fa fa-envelope-open"></i>
                     <span class="nav-label">Messages</span>
                 </a>
             </li>
+
             {{--            just admin or user--}}
             @if(Auth::user()->role == 'admin' || Auth::user()->role == 'user')
                 <li class="{{ request()->routeIs('all.users') ? 'active' : ''  }}">

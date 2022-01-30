@@ -1,8 +1,8 @@
 <nav class="navbar sticky-top navbar-light navbar-blue">
     <div class="container">
         <div class="col-sm-3">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img class="img-responsive registration-form-logo" src="{{ asset('frontend') }}/assets/images/logo.png" alt="logo">
+            <a style="padding: 10px 15px !important;" class="navbar-brand" href="{{ url('/') }}">
+                <img style="width: 128px !important;" class="img-responsive registration-form-logo" src="{{ asset('frontend') }}/assets/images/logo-png.png" alt="logo">
             </a>
         </div>
         <div class="col-sm-9">

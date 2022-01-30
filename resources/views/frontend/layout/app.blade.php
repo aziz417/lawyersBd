@@ -5,13 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Texas Lawers</title>
+    <title>Find Lawyer</title>
 
     @include('frontend.layout.includes.all-css')
     @yield('style')
+    <style>
+        .team-detail > ul > li > h3{
+            margin-top: 0 !important;
+        }
+        .team-detail {
+            padding: 12px !important;
+        }
+        .title-box {
+            margin-bottom: 30px !important;
+        }
+        section {
+            padding: 40px 0 10px !important;
+        }
+    </style>
 
 </head>
-<body data-spy="scroll" data-target="#main-navbar">
+<body data-spy="scroll" data-target="#main-navbar" style="height: 100%!important;">
 @include('frontend.layout.includes.header')
 @yield('content')
 

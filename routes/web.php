@@ -18,6 +18,7 @@ use App\Http\Controllers\frontend\CasesController;
 use App\Http\Controllers\frontend\LawyerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,8 @@ Route::get('draft/update', [RegistrationController::class, 'draftUpdate'])->name
 Route::get('lawyer/list', [LawyerController::class, 'lawyerList'])->name('lawyer.list');
 Route::get('lawyer/details/{id}', [LawyerController::class, 'lawyer'])->name('lawyer.details');
 Route::post('submit/rate', [LawyerController::class, 'rateSubmit'])->name('submit.rate');
+Route::resource('reviews', ReviewController::class);
+
 Route::get('why/choose-online-service', function (){
     return view('frontend.pages.WhyChooseOnlineService');
 })->name('why-choose-online-service');
@@ -98,6 +101,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('applied/cases', [CaseController::class, 'appliedCases'])->name('applied.cases');
     Route::get('lawyer/hire/{case}/{lawyer}', [CasesController::class, 'lawyerHire'])->name('lawyer.hire');
     Route::get('dashboard/{user}', [DashboardController::class, 'userAll'])->name('all.users');
+
+    Route::get('case/show/{status}', [CaseController::class, 'caseShowWithStatus'])->name('case.showWithStatus');
 });
 
 

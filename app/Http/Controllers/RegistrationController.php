@@ -336,7 +336,7 @@ class RegistrationController extends Controller
 
             $image = $request->file('photo');
             $image_name = CommonController::fileUploaded(
-                $slug, false, $image, 'applications', ['width' => '160', 'height' => '160'], $registration->image
+                $slug, false, $image, 'applications', ['width' => '', 'height' => ''], $registration->image
             );
         } else {
             $image_name = $registration->image;
@@ -1044,7 +1044,12 @@ class RegistrationController extends Controller
 //                }
 //            }
 //        }
-
+        $registration->User()->update([
+            'name' => $registration->applicants_name,
+            'email' => $registration->email,
+            'password' => Hash::make($request->password),
+            'role' => $registration->type,
+        ]);
         if ($request->designation) {
 //            Quota::where('registration_id', $registration->id)->whereNotIn('quota', $request->quota)->delete();
             foreach ($request->experienceRows as $key => $row) {

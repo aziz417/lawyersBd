@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c74bf375-00b9-4606-8c42-653f4e3210af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/frontend/assets/images/find-lawyer-logo-01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/assets/images/logo-png.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/assets/images/logo-svg.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +179,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/frontend/assets/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -187,11 +192,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="K:\devxhubnew\laragon\www\project\online-service\public\frontend\assets\images" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\backend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Providers" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\resources\views\frontend\pages" />
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Requests" />
-      <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Http\Controllers\Backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="K:\devxhubnew\laragon\www\project\online-service\app\Models" />
@@ -340,6 +345,18 @@
       <workItem from="1642578220228" duration="1084000" />
       <workItem from="1642655068167" duration="11926000" />
       <workItem from="1642669764373" duration="439000" />
+      <workItem from="1642672805079" duration="2723000" />
+      <workItem from="1642677642157" duration="3229000" />
+      <workItem from="1642694338884" duration="177000" />
+      <workItem from="1642695477310" duration="13000" />
+      <workItem from="1642832717689" duration="3878000" />
+      <workItem from="1642870155099" duration="753000" />
+      <workItem from="1642912967176" duration="12207000" />
+      <workItem from="1643003391042" duration="6014000" />
+      <workItem from="1643015250376" duration="2041000" />
+      <workItem from="1643017561066" duration="2911000" />
+      <workItem from="1643169598615" duration="11283000" />
+      <workItem from="1643210059223" duration="759000" />
     </task>
     <servers />
   </component>
